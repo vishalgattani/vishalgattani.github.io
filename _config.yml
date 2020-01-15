@@ -1,9 +1,7 @@
 ### Site Settings ###
-title               : portfolYOU
+title               : Vishal Gattani
 description         : >-                               # >- means to ignore newlines until "url:"
-                      "I turn coffee :coffee: into code,
-                      use tabs over spaces
-                      and never broke production."
+                      "I use tabs over spaces."
 
 url                 : ""                               # base hostname & protocol for your site (e.g. http://example.com)
 baseurl             : ""                    # subpath of your site (e.g. /blog) [IMPORTANT: use "" if your are hosting at https://username.github.io directly]
@@ -30,19 +28,19 @@ author:
   image             : https://bit.ly/2KCvgVJ
 # behance           : your_username
 # dribbble          : your_username
-  email             : username@domain.com
-  facebook          : your_username
-  github            : your_username
+  email             : vishal.sunil@iiitb.org
+# facebook          : your_username
+  github            : vishalgattani
 # gitlab            : your_username
-# instagram         : your_username
+  instagram         : vishalgattani
   linkedin          : your_username
-  medium            : your_username
+# medium            : your_username
 # soundcloud        : your_username
 # spotify           : your_username
 # stackoverflow     : your_user_id
 # tumblr            : your_username.tumblr.com
 # twitch            : your_username
-  twitter           : your_username
+# twitter           : your_username
 # vimeo             : your_username
 # youtube           : your_channel_name
 
