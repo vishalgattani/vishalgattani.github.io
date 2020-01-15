@@ -115,17 +115,26 @@ The code from before, will be used in this rig to transmit the servo motor actua
 
 ## 3D Printed Myoelectric Prosthetic Arm
 
-
+<script src="https://embed.github.com/view/3d/vishalgattani/vishalgattani.github.io/stl/UM3E_Full_Assembly.stl"></script>
 
 ## Reachy Beta
 
-<div align="center"><script src="https://embed.github.com/view/3d/vishalgattani/vishalgattani.github.io/stl/Reachy beta/Reachy beta - shoulder.stl"></script></div>
+<script src="https://embed.github.com/view/3d/vishalgattani/vishalgattani.github.io/stl/Reachy beta/Reachy beta - shoulder.stl"></script>
 
 # Literature Survey
 
 ## 3D Printed Myoelectric Prosthetic Arm
 
-## Reachy Beta
+## [Reachy Beta](https://www.frontiersin.org/articles/10.3389/fnbot.2019.00065/full)
+
+
+
+## [Anthrob – A Printed Anthropomimetic Robot](http://www.cs.cmu.edu/~cga/shoulder/robot2.pdf)
+
+**To prove:** Example of an elbow joint flexion and subsequent extension induced by the motor position control of the three elbow joint muscles (brachialis, triceps and biceps brachii, respectively). The figure shows the elbow angle (top panel), the reference (dashed) and current (solid) motor positions of all three muscles (center panel) and the corresponding muscle forces (bottom panel).
+
+![image](https://user-images.githubusercontent.com/24211929/72436916-953c5480-37c7-11ea-84c7-32ab21b28385.png)
+
 
 
 
