@@ -6,7 +6,7 @@ description         : >-                               # >- means to ignore newl
                       and never broke production."
 
 url                 : ""                               # base hostname & protocol for your site (e.g. http://example.com)
-baseurl             : "/portfolYOU"                    # subpath of your site (e.g. /blog) [IMPORTANT: use "" if your are hosting at https://username.github.io directly]
+baseurl             : ""                    # subpath of your site (e.g. /blog) [IMPORTANT: use "" if your are hosting at https://username.github.io directly]
 repository          : YoussefRaafatNasry/portfolYOU    # repository metadata on GitHub Pages [know more at https://help.github.com/en/articles/repository-metadata-on-github-pages]
 #remote_theme       : YoussefRaafatNasry/portfolYOU    # uncomment this if you are using it as a remote theme
 
@@ -26,9 +26,9 @@ nav_exclude:                        # Pages with the following paths will be exc
 
 ### Author Info ###
 author:
-  name              : John Doe
+  name              : Vishal Gattani
   image             : https://bit.ly/2KCvgVJ
-  behance           : your_username
+# behance           : your_username
 # dribbble          : your_username
   email             : username@domain.com
   facebook          : your_username
