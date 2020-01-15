@@ -30,9 +30,8 @@ Before we start, it’s important to note that everything in this post is about 
 
 In order to have the recorded motion and joint coordinates from the Kinect V2, the open source software Blender has the necessary add-ons from Delicode NI Mate required to create your own moiton capture studio. Before we begin to track all the 25 joints, we have to test if our Kinect is working properly. Follow the tutorial [DIY Kinect Motion Capture Studio](https://www.youtube.com/watch?v=1UPZtS5LVvw) to setup your Kinect with the Blender add-ons.
 
-<div align="center">
-	<iframe width="560" height="315" src="https://www.youtube.com/embed/1UPZtS5LVvw" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-</div>
+{% include elements/video.html id="1UPZtS5LVvw" %}
+
 
 
 The NI-Mate app captures your movement in the camera and converts it to mocap data you can import into Blender and apply to a rigged armature.
@@ -47,9 +46,8 @@ The NI-Mate app captures your movement in the camera and converts it to mocap da
 
 The [Blender Controller](https://github.com/alvaroferran/BlenderController) repo shows how to control a robot from blender using python. To execute the controller first upload the arduino code into the board. Then in the blender file, press on "Run Script", then the play icon and finally hover the mouse over the control bone and press the "G" key.
 
-<div align="center">
-<iframe width="560" height="315" src="https://www.youtube.com/embed/mONTXmDgZSE" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-</div>
+{% include elements/video.html id="mONTXmDgZSE" %}
+
 
 Additional changes have been added to he code to effectively send bone angles to the arduino board using serial communication.
 
@@ -125,7 +123,10 @@ The code from before, will be used in this rig to transmit the servo motor actua
 
 ## [Reachy Beta](https://www.frontiersin.org/articles/10.3389/fnbot.2019.00065/full)
 
+**To prove:**
 
+- [x] Inverse Kinematics for Endpoint Position Control
+- [] MoCap Control of Arm using Kinect v2
 
 ## [Anthrob – A Printed Anthropomimetic Robot](http://www.cs.cmu.edu/~cga/shoulder/robot2.pdf)
 
