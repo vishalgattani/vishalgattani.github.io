@@ -115,11 +115,9 @@ The code from before, will be used in this rig to transmit the servo motor actua
 
 ## 3D Printed Myoelectric Prosthetic Arm
 
-<script src="https://embed.github.com/view/3d/vishalgattani/vishalgattani.github.io/stl/UM3E_Full_Assembly.stl"></script>
+<script src="https://embed.github.com/view/3d/vishalgattani/vishalgattani.github.io/stl/Printable Files 4.0 - Myoelectric Arm/Fingers/Middle/Middle Finger Tip.stl"></script>
 
 ## Reachy Beta
-
-<script src="https://embed.github.com/view/3d/vishalgattani/vishalgattani.github.io/stl/Reachy beta/Reachy beta - shoulder.stl"></script>
 
 # Literature Survey
 
