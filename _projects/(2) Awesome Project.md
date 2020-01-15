@@ -30,7 +30,10 @@ Before we start, it’s important to note that everything in this post is about 
 
 In order to have the recorded motion and joint coordinates from the Kinect V2, the open source software Blender has the necessary add-ons from Delicode NI Mate required to create your own moiton capture studio. Before we begin to track all the 25 joints, we have to test if our Kinect is working properly. Follow the tutorial [DIY Kinect Motion Capture Studio](https://www.youtube.com/watch?v=1UPZtS5LVvw) to setup your Kinect with the Blender add-ons.
 
-<iframe align="middle" width="720" height="400" src="https://www.youtube.com/embed/1UPZtS5LVvw" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<div align="center">
+	<iframe width="560" height="315" src="https://www.youtube.com/embed/1UPZtS5LVvw" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</div>
+
 
 The NI-Mate app captures your movement in the camera and converts it to mocap data you can import into Blender and apply to a rigged armature.
 
@@ -42,7 +45,11 @@ The NI-Mate app captures your movement in the camera and converts it to mocap da
 
 ![Video](https://user-images.githubusercontent.com/24211929/72426222-569aa000-37af-11ea-8f76-4c122fa8cdb4.gif)
 
-The (BlenderController)[https://github.com/alvaroferran/BlenderController] repo shows how to control a robot from blender using python. To execute the controller first upload the arduino code into the board. Then in the blender file, press on "Run Script", then the play icon and finally hover the mouse over the control bone and press the "G" key.
+The (Blender Controller)[https://github.com/alvaroferran/BlenderController] repo shows how to control a robot from blender using python. To execute the controller first upload the arduino code into the board. Then in the blender file, press on "Run Script", then the play icon and finally hover the mouse over the control bone and press the "G" key.
+
+<div align="center">
+<iframe width="560" height="315" src="https://www.youtube.com/embed/mONTXmDgZSE" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</div>
 
 Additional changes have been added to he code to effectively send bone angles to the arduino board using serial communication.
 
@@ -104,9 +111,19 @@ Automatic IK is a tool for quick posing, it can be enabled in the tool shelf in 
 The code from before, will be used in this rig to transmit the servo motor actuating values through serial communication.
 
 
+# STL Designs
 
+## 3D Printed Myoelectric Prosthetic Arm
+
+
+
+<div align="center"><script src="https://embed.github.com/view/3d/vishalgattani/vishalgattani.github.io/stl/Printable Files 4.0 - Myoelectric Arm/Palm/Palm _ Optimised Connector.stl"></script></div>
+
+## Reachy Beta
 
 ![search](https://www.sketchappsources.com/resources/source-image/microsoft-windows-10-virtual-keyboard-diogo-sousa.png)
+
+
 
 
 <p class="text-center">
