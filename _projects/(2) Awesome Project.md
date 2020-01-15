@@ -111,17 +111,21 @@ Automatic IK is a tool for quick posing, it can be enabled in the tool shelf in 
 The code from before, will be used in this rig to transmit the servo motor actuating values through serial communication.
 
 
-# STL Designs
+# STL Designs 
 
 ## 3D Printed Myoelectric Prosthetic Arm
 
 
 
-<div align="center"><script src="https://embed.github.com/view/3d/vishalgattani/vishalgattani.github.io/stl/Printable Files 4.0 - Myoelectric Arm/Palm/Palm _ Optimised Connector.stl"></script></div>
-
 ## Reachy Beta
 
-![search](https://www.sketchappsources.com/resources/source-image/microsoft-windows-10-virtual-keyboard-diogo-sousa.png)
+<div align="center"><script src="https://embed.github.com/view/3d/vishalgattani/vishalgattani.github.io/stl/Reachy beta/Reachy beta - shoulder.stl"></script></div>
+
+# Literature Survey
+
+## 3D Printed Myoelectric Prosthetic Arm
+
+## Reachy Beta
 
 
 
