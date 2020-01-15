@@ -45,7 +45,7 @@ The NI-Mate app captures your movement in the camera and converts it to mocap da
 
 ![Video](https://user-images.githubusercontent.com/24211929/72426222-569aa000-37af-11ea-8f76-4c122fa8cdb4.gif)
 
-The (Blender Controller)[https://github.com/alvaroferran/BlenderController] repo shows how to control a robot from blender using python. To execute the controller first upload the arduino code into the board. Then in the blender file, press on "Run Script", then the play icon and finally hover the mouse over the control bone and press the "G" key.
+The [Blender Controller](https://github.com/alvaroferran/BlenderController) repo shows how to control a robot from blender using python. To execute the controller first upload the arduino code into the board. Then in the blender file, press on "Run Script", then the play icon and finally hover the mouse over the control bone and press the "G" key.
 
 <div align="center">
 <iframe width="560" height="315" src="https://www.youtube.com/embed/mONTXmDgZSE" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
@@ -94,7 +94,7 @@ def frameChange(passedScene):
 bpy.app.handlers.frame_change_pre.append(frameChange)
 ```
 
-## (IK)[https://easyblend.org/html/rigging/posing/inverse_kinematics/introduction.html#arm-rig-example]
+## [IK](https://easyblend.org/html/rigging/posing/inverse_kinematics/introduction.html#arm-rig-example)
 
 IK simplifies the animation process, and makes it possible to make more advanced animations with lesser effort.
 
