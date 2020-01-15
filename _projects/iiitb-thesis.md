@@ -117,6 +117,17 @@ The code from before, will be used in this rig to transmit the servo motor actua
 
 ## Reachy Beta
 
+# Servo Motors
+
+## Towerpro MG996R
+
+
+
+## Dynamixel
+
+![image](https://user-images.githubusercontent.com/24211929/72440639-3a0e6000-37cf-11ea-8c73-3807fe5aa807.png)
+
+
 # Literature Survey
 
 ## 3D Printed Myoelectric Prosthetic Arm
