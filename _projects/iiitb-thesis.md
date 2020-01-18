@@ -90,6 +90,52 @@ def frameChange(passedScene):
 bpy.app.handlers.frame_change_pre.append(frameChange)
 ```
 
+The arduino code is as follows:
+
+```c
+#include <Servo.h>
+
+Servo myservo;
+int pos = 0;    // variable to store the servo position
+int incomingByte = 0;   // for incoming serial data
+
+String readString(){
+  String inString ="";
+  char inChar;
+  while(Serial.available()>0){
+    inChar =(char) Serial.read();
+    inString+=inChar;
+    delay(1);
+  }
+  return inString;
+}
+
+int parseString(String msg){
+    static int a;
+    a = msg.toInt();
+    return a;
+}
+
+void writeValues(int b){
+  myservo.write(b); 
+}
+
+void setup() {
+  myservo.attach(3); // BE SURE TO CHANGE THIS FOR THE SERVO PIN NUMBER
+  myservo.write(0);
+  // attaches the servo on pin 9 to the servo object
+  Serial.begin(9600);
+}
+
+void loop() {
+   if(Serial.available()){
+        String incoming=readString();
+        int angles=parseString(incoming);
+        writeValues(angles);
+    }
+}
+```
+
 ## [IK](https://easyblend.org/html/rigging/posing/inverse_kinematics/introduction.html#arm-rig-example)
 
 IK simplifies the animation process, and makes it possible to make more advanced animations with lesser effort.
