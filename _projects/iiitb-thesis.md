@@ -53,88 +53,6 @@ Additional changes have been added to he code to effectively send bone angles to
 
 ![Screenshot 15-01-2020 15_52_47](https://user-images.githubusercontent.com/24211929/72426076-163b2200-37af-11ea-998e-55999df9a72b.png)
 
-The code for sending bone angles is as follows:
-
-```python
-import bpy
-import math
-import time
-import sys
-import serial
-import glob
-
-port=''.join(glob.glob("/dev/ttyUSB*"))
-ser = serial.Serial('COM3',9600)
-print("connected to: " + ser.portstr)
-
-ob = bpy.data.objects['Armature']
-bpy.context.scene.objects.active = ob
-bpy.ops.object.mode_set(mode='POSE')
-
-def sendAngles():
-    bone1=ob.pose.bones['Link1IK']
-    bone2=ob.pose.bones['Link2IK']
-    pb1 = ob.pose.bones.get("Link1IK")
-    pb2 = ob.pose.bones.get("Link2IK")
-    v1 = pb1.head - pb1.tail
-    v2 = pb2.head - pb2.tail
-    if pb1 and pb2:
-        val = math.degrees(v1.angle(v2))
-        val = str(int(val))
-        print(val)
-        ser.write((val).encode('UTF-8'))
-
-def frameChange(passedScene):
-	sendAngles()
-    
-bpy.app.handlers.frame_change_pre.append(frameChange)
-```
-
-The arduino code is as follows:
-
-```c
-#include <Servo.h>
-
-Servo myservo;
-int pos = 0;    // variable to store the servo position
-int incomingByte = 0;   // for incoming serial data
-
-String readString(){
-  String inString ="";
-  char inChar;
-  while(Serial.available()>0){
-    inChar =(char) Serial.read();
-    inString+=inChar;
-    delay(1);
-  }
-  return inString;
-}
-
-int parseString(String msg){
-    static int a;
-    a = msg.toInt();
-    return a;
-}
-
-void writeValues(int b){
-  myservo.write(b); 
-}
-
-void setup() {
-  myservo.attach(3); // BE SURE TO CHANGE THIS FOR THE SERVO PIN NUMBER
-  myservo.write(0);
-  // attaches the servo on pin 9 to the servo object
-  Serial.begin(9600);
-}
-
-void loop() {
-   if(Serial.available()){
-        String incoming=readString();
-        int angles=parseString(incoming);
-        writeValues(angles);
-    }
-}
-```
 
 ## [IK](https://easyblend.org/html/rigging/posing/inverse_kinematics/introduction.html#arm-rig-example)
 
@@ -167,9 +85,18 @@ The code from before, will be used in this rig to transmit the servo motor actua
 
 
 
-## Dynamixel
+## Dynamixel related Motors and Shield
 
 ![image](https://user-images.githubusercontent.com/24211929/72440639-3a0e6000-37cf-11ea-8c73-3807fe5aa807.png)
+
+Refer to the [link](http://emanual.robotis.com/docs/en/parts/interface/dynamixel_shield/) to understand the specifics realted to the shiled that will be used to control dynamixel actuators accordingly. 
+
+![image](https://user-images.githubusercontent.com/24211929/72668580-5966f080-3a4e-11ea-96df-fe6a5fed0005.png)
+
+The layout to be used is as follows (TTL):
+
+![image](https://user-images.githubusercontent.com/24211929/72668585-6a176680-3a4e-11ea-9461-ccb1dff9b345.png)
+
 
 
 
