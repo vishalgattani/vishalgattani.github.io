@@ -12,8 +12,6 @@ description: This project has an individual showcase page, not just a direct lin
 - The data from both, Motion Capture and Inverse Kinematics, will be synthesised and compared to establish if correlation points exist between the experiments.
 - Possible control of the prosthetic may also be achieved through Electromyography (EMG).
 
-![preview](https://www.sketchappsources.com/resources/source-image/we-were-soldiers-landing-page-dbruggisser.jpg)
-
 # Blender
 
 ## Motion Capture
@@ -126,6 +124,79 @@ The code from before, will be used in this rig to transmit the servo motor actua
 ## Dynamixel
 
 ![image](https://user-images.githubusercontent.com/24211929/72440639-3a0e6000-37cf-11ea-8c73-3807fe5aa807.png)
+
+
+
+# Experiments
+
+## Blender Controller - Quarternion Values
+This [file](https://github.com/vishalgattani/vishalgattani.github.io/blob/master/files/blender/blendercontroller_quarternionvalues_serialcomm.blend) can transmit quarternion values through serial port. But we need to get the armature actual local space rotations in order to move the wrist. Possible updates will follow this section.
+
+![Screenshot 18-01-2020 20_56_54](https://user-images.githubusercontent.com/24211929/72666112-0af92800-3a35-11ea-8700-7a7f5c979bdf.png)
+
+```python
+import bpy
+import math
+import time
+
+ob = bpy.data.objects['Armature']
+bpy.context.scene.objects.active = ob
+
+wristrot = bpy.context.scene.objects['Armature']
+wr = wristrot.pose.bones['armd']
+
+bpy.ops.object.mode_set(mode='POSE')
+
+shoulder = ob.pose.bones.get("shoulder")
+arma = ob.pose.bones.get("arma")
+armb = ob.pose.bones.get("armb")
+armc = ob.pose.bones.get("armd")
+armd = ob.pose.bones.get("armd")
+hand = ob.pose.bones.get("hand")
+
+print(wr)
+
+for b in bpy.context.scene.objects.active.pose.bones:
+    # use the decompose method
+    loc, rot, sca = b.matrix_basis.decompose()
+    # or use the to_quaternion method
+    rot = b.matrix_basis.to_quaternion()
+    print(b)
+
+def sendAngles():
+    mat = wr.matrix.to_euler()
+    #print(math.degrees(mat.x),math.degrees(mat.y),math.degrees(mat.z))
+    loc, rot, sca = armd.matrix_basis.decompose()
+    # or use the to_quaternion method
+    rot = armd.matrix_basis.to_quaternion()
+    print(rot)
+        
+def frameChange(passedScene):
+	sendAngles()
+    
+bpy.app.handlers.frame_change_pre.append(frameChange)
+```
+
+![ezgif com-video-to-gif](https://user-images.githubusercontent.com/24211929/72666340-2bc27d00-3a37-11ea-8874-11f2e36e7afb.gif)
+
+## Blender Controller - Quarternion to Euler
+
+```python
+def sendAngles():
+    mat = wr.matrix.to_euler()
+    loc, rot, sca = armd.matrix_basis.decompose()
+    rot = armd.matrix_basis.to_quaternion()
+    euler = rot.to_euler('XYZ')
+    Xangle = math.degrees(euler.x)
+```
+
+Transmitting X angle of the bone rotation in local axis.
+
+
+![Blender_  D__vishal_files_blender_blendercontroller_quarternionvalues_to_euler_serialcomm_original blend  18-01-2020 21_39_40](https://user-images.githubusercontent.com/24211929/72666732-12bbcb00-3a3b-11ea-97a6-e6076abf8069.png)
+
+
+
 
 
 # Literature Survey
