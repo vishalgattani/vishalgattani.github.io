@@ -241,7 +241,116 @@ Transmitting X angle of the bone rotation in local axis.
 
 ![Blender_  D__vishal_files_blender_blendercontroller_quarternionvalues_to_euler_serialcomm_original blend  18-01-2020 21_39_40](https://user-images.githubusercontent.com/24211929/72666732-12bbcb00-3a3b-11ea-97a6-e6076abf8069.png)
 
+## Blender Controller - Euler Angles - Wrist Rotation (Real-time)
 
+Blender File: [here](https://github.com/vishalgattani/vishalgattani.github.io/blob/master/files/blender/blendercontroller_wristrotation.blend)
+
+Blender Code:
+```python
+import bpy
+import math
+import time
+import sys
+import serial
+import glob
+
+port=''.join(glob.glob("/dev/ttyUSB*"))
+ser = serial.Serial('COM3',9600)
+print("connected to: " + ser.portstr)
+
+ob = bpy.data.objects['Armature']
+bpy.context.scene.objects.active = ob
+wristrot = bpy.context.scene.objects['Armature']
+wr = wristrot.pose.bones['armd']
+bpy.ops.object.mode_set(mode='POSE')
+
+shoulder = ob.pose.bones.get("shoulder")
+arma = ob.pose.bones.get("arma")
+armb = ob.pose.bones.get("armb")
+armc = ob.pose.bones.get("armd")
+armd = ob.pose.bones.get("armd")
+hand = ob.pose.bones.get("hand")
+print(wr)
+
+for b in bpy.context.scene.objects.active.pose.bones:
+    # use the decompose method
+    loc, rot, sca = b.matrix_basis.decompose()
+    # or use the to_quaternion method
+    rot = b.matrix_basis.to_quaternion()
+    print(b)
+
+def sendAngles():
+    mat = wr.matrix.to_euler()
+    loc, rot, sca = armd.matrix_basis.decompose()
+    # or use the to_quaternion method
+    rot = armd.matrix_basis.to_quaternion()
+    
+    euler = rot.to_euler('XYZ')
+    Xangle = math.degrees(euler.x)
+    val = math.degrees(euler.x)
+    val = str(int(val))
+    print(val)
+    ser.write((val).encode('UTF-8'))
+
+def frameChange(passedScene):
+	sendAngles()    
+	
+bpy.app.handlers.frame_change_pre.append(frameChange)
+```
+
+Arduino Code:
+
+```c
+#include <Servo.h>
+
+Servo myservo; 
+// create servo object to control a servo
+// twelve servo objects can be created on most boards
+
+int pos = 0;    // variable to store the servo position
+int incomingByte = 0;   // for incoming serial data
+
+String readString(){
+  String inString ="";
+  char inChar;
+  while(Serial.available()>0){
+    inChar =(char) Serial.read();
+    inString+=inChar;
+    delay(1);
+  }
+  return inString;
+}
+
+int parseString(String msg){
+    static int a;
+    a = msg.toInt();
+    return a;
+}
+
+void writeValues(int b){
+  myservo.write(b);
+  
+}
+
+void setup() {
+  myservo.attach(3);
+  myservo.write(0);
+  // attaches the servo on pin 9 to the servo object
+  Serial.begin(9600);
+}
+
+void loop() {
+  
+
+   if(Serial.available()){
+        String incoming=readString();
+        int angles=parseString(incoming);
+        angles = map(angles,0, 90, 140, 11);
+        angles = int(angles);
+	writeValues(angles);
+    }
+}
+```
 
 
 
