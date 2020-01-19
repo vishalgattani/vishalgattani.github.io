@@ -5,6 +5,9 @@ image: https://user-images.githubusercontent.com/24211929/72427972-cbbba480-37b2
 description: This project has an individual showcase page, not just a direct link to the project site or repo. Now you have more space to describe your awesome project!
 ---
 
+# Table of Contents
+
+* TOC
 {:toc}
 
 # Biomimetic Arm with Motion Capture v/s Inverse Kinematics
