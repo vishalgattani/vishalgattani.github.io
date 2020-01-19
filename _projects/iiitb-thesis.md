@@ -5,6 +5,8 @@ image: https://user-images.githubusercontent.com/24211929/72427972-cbbba480-37b2
 description: This project has an individual showcase page, not just a direct link to the project site or repo. Now you have more space to describe your awesome project!
 ---
 
+{:toc}
+
 # Biomimetic Arm with Motion Capture v/s Inverse Kinematics
 
 - Human upper limb motion captured through Kinect V2 will be transmitted to various actuators that act as joints on the prosthetic arm.
