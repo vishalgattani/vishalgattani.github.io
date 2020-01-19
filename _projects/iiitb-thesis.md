@@ -102,7 +102,27 @@ The layout to be used is as follows (TTL):
 
 # Experiments
 
-## Blender Controller - Quarternion Values
+## Videos
+
+### Fingers Actuating using single Arduino Board
+
+![ezgif com-video-to-gif (2)](https://user-images.githubusercontent.com/24211929/72687313-a3210b00-3b22-11ea-8ffa-faed88cfc93e.gif)
+
+- Can power only one/two servo motors
+- Additional Boards ordered for actuating multiple motors namely
+	- PCA9685
+	![](https://robu.in/wp-content/uploads/2017/09/1pcs-16-Channel-12-bit-PWM-Servo-Driver-I2C-interface-PCA9685-for-Arduino-Raspberry-Pi-DIY.jpg)
+
+	- 16x12-Bit PWM Servo Shield
+	![image](https://user-images.githubusercontent.com/24211929/72687392-51c54b80-3b23-11ea-9dbe-92b64d22040c.png)
+
+### Multiple Fingers - Power Supply used
+
+I will have to work on this soon.
+
+## Blender related codes
+
+### Blender Controller - Quarternion Values
 This [file](https://github.com/vishalgattani/vishalgattani.github.io/blob/master/files/blender/blendercontroller_quarternionvalues_serialcomm.blend) can transmit quarternion values through serial port. But we need to get the armature actual local space rotations in order to move the wrist. Possible updates will follow this section.
 
 ![Screenshot 18-01-2020 20_56_54](https://user-images.githubusercontent.com/24211929/72666112-0af92800-3a35-11ea-8700-7a7f5c979bdf.png)
@@ -152,7 +172,7 @@ bpy.app.handlers.frame_change_pre.append(frameChange)
 
 ![ezgif com-video-to-gif](https://user-images.githubusercontent.com/24211929/72666340-2bc27d00-3a37-11ea-8874-11f2e36e7afb.gif)
 
-## Blender Controller - Quarternion to Euler
+### Blender Controller - Quarternion to Euler
 
 ```python
 def sendAngles():
@@ -168,7 +188,7 @@ Transmitting X angle of the bone rotation in local axis.
 
 ![Blender_  D__vishal_files_blender_blendercontroller_quarternionvalues_to_euler_serialcomm_original blend  18-01-2020 21_39_40](https://user-images.githubusercontent.com/24211929/72666732-12bbcb00-3a3b-11ea-97a6-e6076abf8069.png)
 
-## Blender Controller - Euler Angles - Wrist Rotation (Real-time)
+### Blender Controller - Euler Angles - Wrist Rotation (Real-time)
 
 Blender File: [here](https://github.com/vishalgattani/vishalgattani.github.io/blob/master/files/blender/blendercontroller_wristrotation.blend)
 
@@ -278,7 +298,117 @@ void loop() {
     }
 }
 ```
+## Arduino Related Code
 
+### Arduino Serial Communication - Fingers Movement
+
+```c
+#include <Servo.h>
+
+Servo servo1;
+/*
+Servo servo2;
+Servo servo3;
+Servo servo4;
+Servo servo5;
+Servo servo6;
+*/
+int servo_position = 0;
+
+void setup() {
+
+  servo1.attach (3);
+  /*
+  servo2.attach (5);
+  servo3.attach (6);
+  servo4.attach (9);
+  servo5.attach (10);
+  servo6.attach (11);
+  */
+  Serial.begin(9600);
+  while (!Serial);
+  Serial.println("-------------------------");
+  Serial.println("Comand input online, write command to perform action");
+  Serial.println("-------------------------");
+}
+
+void loop() {
+  if (Serial.available()){
+    int servo_position = Serial.parseInt();
+    //servo_position = map(servo_position, 0, 90, 10, 170);
+    //servo_position = map(sensor postion, 0, 90, 120, 11);
+    if (servo_position >= 10 && servo_position < 170){
+      Serial.print(">");
+      Serial.println(servo_position);
+      Serial.print("turning servo to ");
+      Serial.print(servo_position);
+      Serial.println(" degrees");
+      servo1.write(servo_position);
+      /*
+      servo2.write(servo_position);
+      servo3.write(servo_position);
+      servo4.write(servo_position);
+      servo5.write(servo_position);
+      */
+      delay(10);
+    }
+  }
+}
+```
+
+### Arduino Wrist Rotation 
+
+```c
+#include <Servo.h>
+
+Servo myservo; 
+// create servo object to control a servo
+// twelve servo objects can be created on most boards
+
+int pos = 0;    // variable to store the servo position
+int incomingByte = 0;   // for incoming serial data
+
+String readString(){
+  String inString ="";
+  char inChar;
+  while(Serial.available()>0){
+    inChar =(char) Serial.read();
+    inString+=inChar;
+    delay(1);
+  }
+  return inString;
+}
+
+int parseString(String msg){
+    static int a;
+    a = msg.toInt();
+    return a;
+}
+
+void writeValues(int b){
+  myservo.write(b);
+  
+}
+
+void setup() {
+  myservo.attach(3);
+  myservo.write(0);
+  // attaches the servo on pin 9 to the servo object
+  Serial.begin(9600);
+}
+
+void loop() {
+  
+
+   if(Serial.available()){
+        String incoming=readString();
+        int angles=parseString(incoming);
+        angles = map(angles,0, 90, 140, 11);
+        angles = int(angles);
+	writeValues(angles);
+    }
+}
+```
 
 
 # Literature Survey
