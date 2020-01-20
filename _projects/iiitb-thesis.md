@@ -1,7 +1,7 @@
 ---
 name: IIITB Thesis
 tools: [C#, XML, WPF]
-image: https://user-images.githubusercontent.com/24211929/72427972-cbbba480-37b2-11ea-93d8-a46998d2f054.gif
+image: ![image](https://user-images.githubusercontent.com/24211929/72746893-47fe1f80-3bd9-11ea-8e12-39413afce418.png)
 description: Biomimetic Arm: Motion Capture v/s Inverse Kinematics Actuation
 ---
 
