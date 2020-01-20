@@ -1,7 +1,7 @@
 ---
 name: IIITB Thesis
 tools: [C#, XML, WPF]
-image: https://niryo.com/wp-content/uploads/2017/05/dynamixel_servomotors_xl_320.jpg
+image: https://www.sketchappsources.com/resources/source-image/movie-badges-jurajjurik.png
 description: Biomimetic Arm: Motion Capture v/s Inverse Kinematics Actuation
 ---
 
