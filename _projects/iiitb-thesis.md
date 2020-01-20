@@ -2,7 +2,7 @@
 name: IIITB Thesis
 tools: [C#, XML, WPF]
 image: https://user-images.githubusercontent.com/24211929/72427972-cbbba480-37b2-11ea-93d8-a46998d2f054.gif
-description: This project has an individual showcase page, not just a direct link to the project site or repo. Now you have more space to describe your awesome project!
+description: Biomimetic Arm: Motion Capture v/s Inverse Kinematics Actuation
 ---
 
 # Table of Contents
@@ -102,6 +102,10 @@ The layout to be used is as follows (TTL):
 
 ![image](https://user-images.githubusercontent.com/24211929/72668585-6a176680-3a4e-11ea-9461-ccb1dff9b345.png)
 
+
+## Arbotix-M Robocontroller
+
+![image](https://user-images.githubusercontent.com/24211929/72739864-90621100-3bca-11ea-9b6e-19a03bf42da7.png)
 
 
 
