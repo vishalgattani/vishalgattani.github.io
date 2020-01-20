@@ -5,11 +5,6 @@ image: https://www.sketchappsources.com/resources/source-image/movie-badges-jura
 description: Biomimetic Arm: Motion Capture v/s Inverse Kinematics Actuation
 ---
 
-# Table of Contents
-
-* TOC
-{:toc}
-
 # Biomimetic Arm with Motion Capture v/s Inverse Kinematics
 
 - Human upper limb motion captured through Kinect V2 will be transmitted to various actuators that act as joints on the prosthetic arm.
