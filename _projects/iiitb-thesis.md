@@ -140,9 +140,6 @@ RoboPlus is needed for [Dynamixel Wizard](http://support.robotis.com/en/software
 
 ![image](https://user-images.githubusercontent.com/24211929/72792820-9e15a600-3c5f-11ea-8b80-16699adca34b.png)
 
-
-![image](https://user-images.githubusercontent.com/24211929/72793011-ea60e600-3c5f-11ea-804e-e3aa96e03cd6.png)
-
 {% include elements/figure.html image="https://user-images.githubusercontent.com/24211929/72793011-ea60e600-3c5f-11ea-804e-e3aa96e03cd6.png" caption="Program the ArbotiX-M Robocontroller to Control a DYNAMIXEL Servo" %}
 
 ### Tutorials
