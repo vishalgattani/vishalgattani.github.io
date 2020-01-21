@@ -103,7 +103,7 @@ The code from before, will be used in this rig to transmit the servo motor actua
 
 ## Reachy Beta
 
-# Servo Motors
+# Servo Motors and Boards
 
 ## Towerpro MG996R
 
@@ -121,7 +121,6 @@ The layout to be used is as follows (TTL):
 
 ![image](https://user-images.githubusercontent.com/24211929/72668585-6a176680-3a4e-11ea-9461-ccb1dff9b345.png)
 
-
 ## Arbotix-M Robocontroller
 
 ![image](https://user-images.githubusercontent.com/24211929/72739864-90621100-3bca-11ea-9b6e-19a03bf42da7.png)
@@ -134,7 +133,11 @@ Download RoboPlus 1.1.3: [here](http://en.robotis.com/service/downloadpage.php?c
 
 RoboPlus help: [here](http://support.robotis.com/en/software/roboplus_main.htm)
 
-RoboPlus is needed for [Dynamixel Wizard](http://support.robotis.com/en/software/roboplus/dynamixel_wizard.htm)
+RoboPlus is needed for [Dynamixel Wizard](http://support.robotis.com/en/software/roboplus/dynamixel_wizard.htm).
+
+Tutorials to follow:
+
+{% include elements/video.html id="R2yca-9yHy0" %}
 
 # Experiments
 
