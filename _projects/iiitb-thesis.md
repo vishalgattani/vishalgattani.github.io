@@ -5,12 +5,37 @@ image: https://user-images.githubusercontent.com/24211929/72427972-cbbba480-37b2
 description: This project has an individual showcase page, not just a direct link to the project site or repo. Now you have more space to describe your awesome project!
 ---
 
+# Table of contents 
+
+* TOC
+{:toc}
+
 # Biomimetic Arm with Motion Capture v/s Inverse Kinematics
 
 - Human upper limb motion captured through Kinect V2 will be transmitted to various actuators that act as joints on the prosthetic arm.
 - The captured data, joint coordinates and angles, will be transmitted through a serial port to arduino and dynamixel shield in order to actuate the servos accordingly.
 - The data from both, Motion Capture and Inverse Kinematics, will be synthesised and compared to establish if correlation points exist between the experiments.
 - Possible control of the prosthetic may also be achieved through Electromyography (EMG).
+
+
+# Literature Survey
+
+## 3D Printed Myoelectric Prosthetic Arm
+
+## [Reachy Beta](https://www.frontiersin.org/articles/10.3389/fnbot.2019.00065/full)
+
+**To prove:**
+
+- [x] Inverse Kinematics for Endpoint Position Control
+- [] MoCap Control of Arm using Kinect v2
+
+## [Anthrob – A Printed Anthropomimetic Robot](http://www.cs.cmu.edu/~cga/shoulder/robot2.pdf)
+
+**To prove:** Example of an elbow joint flexion and subsequent extension induced by the motor position control of the three elbow joint muscles (brachialis, triceps and biceps brachii, respectively). The figure shows the elbow angle (top panel), the reference (dashed) and current (solid) motor positions of all three muscles (center panel) and the corresponding muscle forces (bottom panel).
+
+![image](https://user-images.githubusercontent.com/24211929/72436916-953c5480-37c7-11ea-84c7-32ab21b28385.png)
+
+
 
 # Blender
 
@@ -70,7 +95,6 @@ Automatic IK is a tool for quick posing, it can be enabled in the tool shelf in 
 
 The code from before, will be used in this rig to transmit the servo motor actuating values through serial communication.
 
-
 # STL Designs 
 
 ## 3D Printed Myoelectric Prosthetic Arm
@@ -102,7 +126,15 @@ The layout to be used is as follows (TTL):
 
 ![image](https://user-images.githubusercontent.com/24211929/72739864-90621100-3bca-11ea-9b6e-19a03bf42da7.png)
 
+Follow this [link](https://www.trossenrobotics.com/p/arbotix-robot-controller.aspx).
 
+Download FTDI Drivers: [here](https://www.ftdichip.com/Drivers/VCP.htm)
+
+Download RoboPlus 1.1.3: [here](http://en.robotis.com/service/downloadpage.php?ca_id=10)
+
+RoboPlus help: [here](http://support.robotis.com/en/software/roboplus_main.htm)
+
+RoboPlus is needed for [Dynamixel Wizard](http://support.robotis.com/en/software/roboplus/dynamixel_wizard.htm)
 
 # Experiments
 
@@ -415,20 +447,4 @@ void loop() {
 ```
 
 
-# Literature Survey
-
-## 3D Printed Myoelectric Prosthetic Arm
-
-## [Reachy Beta](https://www.frontiersin.org/articles/10.3389/fnbot.2019.00065/full)
-
-**To prove:**
-
-- [x] Inverse Kinematics for Endpoint Position Control
-- [] MoCap Control of Arm using Kinect v2
-
-## [Anthrob – A Printed Anthropomimetic Robot](http://www.cs.cmu.edu/~cga/shoulder/robot2.pdf)
-
-**To prove:** Example of an elbow joint flexion and subsequent extension induced by the motor position control of the three elbow joint muscles (brachialis, triceps and biceps brachii, respectively). The figure shows the elbow angle (top panel), the reference (dashed) and current (solid) motor positions of all three muscles (center panel) and the corresponding muscle forces (bottom panel).
-
-![image](https://user-images.githubusercontent.com/24211929/72436916-953c5480-37c7-11ea-84c7-32ab21b28385.png)
 
