@@ -125,17 +125,27 @@ The layout to be used is as follows (TTL):
 
 ![image](https://user-images.githubusercontent.com/24211929/72739864-90621100-3bca-11ea-9b6e-19a03bf42da7.png)
 
-Follow this [link](https://www.trossenrobotics.com/p/arbotix-robot-controller.aspx).
+### Links - Hardware and Software
 
-Download FTDI Drivers: [here](https://www.ftdichip.com/Drivers/VCP.htm)
-
-Download RoboPlus 1.1.3: [here](http://en.robotis.com/service/downloadpage.php?ca_id=10)
-
-RoboPlus help: [here](http://support.robotis.com/en/software/roboplus_main.htm)
+Follow these links:
+	- [https://learn.trossenrobotics.com/arbotix/7-arbotix-quick-start-guide](https://learn.trossenrobotics.com/arbotix/7-arbotix-quick-start-guide)
+	- [https://www.trossenrobotics.com/p/arbotix-robot-controller.aspx](https://www.trossenrobotics.com/p/arbotix-robot-controller.aspx)
+	- Download FTDI Drivers: [here](https://www.ftdichip.com/Drivers/VCP.htm)
+	- Download RoboPlus 1.1.3: [here](http://en.robotis.com/service/downloadpage.php?ca_id=10)
+	- RoboPlus help: [here](http://support.robotis.com/en/software/roboplus_main.htm)
 
 RoboPlus is needed for [Dynamixel Wizard](http://support.robotis.com/en/software/roboplus/dynamixel_wizard.htm).
 
-Tutorials to follow:
+### Connections 
+
+![image](https://user-images.githubusercontent.com/24211929/72792820-9e15a600-3c5f-11ea-8b80-16699adca34b.png)
+
+
+![image](https://user-images.githubusercontent.com/24211929/72793011-ea60e600-3c5f-11ea-804e-e3aa96e03cd6.png)
+
+{% include elements/figure.html image="https://user-images.githubusercontent.com/24211929/72793011-ea60e600-3c5f-11ea-804e-e3aa96e03cd6.png" caption="Program the ArbotiX-M Robocontroller to Control a DYNAMIXEL Servo" %}
+
+### Tutorials
 
 {% include elements/video.html id="R2yca-9yHy0" %}
 
