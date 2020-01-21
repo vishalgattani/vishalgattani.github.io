@@ -109,11 +109,15 @@ The code from before, will be used in this rig to transmit the servo motor actua
 
 
 
-## Dynamixel related Motors and Shield
+## Dynamixel Motors/Actuators
+
+All the motors related information can be found (here)[http://www.robotis.us/dynamixel/]. The required motors which are being used are:
 
 ![image](https://user-images.githubusercontent.com/24211929/72440639-3a0e6000-37cf-11ea-8c73-3807fe5aa807.png)
 
-Refer to the [link](http://emanual.robotis.com/docs/en/parts/interface/dynamixel_shield/) to understand the specifics realted to the shiled that will be used to control dynamixel actuators accordingly. 
+
+## Dynamixel Shield
+Refer to the [link](http://emanual.robotis.com/docs/en/parts/interface/dynamixel_shield/) to understand the specifics related to the shield that will be used to control dynamixel actuators accordingly.
 
 ![image](https://user-images.githubusercontent.com/24211929/72668580-5966f080-3a4e-11ea-96df-fe6a5fed0005.png)
 
@@ -133,6 +137,8 @@ Follow these links:
 	- Download FTDI Drivers: [here](https://www.ftdichip.com/Drivers/VCP.htm)
 	- Download RoboPlus 1.1.3: [here](http://en.robotis.com/service/downloadpage.php?ca_id=10)
 	- RoboPlus help: [here](http://support.robotis.com/en/software/roboplus_main.htm)
+	- Github for [DynaManager repo](https://github.com/Interbotix/dynaManager/releases)
+	
 
 RoboPlus is needed for [Dynamixel Wizard](http://support.robotis.com/en/software/roboplus/dynamixel_wizard.htm).
 
