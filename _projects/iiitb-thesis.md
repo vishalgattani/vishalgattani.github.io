@@ -2,7 +2,7 @@
 name: Thesis
 tools: [C#, XML, WPF]
 image: https://user-images.githubusercontent.com/24211929/72992613-0f00bd80-3e1a-11ea-9b60-6f6660652223.gif
-description: Biomimetic Arm: Motion Capture v/s Inverse Kinematics!
+description: Biomimetic Arm: Human Motion Capture will be used to control a robotic arm using non-invasive techniques. Additionally, Inverse Kinematics will be used to control the arm from Blender through rigging.
 ---
 
 
