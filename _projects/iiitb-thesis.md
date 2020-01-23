@@ -1,8 +1,8 @@
 ---
 name: Thesis
-tools: [C#, XML, WPF]
+tools: [C, Blender, Arduino]
 image: https://user-images.githubusercontent.com/24211929/72427972-cbbba480-37b2-11ea-93d8-a46998d2f054.gif
-description: This project has an individual showcase page, not just a direct link to the project site or repo. Now you have more space to describe your awesome project!
+description: Biomimetic Bionic Arm: Motion Capture vs Inverse Kinematic Control!
 ---
 
 # Table of contents 
@@ -27,7 +27,7 @@ description: This project has an individual showcase page, not just a direct lin
 **To prove:**
 
 - [x] Inverse Kinematics for Endpoint Position Control
-- [] MoCap Control of Arm using Kinect v2
+- [ ] MoCap Control of Arm using Kinect v2
 
 ## [Anthrob – A Printed Anthropomimetic Robot](http://www.cs.cmu.edu/~cga/shoulder/robot2.pdf)
 
@@ -113,7 +113,9 @@ The code from before, will be used in this rig to transmit the servo motor actua
 
 All the motors related information can be found (here)[http://www.robotis.us/dynamixel/]. The required motors which are being used are:
 
-![image](https://user-images.githubusercontent.com/24211929/72440639-3a0e6000-37cf-11ea-8c73-3807fe5aa807.png)
+{% include elements/figure.html image="https://user-images.githubusercontent.com/24211929/72440639-3a0e6000-37cf-11ea-8c73-3807fe5aa807.png caption="Reachy Documentation Specs" %}
+
+{% include elements/figure.html image="https://user-images.githubusercontent.com/24211929/72973880-0d240380-3df4-11ea-9f5f-e480d38feaf8.png" caption="Stall Torque v/s Speed (RPM)" %}
 
 
 ## Dynamixel Shield
@@ -138,9 +140,37 @@ Follow these links:
 	- Download RoboPlus 1.1.3: [here](http://en.robotis.com/service/downloadpage.php?ca_id=10)
 	- RoboPlus help: [here](http://support.robotis.com/en/software/roboplus_main.htm)
 	- Github for [DynaManager repo](https://github.com/Interbotix/dynaManager/releases)
+	- Download [DynaManager](https://github.com/Interbotix/dynaManager/releases/tag/1.3)
 	
 
 RoboPlus is needed for [Dynamixel Wizard](http://support.robotis.com/en/software/roboplus/dynamixel_wizard.htm).
+
+Without the Arbotix-M board, we will need the USB2Dynamixel component.
+
+{% include elements/figure.html image="https://user-images.githubusercontent.com/24211929/72972589-bd443d00-3df1-11ea-8b92-78526b53beba.png" caption="USB2Dynamixel which is now deprecated and replaced with U2D2" %}
+
+![image](https://user-images.githubusercontent.com/24211929/72972589-bd443d00-3df1-11ea-8b92-78526b53beba.png)
+
+### Usage
+
+Apparently, the [ArbotiX](https://www.trossenrobotics.com/p/arbotix-robot-controller.aspx) hardware and firmware support a variety of DYNAMIXEL servos. Some are directly compatible:
+
+	- [ ] AX-12A
+	- [x] AX-18A
+	- [ ] AX-12W
+	- [ ] MX-28T
+	- [x] MX-64T
+	- [x] MX-106T
+
+
+Since we are going to do all our programming in Arduino, we would need an Arduino compatible board unlike the U2D2 (which  I have no idea if it is arduino compatible, probably not).
+
+[Quick Start Guide](https://learn.trossenrobotics.com/arbotix/7-arbotix-quick-start-guide)
+
+To setup ID's using the Arbotix-M board:
+	
+{% include elements/video.html id="SCO_8nrldDE" %}
+
 
 ### Connections 
 
