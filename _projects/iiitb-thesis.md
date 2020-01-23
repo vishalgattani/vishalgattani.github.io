@@ -1,8 +1,8 @@
 ---
 name: Thesis
 tools: [C#, XML, WPF]
-image: https://www.sketchappsources.com/resources/source-image/project-neon-groove-music-ui.png
-description: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+image: https://user-images.githubusercontent.com/24211929/72992613-0f00bd80-3e1a-11ea-9b60-6f6660652223.gif
+description: Biomimetic Arm: Motion Capture v/s Inverse Kinematics!
 ---
 
 
