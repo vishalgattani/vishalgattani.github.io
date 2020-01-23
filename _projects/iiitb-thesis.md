@@ -1,6 +1,6 @@
 ---
 name: Thesis
-tools: [C, Blender, Arduino]
+tools: []
 image: https://user-images.githubusercontent.com/24211929/72427972-cbbba480-37b2-11ea-93d8-a46998d2f054.gif
 description: Biomimetic Bionic Arm: Motion Capture vs Inverse Kinematic Control!
 ---
