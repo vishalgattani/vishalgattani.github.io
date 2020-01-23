@@ -142,8 +142,6 @@ Without the Arbotix-M board, we will need the USB2Dynamixel component.
 
 {% include elements/figure.html image="https://user-images.githubusercontent.com/24211929/72972589-bd443d00-3df1-11ea-8b92-78526b53beba.png" caption="USB2Dynamixel which is now deprecated and replaced with U2D2" %}
 
-![image](https://user-images.githubusercontent.com/24211929/72972589-bd443d00-3df1-11ea-8b92-78526b53beba.png)
-
 ### Usage
 
 Apparently, the [ArbotiX](https://www.trossenrobotics.com/p/arbotix-robot-controller.aspx) hardware and firmware support a variety of DYNAMIXEL servos. The motors being used for this project are directly compatible.
