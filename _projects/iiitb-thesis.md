@@ -156,13 +156,12 @@ Without the Arbotix-M board, we will need the USB2Dynamixel component.
 
 Apparently, the [ArbotiX](https://www.trossenrobotics.com/p/arbotix-robot-controller.aspx) hardware and firmware support a variety of DYNAMIXEL servos. Some are directly compatible:
 
-	- [ ] AX-12A
-	- [x] AX-18A
-	- [ ] AX-12W
-	- [ ] MX-28T
-	- [x] MX-64T
-	- [x] MX-106T
-
+- [ ] AX-12A
+- [x] AX-18A
+- [ ] AX-12W
+- [ ] MX-28T
+- [x] MX-64T
+- [x] MX-106T
 
 Since we are going to do all our programming in Arduino, we would need an Arduino compatible board unlike the U2D2 (which  I have no idea if it is arduino compatible, probably not).
 
