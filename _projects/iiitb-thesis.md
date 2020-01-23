@@ -135,13 +135,13 @@ The layout to be used is as follows (TTL):
 ### Links - Hardware and Software
 
 Follow these links:
-	* [https://learn.trossenrobotics.com/arbotix/7-arbotix-quick-start-guide](https://learn.trossenrobotics.com/arbotix/7-arbotix-quick-start-guide)
-	* [https://www.trossenrobotics.com/p/arbotix-robot-controller.aspx](https://www.trossenrobotics.com/p/arbotix-robot-controller.aspx)
-	* Download FTDI Drivers: [here](https://www.ftdichip.com/Drivers/VCP.htm)
-	* Download RoboPlus 1.1.3: [here](http://en.robotis.com/service/downloadpage.php?ca_id=10)
-	* RoboPlus help: [here](http://support.robotis.com/en/software/roboplus_main.htm)
-	* Github for [DynaManager repo](https://github.com/Interbotix/dynaManager/releases)
-	* Download [DynaManager](https://github.com/Interbotix/dynaManager/releases/tag/1.3)
+* [https://learn.trossenrobotics.com/arbotix/7-arbotix-quick-start-guide](https://learn.trossenrobotics.com/arbotix/7-arbotix-quick-start-guide)
+* [https://www.trossenrobotics.com/p/arbotix-robot-controller.aspx](https://www.trossenrobotics.com/p/arbotix-robot-controller.aspx)
+* Download FTDI Drivers: [here](https://www.ftdichip.com/Drivers/VCP.htm)
+* Download RoboPlus 1.1.3: [here](http://en.robotis.com/service/downloadpage.php?ca_id=10)
+* RoboPlus help: [here](http://support.robotis.com/en/software/roboplus_main.htm)
+* Github for [DynaManager repo](https://github.com/Interbotix/dynaManager/releases)
+* Download [DynaManager](https://github.com/Interbotix/dynaManager/releases/tag/1.3)
 	
 
 RoboPlus is needed for [Dynamixel Wizard](http://support.robotis.com/en/software/roboplus/dynamixel_wizard.htm).
