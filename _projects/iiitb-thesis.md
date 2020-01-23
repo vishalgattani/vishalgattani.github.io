@@ -5,7 +5,6 @@ image: https://user-images.githubusercontent.com/24211929/72992613-0f00bd80-3e1a
 description: Biomimetic Arm using Motion Capture through Kinect will be used to control a robotic arm using non-invasive techniques. Additionally, Inverse Kinematics will be used to control the arm from Blender through rigging.
 ---
 
-
 # Table of contents 
 
 * TOC
