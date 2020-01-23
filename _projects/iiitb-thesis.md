@@ -1,8 +1,8 @@
 ---
 name: Thesis
 tools: [C#, XML, WPF]
-image: https://user-images.githubusercontent.com/24211929/72976844-5c206780-3df9-11ea-8135-817e9497a29d.png
-description: This project has an individual showcase page, not just a direct link to the project site or repo. Now you have more space to describe your awesome project!
+image: https://www.sketchappsources.com/resources/source-image/project-neon-groove-music-ui.png
+description: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
 ---
 
 
@@ -96,14 +96,6 @@ Automatic IK is a tool for quick posing, it can be enabled in the tool shelf in 
 
 The code from before, will be used in this rig to transmit the servo motor actuating values through serial communication.
 
-# STL Designs 
-
-## 3D Printed Myoelectric Prosthetic Arm
-
-<script src="https://embed.github.com/view/3d/vishalgattani/vishalgattani.github.io/stl/Printable Files 4.0 - Myoelectric Arm/Fingers/Middle/Middle Finger Tip.STL"></script>
-
-## Reachy Beta
-
 # Servo Motors and Boards
 
 ## Towerpro MG996R
@@ -114,7 +106,7 @@ The code from before, will be used in this rig to transmit the servo motor actua
 
 All the motors related information can be found (here)[http://www.robotis.us/dynamixel/]. The required motors which are being used are:
 
-{% include elements/figure.html image="https://user-images.githubusercontent.com/24211929/72440639-3a0e6000-37cf-11ea-8c73-3807fe5aa807.png caption="Reachy Documentation Specs" %}
+{% include elements/figure.html image="https://user-images.githubusercontent.com/24211929/72440639-3a0e6000-37cf-11ea-8c73-3807fe5aa807.png" caption="Reachy Documentation Specs" %}
 
 {% include elements/figure.html image="https://user-images.githubusercontent.com/24211929/72973880-0d240380-3df4-11ea-9f5f-e480d38feaf8.png" caption="Stall Torque v/s Speed (RPM)" %}
 
