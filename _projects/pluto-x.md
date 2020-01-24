@@ -5,6 +5,12 @@ image: https://user-images.githubusercontent.com/24211929/73069259-4d0de800-3ed3
 description: Programming the PlutoX drone for collision avoidance, target following and sensor fusion.
 ---
 
+# Table of contents 
+
+* TOC
+{:toc}
+
+
 # Pluto X
 
 In this project, we worked on programming the PlutoX drone to achieve results such as collision avoidance, following a target and getting sensor data mounted on top of the drone. The sensors used to achieve the above said behavior are the IR sensors (V53LOX) and analog sensors to determine the temperature and pressure when the drone is in flight mode.
