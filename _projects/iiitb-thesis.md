@@ -35,7 +35,12 @@ description: Biomimetic Arm using Motion Capture through Kinect will be used to 
 
 ![image](https://user-images.githubusercontent.com/24211929/72436916-953c5480-37c7-11ea-84c7-32ab21b28385.png)
 
+# Software
 
+* Blender 2.78
+* Delicode NI-Mate
+* Arduino
+* RoboPlus from ROBOTIS
 
 # Blender
 
@@ -55,15 +60,13 @@ In order to have the recorded motion and joint coordinates from the Kinect V2, t
 
 {% include elements/video.html id="1UPZtS5LVvw" %}
 
-
-
 The NI-Mate app captures your movement in the camera and converts it to mocap data you can import into Blender and apply to a rigged armature.
 
 ![poserig_anim](https://user-images.githubusercontent.com/24211929/72428043-ebeb6380-37b2-11ea-8d57-5ba95668f69b.gif)
 
 ![graph1](https://user-images.githubusercontent.com/24211929/72428044-ebeb6380-37b2-11ea-985c-ca7b7ed71834.gif)
 
-## BlenderController
+## Blender Controller
 
 ![Video](https://user-images.githubusercontent.com/24211929/72426222-569aa000-37af-11ea-8f76-4c122fa8cdb4.gif)
 
@@ -95,7 +98,7 @@ Automatic IK is a tool for quick posing, it can be enabled in the tool shelf in 
 
 The code from before, will be used in this rig to transmit the servo motor actuating values through serial communication.
 
-# Servo Motors and Boards
+# Servos, Actuators, Motors and Boards
 
 ## Towerpro MG996R
 
@@ -109,8 +112,9 @@ All the motors related information can be found (here)[http://www.robotis.us/dyn
 
 {% include elements/figure.html image="https://user-images.githubusercontent.com/24211929/72973880-0d240380-3df4-11ea-9f5f-e480d38feaf8.png" caption="Stall Torque v/s Speed (RPM)" %}
 
+## Arduino UNO
 
-## Dynamixel Shield
+### Dynamixel Shield
 Refer to the [link](http://emanual.robotis.com/docs/en/parts/interface/dynamixel_shield/) to understand the specifics related to the shield that will be used to control dynamixel actuators accordingly.
 
 ![image](https://user-images.githubusercontent.com/24211929/72668580-5966f080-3a4e-11ea-96df-fe6a5fed0005.png)
@@ -119,11 +123,25 @@ The layout to be used is as follows (TTL):
 
 ![image](https://user-images.githubusercontent.com/24211929/72668585-6a176680-3a4e-11ea-9461-ccb1dff9b345.png)
 
-## Arbotix-M Robocontroller
+Unable to receive or transmit data using the shield.Either it must be some connection issue or the API alongside dynamixel shield such as the [Dynamixel2Arduino](https://github.com/ROBOTIS-GIT/dynamixel2arduino) and [DynamixelShield](https://github.com/ROBOTIS-GIT/DynamixelShield). These APIs aren't functioning as expected and there is no further documentation left in this direction.
+
+Without the Arbotix-M board or Dynamixel Shield, we will need the USB2Dynamixel component.
+
+{% include elements/figure.html image="https://user-images.githubusercontent.com/24211929/72972589-bd443d00-3df1-11ea-8b92-78526b53beba.png" caption="USB2Dynamixel which is now deprecated and replaced with U2D2" %}
+
+### [Arbotix-M Robocontroller](https://www.trossenrobotics.com/p/arbotix-robot-controller.aspx)
 
 ![image](https://user-images.githubusercontent.com/24211929/72739864-90621100-3bca-11ea-9b6e-19a03bf42da7.png)
 
-### Links - Hardware and Software
+* The ArbotiX robocontroller is an advanced control solution for AX/MX/RX/EX DYNAMIXEL servos. 
+
+Being compatible directly without using an Arduino, it functions as an arduino board enabling the control of dynamixel servos. 
+
+Components required alongside the Arbotix-M are:
+* FTDI Cable 5V for programming
+* 12V 5A Power Supply for the board itself
+
+#### Links - Hardware and Software
 
 Follow these links:
 * [https://learn.trossenrobotics.com/arbotix/7-arbotix-quick-start-guide](https://learn.trossenrobotics.com/arbotix/7-arbotix-quick-start-guide)
@@ -132,16 +150,11 @@ Follow these links:
 * Download RoboPlus 1.1.3: [here](http://en.robotis.com/service/downloadpage.php?ca_id=10)
 * RoboPlus help: [here](http://support.robotis.com/en/software/roboplus_main.htm)
 * Github for [DynaManager repo](https://github.com/Interbotix/dynaManager/releases)
-* Download [DynaManager](https://github.com/Interbotix/dynaManager/releases/tag/1.3)
-	
+* Download [DynaManager](https://github.com/Interbotix/dynaManager/releases/tag/1.3)	
 
 RoboPlus is needed for [Dynamixel Wizard](http://support.robotis.com/en/software/roboplus/dynamixel_wizard.htm).
 
-Without the Arbotix-M board, we will need the USB2Dynamixel component.
-
-{% include elements/figure.html image="https://user-images.githubusercontent.com/24211929/72972589-bd443d00-3df1-11ea-8b92-78526b53beba.png" caption="USB2Dynamixel which is now deprecated and replaced with U2D2" %}
-
-### Usage
+#### Usage
 
 Apparently, the [ArbotiX](https://www.trossenrobotics.com/p/arbotix-robot-controller.aspx) hardware and firmware support a variety of DYNAMIXEL servos. The motors being used for this project are directly compatible.
 
@@ -184,7 +197,7 @@ To setup ID's using the Arbotix-M board:
 
 I will have to work on this soon.
 
-## Blender related codes
+## Codes
 
 ### Blender Controller - Quarternion Values
 This [file](https://github.com/vishalgattani/vishalgattani.github.io/blob/master/files/blender/blendercontroller_quarternionvalues_serialcomm.blend) can transmit quarternion values through serial port. But we need to get the armature actual local space rotations in order to move the wrist. Possible updates will follow this section.
@@ -256,7 +269,7 @@ Transmitting X angle of the bone rotation in local axis.
 
 Blender File: [here](https://github.com/vishalgattani/vishalgattani.github.io/blob/master/files/blender/blendercontroller_wristrotation.blend)
 
-Blender Code:
+#### Blender Code:
 ```python
 import bpy
 import math
@@ -309,7 +322,7 @@ def frameChange(passedScene):
 bpy.app.handlers.frame_change_pre.append(frameChange)
 ```
 
-Arduino Code:
+#### Arduino Code:
 
 ```c
 #include <Servo.h>
