@@ -114,6 +114,19 @@ All the motors related information can be found (here)[http://www.robotis.us/dyn
 
 ## Arduino UNO
 
+### 74LS241N Tri-state buffer 
+
+![image](https://user-images.githubusercontent.com/24211929/73072717-bbef3f00-3edb-11ea-9cf9-2aae35a84ffa.png)
+
+These servomotors have difficulty connecting to the Arduino. In fact, the half-duplex communication to 1Mbps requires additional circuitry to make connections to Arduino if there are several servos to be connected. A single servo can be connected directly to the Arduino, in the case of several actuators it is necessary to use a tri-state buffer, which is placed between the Arduino and AX-12A. A simple tri-state buffer is the 74LS241N.
+
+The Dynamixel protocol is a serial protocol, so, Arduino side, the buffer 74LS241 must be connected to the serial port and then on pins 0 and 1.
+
+Refer to this [link](https://robottini.altervista.org/dynamixel-ax-12a-and-arduino-how-to-use-the-serial-port) for dual serial comms.
+
+{% include elements/video.html id="svD-m-NUD3I" %}
+
+
 ### Dynamixel Shield
 Refer to the [link](http://emanual.robotis.com/docs/en/parts/interface/dynamixel_shield/) to understand the specifics related to the shield that will be used to control dynamixel actuators accordingly.
 
