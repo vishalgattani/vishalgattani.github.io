@@ -155,14 +155,276 @@ It is recommended to use Full Flash when programming first time and make sure yo
 
 The API documentation for v1.0.6 is available at this [link](https://drive.google.com/open?id=1wtU-nnGNTPaOsXZ0_GVQ2klOFnSw--eA).
 
-**Note: There are two different versions of CygnusIDE that we have worked on to support different functionalities. The reason for this is because the new firmware supports Breakout Board API functionalities regarding the ADC pins and the GPIO pins.The only difference between the two versions of Cygnus build are the function names and their implementations. The programs written with Cygnus v1.0.6 are not explained here, but are included on the github repository. The same programs are written with Cygnus v2.0.0 and they are included in the further section.**
-
-
-
-
+{% include elements/highlight.html text="Note: There are two different versions of CygnusIDE that we have worked on to support different functionalities. The reason for this is because the new firmware supports Breakout Board API functionalities regarding the ADC pins and the GPIO pins.The only difference between the two versions of Cygnus build are the function names and their implementations. The programs written with Cygnus v1.0.6 are not explained here, but are included on the github repository. The same programs are written with Cygnus v2.0.0 and they are included in the further section." %}
 
 
 # CYGNUS IDE v2.0.0
+
+## Installation
+
+To install the IDE required to program PlutoX,  the new Cygnus build is available at the following link:
+https://drive.google.com/file/d/1oFHE1I-wxGi8gmjj3N78j8dfCduer1L6/view
+Extract in the folder required and run ‘cygnus.exe’.
+Note: The installation is supported only on Windows.
+The different functions that a PlutoX program in this build are as follows:
+*	plutoInit()
+*	onLoopStart()
+*	plutoLoop()
+*	onLoopStop()
+
+The functionalities of these functions are same as that of the previous build. However, the implementation of the in-built functions are different. The API documentation for v2.0.0 is available [here](https://docs.google.com/document/d/1qUzQ2eYyPjvnZ2zWgFSVFsRz8hdydEv4QQBmXz5xt9M/edit).
+
+{% include elements/highlight.html text="Note: There are two different versions of CygnusIDE that we have worked on to support different functionalities. The following code snippets are compatible with the new build of Cygnus which can be downloaded by the link shown above. (Cygnus 2.0 on Windows)%}
+
+## Monitoring Graphical Data
+
+PlutoX has functions which can help monitor values of the sensors that come in-built such as the accelerometer on the IDE using the Pluto Monitor. At any given time, three graphs can be observed using the code.
+
+### Code
+
+```c
+
+// Do not remove the include below
+#include "PlutoPilot.h"
+#include "Sensor.h"
+#include "User.h"
+#include "Utils.h"
+
+//The setup function is called once at Pluto's hardware startup
+void plutoInit()
+{
+// Add your hardware initialization code here
+	setUserLoopFrequency(1000);
+}
+
+//The function is called once before plutoLoop when you activate Developer Mode
+void onLoopStart()
+{
+  // do your one time stuff here
+}
+
+// The loop function is called in an endless loop
+void plutoLoop()
+{
+//Add your repeated code here
+	int32_t pressure, temp;
+	pressure = Barometer.get(PRESSURE)/100;
+	temp = Barometer.get(TEMPERATURE)/100 - 7;
+	Monitor.println("Pressure " , pressure, 4);
+	Monitor.println("Temperature " , temp, 4);
+	Graph.red(pressure, 4);
+	Graph.green(temp, 4);
+}
+
+//The function is called once after plutoLoop when you deactivate Developer Mode
+void onLoopFinish()
+{
+// do your cleanup stuffs here
+}
+
+
+```
+
+### Results
+
+{% include elements/figure.html image="https://user-images.githubusercontent.com/24211929/73090893-47c69280-3eff-11ea-8613-48d14141206c.png" caption="Pressure Mapping 1" %}
+
+{% include elements/figure.html image="https://user-images.githubusercontent.com/24211929/73090996-7e9ca880-3eff-11ea-8023-efedaaa0a729.png" caption="Temperature Mapping 1" %}
+
+{% include elements/figure.html image="https://user-images.githubusercontent.com/24211929/73091088-aee44700-3eff-11ea-9c92-93c7e1049317.png" caption="Pressure Mapping 2" %}
+
+{% include elements/figure.html image="https://user-images.githubusercontent.com/24211929/73091113-ba377280-3eff-11ea-8359-aecc69270b35.png" caption="Temperature Mapping 2" %}
+
+
+## Backflip Code
+
+```c
+
+// Do not remove the include below
+#include "PlutoPilot.h"
+#include "XRanging.h"
+#include "Utils.h"
+#include "Peripheral.h"
+#include "Sensor.h"
+#include "User.h"
+#include "Control.h"
+
+
+Interval T2;
+//The setup function is called once at Pluto's hardware startup
+void plutoInit()
+{
+// Add your hardware initialization code here
+}
+
+//The function is called once before plutoPilot when you activate Developer Mode
+void onLoopStart()
+{
+Command.takeOff(300);
+	FlightMode.set(ATLTITUDEHOLD);
+	T2.reset();
+}
+
+// The loop function is called in an endless loop
+void plutoLoop()
+{
+//Add your repeated code here
+	bool flag;
+      flag = T2.set(2000,1);
+	if(flag)
+	{
+		Command.flip(BACK_FLIP);
+		Monitor.println("Flipping" );
+	}
+}
+//The function is called once after plutoPilot when you deactivate Developer Mode
+void onLoopFinish()
+{
+	 // do your cleanup stuffs here
+}
+```
+
+## Collision avoiding using X-Ranging Sensors
+
+```c
+// Do not remove the include below
+#include "PlutoPilot.h"
+#include "XRanging.h"
+#include "Utils.h"
+#include "Peripheral.h"
+#include "Sensor.h"
+#include "User.h"
+#include "Control.h"
+
+
+Interval T2;
+//The setup function is called once at Pluto's hardware startup
+void plutoInit()
+{
+	XRanging.init(LEFT);
+	XRanging.init(RIGHT);
+}
+
+//The function is called once before plutoPilot when you activate Developer Mode
+void onLoopStart()
+{
+	Command.takeOff(250);
+	FlightMode.set(ATLTITUDEHOLD);
+}
+
+// The loop function is called in an endless loop
+void plutoLoop()
+{
+//Add your repeated code here
+	int val = XRanging.getRange(LEFT);
+	int val2 = XRanging.getRange(RIGHT);
+
+	if(val >= 0 && val <= 200)
+	{
+		Monitor.println("LEFT ",val);
+		RcCommand.set(RC_ROLL,1550);
+	}
+
+	if(val2 >= 0 && val2 <= 200)
+	{
+		Monitor.println("RIGHT ",val2);
+		RcCommand.set(RC_ROLL,1450);
+	}
+
+	bool flag = T2.set(2000,1);
+	if(flag){
+		val = -100;
+		RcCommand.set(RC_ROLL,1500);
+	}
+}
+
+//The function is called once after plutoPilot when you deactivate Developer Mode
+void onLoopFinish()
+{
+	 // do your cleanup stuffs here
+//	 Xshield.stopRanging();
+//	 Control.disableFlightStatus(false);
+}
+
+```
+
+## Following using X-Ranging Sensors
+
+```c
+// Do not remove the include below
+#include "PlutoPilot.h"
+#include "XRanging.h"
+#include "Utils.h"
+#include "Peripheral.h"
+#include "Sensor.h"
+#include "User.h"
+#include "Control.h"
+
+
+Interval T2;
+//The setup function is called once at Pluto's hardware startup
+void plutoInit()
+{
+	XRanging.init(LEFT);
+	XRanging.init(RIGHT);
+// Add your hardware initialization code here
+}
+
+//The function is called once before plutoPilot when you activate Developer Mode
+void onLoopStart()
+{
+	Command.takeOff(250);
+	FlightMode.set(ATLTITUDEHOLD);
+}
+
+// The loop function is called in an endless loop
+void plutoLoop()
+{
+//Add your repeated code here
+	int val = XRanging.getRange(LEFT);
+	int val2 = XRanging.getRange(RIGHT);
+
+	if((val >= 100 && val <= 250) || (val2 > 10 &&  val2 < 80))
+	{
+		Monitor.println("LEFT ",val);
+		RcCommand.set(RC_ROLL,1450);
+	}
+
+	if((val2 >= 100 && val2 <= 250) || (val > 10 && val < 80))
+	{
+		Monitor.println("RIGHT ",val2);
+		RcCommand.set(RC_ROLL,1550);
+	}
+
+
+	bool flag = T2.set(2000,1);
+	   if(flag){
+	      val = -100;
+	      RcCommand.set(RC_ROLL,1500);
+	   }
+}
+
+//The function is called once after plutoPilot when you deactivate Developer Mode
+void onLoopFinish()
+{
+	 // do your cleanup stuffs here
+}
+```
+
+# Accessories
+
+## X-Ranging
+
+This API is required to access the X-ranging Shield. The functions that come along with this API are as follows:
+* void init() : Initializes all the four sensors i.e., FRONT, BACK, LEFT, RIGHT.
+* void init(laser_e laser) : Initializes any one of the mentioned sensors among the following  from FRONT, BACK, LEFT, RIGHT.
+* int16_t getRange(laser_e laser) : Instantaneous range from a particular sensor where laser can be any one of the following from FRONT, BACK, LEFT, RIGHT.
+
+![image](https://user-images.githubusercontent.com/24211929/73091830-45fdce80-3f01-11ea-8cb4-413e90644662.png)
+
+The IR sensor consists of 5 connections namely VCC, GND, RESET, I2C pins SCL and SDA. The breakout board provides I2C connections. Getting range from IR sensors is done by using Xshield API.
+
+
 
 
 
