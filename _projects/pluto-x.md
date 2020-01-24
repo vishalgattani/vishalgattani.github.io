@@ -2,7 +2,7 @@
 name: PlutoX Programmable Drone
 tools: [C#, XML, WPF]
 image: https://user-images.githubusercontent.com/24211929/73069259-4d0de800-3ed3-11ea-890c-4421e8a01061.png
-description: In this project, we worked on programming the PlutoX drone to achieve results such as collision avoidance, following a target and getting sensor data mounted on top of the drone.
+description: Programming the PlutoX drone for collision avoidance, target following and sensor fusion.
 ---
 
 # Pluto X
