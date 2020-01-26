@@ -155,7 +155,7 @@ It is recommended to use Full Flash when programming first time and make sure yo
 
 The API documentation for v1.0.6 is available at this [link](https://drive.google.com/open?id=1wtU-nnGNTPaOsXZ0_GVQ2klOFnSw--eA).
 
-{% include elements/highlight.html text="Note - There are two different versions of CygnusIDE that we have worked on to support different functionalities. The reason for this is because the new firmware supports Breakout Board API functionalities regarding the ADC pins and the GPIO pins.The only difference between the two versions of Cygnus build are the function names and their implementations. The programs written with Cygnus v1.0.6 are not explained here, but are included on the github repository. The same programs are written with Cygnus v2.0.0 and they are included in the further section." %}
+**Note - There are two different versions of CygnusIDE that we have worked on to support different functionalities. The reason for this is because the new firmware supports Breakout Board API functionalities regarding the ADC pins and the GPIO pins.The only difference between the two versions of Cygnus build are the function names and their implementations. The programs written with Cygnus v1.0.6 are not explained here, but are included on the github repository. The same programs are written with Cygnus v2.0.0 and they are included in the further section.**
 
 
 # CYGNUS IDE v2.0.0
@@ -174,7 +174,7 @@ The different functions that a PlutoX program in this build are
 
 The functionalities of these functions are same as that of the previous build. However, the implementation of the in-built functions are different. The API documentation for v2.0.0 is available [here](https://docs.google.com/document/d/1qUzQ2eYyPjvnZ2zWgFSVFsRz8hdydEv4QQBmXz5xt9M/edit).
 
-{% include elements/highlight.html text="Note - There are two different versions of CygnusIDE that we have worked on to support different functionalities. The following code snippets are compatible with the new build of Cygnus which can be downloaded by the link shown above. (Cygnus 2.0 on Windows)%}
+**Note - There are two different versions of CygnusIDE that we have worked on to support different functionalities. The following code snippets are compatible with the new build of Cygnus which can be downloaded by the link shown above. (Cygnus 2.0 on Windows)**
 
 ## Monitoring Graphical Data
 
