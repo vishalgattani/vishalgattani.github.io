@@ -167,10 +167,10 @@ https://drive.google.com/file/d/1oFHE1I-wxGi8gmjj3N78j8dfCduer1L6/view
 Extract in the folder required and run ‘cygnus.exe’.
 Note: The installation is supported only on Windows.
 The different functions that a PlutoX program in this build are as follows:
-*	plutoInit()
-*	onLoopStart()
-*	plutoLoop()
-*	onLoopStop()
+* plutoInit()
+* onLoopStart()
+* plutoLoop()
+* onLoopStop()
 
 The functionalities of these functions are same as that of the previous build. However, the implementation of the in-built functions are different. The API documentation for v2.0.0 is available [here](https://docs.google.com/document/d/1qUzQ2eYyPjvnZ2zWgFSVFsRz8hdydEv4QQBmXz5xt9M/edit).
 
