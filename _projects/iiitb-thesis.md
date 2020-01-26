@@ -37,10 +37,10 @@ description: Biomimetic Arm using Motion Capture and Inverse Kinematics.
 
 # Software
 
-* Blender 2.78
-* Delicode NI-Mate
-* Arduino
-* RoboPlus from ROBOTIS
+## Blender 2.78
+## Delicode NI-Mate
+## Arduino/Arbotix-M
+## RoboPlus from ROBOTIS
 
 # Blender
 
@@ -154,6 +154,38 @@ Components required alongside the Arbotix-M are:
 * FTDI Cable 5V for programming
 * 12V 5A Power Supply for the board itself
 
+#### Dynamixel Servos
+
+The ArbotiX-M Robocontroller can directly control and power 3-pin TTL DYNAMIXEL servos like the ones listed below.
+
+* 300° / 10-BIT RESOLUTION SERVOS
+ 1. AX-12A
+ 2. AX-18A
+* 360 ° / 12-BIT RESOLUTION SERVOS
+ 1. MX-28T
+ 2. MX-64T
+ 3. MX-106T
+
+For more projects that incorporate these Dynamixels, click [here](https://learn.trossenrobotics.com/arbotix/arbotix-getting-started/38-toc/interbotix-robots.html).
+
+Also follow this [link](https://learn.trossenrobotics.com/arbotix/arbotix-getting-started/157-arbotix-m-dynamixel-buying-guide.html) for details on whether MX servos can be controlled or not.
+
+#### Programming
+
+RS-485 DYNAMIXEL servos like the RX and MX-R servos can be controlled from the ArbotiX-M, but require custom hardware and are not officially supported. The ArbotiX-M robocontroller is deisgned to communicate with TTL servos like the AX line of servos and the MX-T servos. On its own, the Arbotix-M can't control RS-485 servos like the RX/EX servos or the MX-R servos.
+
+To program the ArbotiX-M you will need an FTDI USB to Serial Converter. The Standard FTDI Cable is a standard FTDI programmer and will work perfectly for programming the ArbotiX-M. 
+
+#### Power
+
+Run DYNAMIXEL servos at 11-12v. MX series servos can be run at up to 14.8v, but AX servos can not.
+
+12v SMPS(Switched Mode Power Supplies) cab be used with the ArbotiX-M. These supplies will plug directly into the ArbotiX-M via barrel connector.
+
+**To choose the power supply for your project, add up the stall current for all the servos in your chain. Your power supply should exceed this calculated current.**
+
+The MX-64 and MX-106 servos require additional hardware when working with an SMPS. The SMPS2DYNAMIXEL will help smooth the SMPS voltage. 
+
 #### Links - Hardware and Software
 
 Follow these links:
@@ -189,6 +221,8 @@ To setup ID's using the Arbotix-M board:
 ### Tutorials
 
 {% include elements/video.html id="R2yca-9yHy0" %}
+
+
 
 # Experiments
 
