@@ -411,7 +411,7 @@ void onLoopFinish()
 }
 ```
 
-# Accessories
+# Components/Sensors
 
 ## X-Ranging
 
@@ -425,8 +425,68 @@ This API is required to access the X-ranging Shield. The functions that come alo
 The IR sensor consists of 5 connections namely VCC, GND, RESET, I2C pins SCL and SDA. The breakout board provides I2C connections. Getting range from IR sensors is done by using Xshield API.
 
 
+## X-Breakout
+
+X-Breakout is an add-on shield using which any external sensor can be integrated with PlutoX. It has special slots/ports provided for UART, I2C, SPI, ADC/DAC, PWM which can be used directly to integrate any external modules. All the 20 unibus pinouts are accessible through X-Breakout and also 20 general purpose pinouts are available. 
+
+More details about the board can be found [here](https://docs.google.com/document/d/1SUjlZsFbw44WE9ejXZPoOXL9aCLifMGXwu8EQpqV8Hs/edit).
 
 
 
+# Problems
+
+Over the course of the project, we encountered various types of problems with the drone. We are listing out the problems and solutions we know of, so that it helps anyone working on this in the future.
+
+## Sensors
+When couldn’t interface digital sensors (say DHT11), on to the drone using the X-breakout board. The program to read data from DHT11 required interval/ clock function, i.e to able to read data after a given interval. These functions were available for both of the Cygnus versions, but we weren’t aware of them initially and what are these functions. Later on, we found out that the functions millis() and micros() can be used for this purpose, to program. Besides this, due to lack of proper resources we couldn’t interface the analog sensors on the old Cygnus. Only after contacting the Pluto technical support, we were told that there were problem with the old IDE and there is a newer version, that support reading analog values. By following the existing libraries of the sensors for arduino or related boards, the code can be ported on to the drone.
+
+Apart from the API issues,  there were also connecting issues with the sensors. There are exact jumper pins on the breakout board to connect the sensors. When we were able to get data from the sensor with the drone disarmed, we wanted to get data when the drone is being flown around. For this, we wanted to solder the sensor on the board. When we soldered, because of the soldered blob being a little big and because the breakout board is a 2-sided board, when we tried to connect the board after soldering, the drone malfunctioned and the breakout board slot on the board and on the drone got burnt a little bit. The drone kept spinning it’s fans the moment it was switched on since then. After getting in touch, with the technical support we were asked to short a resistor, we were able to get the board working again. We are not sure if it soldering error for sure, but it seems so.
+
+Try the following solution:
+1. Unscrew the flight controller PrimusX from the drone frame.
+2. Check back part of PrimusX
+
+![image](https://user-images.githubusercontent.com/24211929/73133331-2bd10700-404d-11ea-8754-3eede1da99cd.png)
+
+3. Remove the marked resistor as shown in the above picture and short it using solder as shown in the below picture.
+
+![image](https://user-images.githubusercontent.com/24211929/73133334-35f30580-404d-11ea-805b-425b8b7ce2a0.png)
+
+![image](https://user-images.githubusercontent.com/24211929/73133340-40ad9a80-404d-11ea-8fe0-9c13554f019a.png)
+
+## Camera API
+
+Going by the initial plan of trying to make the drone do image processing and follow a particular object, even though the camera module was available and the camera feed was accessible through the android app, we weren’t able to get the feed through ROS or through cygnus. 
+
+If we would’ve got the feed through ROS, we can send the feed to the system on which roscore is running, do the required image processing, detect the object, find the direction and distance, and then using ROS drone can be commanded to move in that direction for the given distance. This keeps running in a loop, feed is sent by ROS node on drone, to the core system, where image processing is done and the command to move is given back to the node. The support for camera feed was still in development and wasn’t available over the course of the project. The beta version of the support for camera feed on ROS was made available by the company a few days back (i.e few days before the final demo). Therefore, we couldn’t work on the camera as planned initially. The Camera API ros package sent to us can be found here.
+
+## Cygnus versions
+Since we were working with different Cygnus versions, the usage of APIs is different in both of them. Although there are separate documentations for both the versions, we faced difficulty to understand and use the APIs. For the same, besides following the API documentation we had to look into the header files present in project_folder > platform. By looking into the header files the return types, input parameter types and enum types defined are useful when using the APIs.
+
+
+# Conclusion
+
+Since the PlutoX drone is still in development, we had to face a lot of problems over the course of the project. Besides this, we were able to get basic functionalities of the drone working. The support for ROS, make it great to execute real time functionalities by sending data from drone to a remote node. The camera feed support which was released can be used to run image processing while the drone is in the air. If the right set of jumper pins/ if the sensors are properly soldered on to the drone, data can be retrieved from the drone when it is being flown around. The drone API is really great and it supports controlling motors, direction, speed, etc. Apart from all the bugs and lack of docs, overall PlutoX drone is a great platform to learn and program drones. We tried our best to include all the required details in this documentation, and we also included all the resources we have come across so that it makes it easier for anyone continuing this project.
+
+# References
+
+1.	PlutoX website - https://www.dronaaviation.com/plutox/
+2.	PlutoX support page - https://www.dronaaviation.com/support/
+3.	API documentation -
+	a.	v1.0.6 https://drive.google.com/open?id=1wtU-nnGNTPaOsXZ0_GVQ2klOFnSw--eA
+	b.	v2.0.0 https://docs.google.com/document/d/1qUzQ2eYyPjvnZ2zWgFSVFsRz8hdydEv4QQBmXz5xt9M/edit
+4.	Other documentations - https://drive.google.com/drive/folders/12yho1OL4OuOJdStSYlG2r4aEH-reXx16
+5.	ROS support - http://wiki.ros.org/pluto_drone
+6.	Miscellaneous links - 
+	a.	https://github.com/da-piyushpatel/PlutoX-hackathon
+	b.	https://dronebotworkshop.com/plutox-introduction/
+	c.	https://hackaday.io/projects?tag=plutox
+	d.	https://github.com/search?q=pluto%20x&type=Everything&repo=&langOverride=&start_value=1
+7.	X - breakout board Docs
+	a.	https://iiitborg-my.sharepoint.com/:b:/g/personal/vineet_reddy_iiitb_org/ER_C0kAOkCVKpEdm7z9k6ZUBp_ZDUdMGEQInjJ9k2kIN9Q?e=OW6uas
+	b.	https://docs.google.com/document/d/1SUjlZsFbw44WE9ejXZPoOXL9aCLifMGXwu8EQpqV8Hs/edit
+8.	ROS Camera package - https://iiitborg-my.sharepoint.com/:u:/g/personal/vineet_reddy_iiitb_org/ETPN7u4fC0ZAoA9lmN1fG4cBN_1mOofX0opTMMH-oaV0Cw?e=KW5NKg
+9.	Github link for our project - https://github.com/vishalgattani/PlutoX
+10.	Videos of the project - https://iiitborg-my.sharepoint.com/:f:/g/personal/vineet_reddy_iiitb_org/EqA6YE_tefVIjb5TWBBm7hoBo1KAZOtxntqKiJeaTLCmeg?e=koQdpO
 
 
