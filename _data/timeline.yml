@@ -1,17 +1,25 @@
-- title: Student, Harvard CS
-  from: 2014
-  to: 2018
-  description: Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-               sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-               Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris
-               nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
-               reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+- title: Research Intern, Mercedes-Benz Research & Development India, IN
+  from: May 2018
+  to: July 2018
+  description: My work at MBRDI was mainly focused on Electric Vehicle Data Analysis for Electromagnetic Compatibility of the system.
+               In addition to this, I developed a controlling mechanism for the Cooling Unit using Markov Decision Processes and 
+               Reinforcement Learning to supply power according to the needed demand. Futhermore, I predicted the energy demand of a
+               particular route using regression analysis and neural networks.
 
-- title: Software Engineer, Google, UK
-  from: 2018
-  to: present
-  description: Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-               sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-               Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris
-               nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
-               reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+- title: Student, International Institute of Information Technology - Bangalore
+  from: 2015
+  to: 2020
+  description: Integrated Master of Technology, Electronics and Communication Engineering
+
+
+
+
+- title: Student, FIITJEE Junior College, Hyderabad, Telangana, IN
+  from: 2014
+  to: 2012
+  description: 
+
+- title: Student, All Saints’ High School, Hyderabad, Telangana, IN
+  from: 2012
+  to: 2002
+  description: 
