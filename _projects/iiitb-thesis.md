@@ -176,11 +176,11 @@ RS-485 DYNAMIXEL servos like the RX and MX-R servos can be controlled from the A
 
 To program the ArbotiX-M you will need an FTDI USB to Serial Converter. The Standard FTDI Cable is a standard FTDI programmer and will work perfectly for programming the ArbotiX-M. 
 
+**The MX106 will work with these libraries, however the protocol version has to be reverted to protocol 1. The new MX servos are coming with firmware / protocol 2. You would have to download an older version of DYNAMIXEL wizard that has protocol 1.0 firmware for the 106 servo and ‘reset’ the servo using that software.**
+
+**Alternatively, Trossen Robotics recommends using the CM9.04c or U2D2 to control the 106 servo with protocol 2 firmware.**
+
 #### Power
-
-Run DYNAMIXEL servos at 11-12v. MX series servos can be run at up to 14.8v, but AX servos can not.
-
-12v SMPS(Switched Mode Power Supplies) cab be used with the ArbotiX-M. These supplies will plug directly into the ArbotiX-M via barrel connector.
 
 **To choose the power supply for your project, add up the stall current for all the servos in your chain. Your power supply should exceed this calculated current.**
 
@@ -200,6 +200,8 @@ Follow these links:
 RoboPlus is needed for [Dynamixel Wizard](http://support.robotis.com/en/software/roboplus/dynamixel_wizard.htm).
 
 #### Usage
+
+Refer to the above section of working with an Arbotix-M board.
 
 Apparently, the [ArbotiX](https://www.trossenrobotics.com/p/arbotix-robot-controller.aspx) hardware and firmware support a variety of DYNAMIXEL servos. The motors being used for this project are directly compatible.
 
