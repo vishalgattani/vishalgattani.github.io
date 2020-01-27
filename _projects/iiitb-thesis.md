@@ -112,7 +112,87 @@ All the motors related information can be found (here)[http://www.robotis.us/dyn
 
 {% include elements/figure.html image="https://user-images.githubusercontent.com/24211929/72973880-0d240380-3df4-11ea-9f5f-e480d38feaf8.png" caption="Stall Torque v/s Speed (RPM)" %}
 
-## Arduino UNO
+The ArbotiX-M Robocontroller can directly control and power 3-pin TTL DYNAMIXEL servos like the ones listed below.
+
+* 300° / 10-BIT RESOLUTION SERVOS
+ 1. AX-12A
+ 2. AX-18A
+* 360 ° / 12-BIT RESOLUTION SERVOS
+ 1. MX-28T
+ 2. MX-64T
+ 3. MX-106T
+
+For more projects that incorporate these Dynamixels, click [here](https://learn.trossenrobotics.com/arbotix/arbotix-getting-started/38-toc/interbotix-robots.html).
+
+Also follow this [link](https://learn.trossenrobotics.com/arbotix/arbotix-getting-started/157-arbotix-m-dynamixel-buying-guide.html) for details on whether MX servos can be controlled or not.
+
+### Programming
+
+RS-485 DYNAMIXEL servos like the RX and MX-R servos can be controlled from the ArbotiX-M, but require custom hardware and are not officially supported. The ArbotiX-M robocontroller is deisgned to communicate with TTL servos like the AX line of servos and the MX-T servos. On its own, the Arbotix-M can't control RS-485 servos like the RX/EX servos or the MX-R servos.
+
+To program the ArbotiX-M you will need an FTDI USB to Serial Converter. The Standard FTDI Cable is a standard FTDI programmer and will work perfectly for programming the ArbotiX-M. 
+
+According to Trossen Robotics Support,
+
+**The MX106 will work with these libraries, however the protocol version has to be reverted to protocol 1. The new MX servos are coming with firmware / protocol 2. You would have to download an older version of DYNAMIXEL wizard that has protocol 1.0 firmware for the 106 servo and ‘reset’ the servo using that software.**
+
+**Alternatively, Trossen Robotics recommends using the CM9.04c or U2D2 to control the 106 servo with protocol 2 firmware.**
+
+What are these protocols?
+
+#### Protocols
+
+Follow this [link](http://emanual.robotis.com/docs/en/dxl/) for more understanding of dynamixel 1.0 and 2.0 servos. 
+
+NOTE - Read the following to ensure proper use of MX series(2.0). In order to use Protocol 2.0 firmware version with MX series, proceed to Firmware Recovery via DYNAMIXEL Wizard 2.0 or R+ Manager 2.0. Protocol 2.0 is available with v39 Firmware version (or above). Proceed to Firmware Update via DYNAMIXEL Wizard 2.0 or R+ Manager 2.0. Protocol 2.0 supports various Operating Modes, Secondary ID, Drive Mode, Bus Watchdog and etc.
+
+Please refer to this [link](http://emanual.robotis.com/docs/en/software/dynamixel/dynamixel_wizard2/) regarding protocol differences.
+
+As far as I can tell, the new Protocol 2.0 has changed some of the registers, by reverting this to an older protocol, Trossen Robotics demos should work.
+
+### Power
+
+Run DYNAMIXEL servos at 11-12v. MX series servos can be run at up to 14.8v, but AX servos can not.
+
+12v SMPS(Switched Mode Power Supplies) cab be used with the ArbotiX-M. These supplies will plug directly into the ArbotiX-M via barrel connector.
+
+**To choose the power supply for your project, add up the stall current for all the servos in your chain. Your power supply should exceed this calculated current.**
+
+The MX-64 and MX-106 servos require additional hardware when working with an SMPS. The SMPS2DYNAMIXEL will help smooth the SMPS voltage. 
+
+### Links - Hardware and Software
+
+Follow these links:
+* [https://learn.trossenrobotics.com/arbotix/7-arbotix-quick-start-guide](https://learn.trossenrobotics.com/arbotix/7-arbotix-quick-start-guide)
+* [https://www.trossenrobotics.com/p/arbotix-robot-controller.aspx](https://www.trossenrobotics.com/p/arbotix-robot-controller.aspx)
+* Download FTDI Drivers: [here](https://www.ftdichip.com/Drivers/VCP.htm)
+* Download RoboPlus 1.1.3: [here](http://en.robotis.com/service/downloadpage.php?ca_id=10)
+* RoboPlus help: [here](http://support.robotis.com/en/software/roboplus_main.htm)
+* Github for [DynaManager repo](https://github.com/Interbotix/dynaManager/releases)
+* Download [DynaManager](https://github.com/Interbotix/dynaManager/releases/tag/1.3)	
+
+RoboPlus is needed for [Dynamixel Wizard](http://support.robotis.com/en/software/roboplus/dynamixel_wizard.htm).
+
+### Usage
+
+Apparently, the [ArbotiX](https://www.trossenrobotics.com/p/arbotix-robot-controller.aspx) hardware and firmware support a variety of DYNAMIXEL servos. The motors being used for this project are directly compatible.
+
+Since we are going to do all our programming in Arduino, we would need an Arduino compatible board unlike the U2D2 (which  I have no idea if it is arduino compatible, probably not).
+
+[Quick Start Guide](https://learn.trossenrobotics.com/arbotix/7-arbotix-quick-start-guide)
+
+To setup ID's using the Arbotix-M board:
+	
+{% include elements/video.html id="SCO_8nrldDE" %}
+
+
+### Connections 
+
+![image](https://user-images.githubusercontent.com/24211929/72792820-9e15a600-3c5f-11ea-8b80-16699adca34b.png)
+
+{% include elements/figure.html image="https://user-images.githubusercontent.com/24211929/72793011-ea60e600-3c5f-11ea-804e-e3aa96e03cd6.png" caption="Program the ArbotiX-M Robocontroller to Control a DYNAMIXEL Servo" %}
+
+# Arduino UNO
 
 ### 74LS241N Tri-state buffer 
 
@@ -148,77 +228,108 @@ Without the Arbotix-M board or Dynamixel Shield, we will need the USB2Dynamixel 
 
 * The ArbotiX robocontroller is an advanced control solution for AX/MX/RX/EX DYNAMIXEL servos. 
 
-Being compatible directly without using an Arduino, it functions as an arduino board enabling the control of dynamixel servos. 
+Being compatible directly with an Arduino, it functions as an arduino board enabling the control of dynamixel servos. 
 
 Components required alongside the Arbotix-M are:
 * FTDI Cable 5V for programming
 * 12V 5A Power Supply for the board itself
 
-#### Dynamixel Servos
+#### Getting Started with the Arbotix-M
+Trossen Robotics has their documentation on their [webpage](http://www.trossenrobotics.com/p/arbotix-robot-controller.aspx) under the 'Documentation and Downloads' tab. Therefore the documentation here is a bit spare in nature, and may focus on things specific to the setup here in the SARL Labs.
 
-The ArbotiX-M Robocontroller can directly control and power 3-pin TTL DYNAMIXEL servos like the ones listed below.
+#### Steps to setup your PC to program the Arbotix-M and run a demo.
+1. Download the Arduino IDE (version 1.0.6)
+2. Download the Arbotix-M libraries and hardware description files.
+3. Connect to the ArbotiX-M and upload the sketch.
+4. Watch it work (or start debugging.)
 
-* 300° / 10-BIT RESOLUTION SERVOS
- 1. AX-12A
- 2. AX-18A
-* 360 ° / 12-BIT RESOLUTION SERVOS
- 1. MX-28T
- 2. MX-64T
- 3. MX-106T
+##### Download the Arduino IDE
+You need to install the Arduino IDE to program the controller. Currently (10-09-2015), the Arbotix-M runs on the old Arduino 1.0.6 version. This means that you will need to get and install the old IDE. This, however is actually quite simple. If you have the newest IDE installed already, you don't need uninstall it, the two IDEs can live along side each other. The files are [here](https://www.arduino.cc/en/Main/OldSoftwareReleases).
 
-For more projects that incorporate these Dynamixels, click [here](https://learn.trossenrobotics.com/arbotix/arbotix-getting-started/38-toc/interbotix-robots.html).
+> ##### Why use the old Arduino IDE?
+The Arduino IDE 1.0.6 has a different implementation of the Arduino core code than the 1.6. Actually looking at the [release notes](https://www.arduino.cc/en/Main/ReleaseNotes), the Arduino IDE 1.0.1 went into a 1.5 BETA branch in late 2012. The new IDE was an attemt to make a unified IDE for both 8-bit AVR and 32-bit ARM based Arduinos. While the 1.5 BETA developed into 1.6 and went out of the BETA stage, the 1.0.1 developed into the 1.0.6. The big difference is how the hardware definition files are handled in the IDE. Also the original Arduino Serial code is too slow to handle the 1Mbps that we run the Crust Crawler Arms at, so a custom implementation was developed in Vanadium Labs. But looking at the developments in the [code on GitHub](https://github.com/vanadiumlabs/arbotix) it seems branches for the 1.5 and 1.6 IDE are popping up. So maybe we can use the new IDE in the near future.
 
-Also follow this [link](https://learn.trossenrobotics.com/arbotix/arbotix-getting-started/157-arbotix-m-dynamixel-buying-guide.html) for details on whether MX servos can be controlled or not.
+##### Download the Arbotix-M Libraries and Hardware Description Files
+The Arbotix-M is arduino _compatible_, not a true arduino. So we need to install some additional hardware description files and finally some libraries to work with the Dynamixel servos. You can download a [zip-file](https://github.com/trossenrobotics/arbotix/archive/master.zip) from Trossen Robotics with everything you need.
 
-#### Programming
+In the zip-archive there are three folders, you have to manually move these into your sketchbook folder.
 
-RS-485 DYNAMIXEL servos like the RX and MX-R servos can be controlled from the ArbotiX-M, but require custom hardware and are not officially supported. The ArbotiX-M robocontroller is deisgned to communicate with TTL servos like the AX line of servos and the MX-T servos. On its own, the Arbotix-M can't control RS-485 servos like the RX/EX servos or the MX-R servos.
+The sketchbook folder is not the same as your newly created installation folder. The default folder is `~/Documents/Arduino` (~ being your user folder). This will most likely be the same for any Arduino installation on your system, so to keep things separate, change the sketchbook folder location in the IDE to a folder exclusively for use with this project, e.g. `~/Documents/Arduino-arbotix`. You do this in `Files -> Preferences` and simply writing in your desired location in the `Sketchbook Location` box. The IDE will create the new folder and populate it with a `libraries` folder.
 
-To program the ArbotiX-M you will need an FTDI USB to Serial Converter. The Standard FTDI Cable is a standard FTDI programmer and will work perfectly for programming the ArbotiX-M. 
+Now, extract the three folders (hardware/libraries/ArbotiX Sketches) in the newly downloaded zip-archive into your sketchbook folder. You can test if this was succesful by checking `File -> Sketchbook ->` in the IDE, this should now contain a menu with ArbotiX Sketches. If the menu does not show up, you may need to reopen your Arduino IDE.
 
-**The MX106 will work with these libraries, however the protocol version has to be reverted to protocol 1. The new MX servos are coming with firmware / protocol 2. You would have to download an older version of DYNAMIXEL wizard that has protocol 1.0 firmware for the 106 servo and ‘reset’ the servo using that software.**
+# Working With the Arbotix-M
 
-**Alternatively, Trossen Robotics recommends using the CM9.04c or U2D2 to control the 106 servo with protocol 2 firmware.**
+We will go through:
 
-#### Power
+1. How the communication with the servos work.
+2. How to read the position, velocity, acceleration and torque of the servos.
+3. How to give the servos a setpoint.
+4. How to set the controller's PID parameters.
+5. What NOT to do.
 
-**To choose the power supply for your project, add up the stall current for all the servos in your chain. Your power supply should exceed this calculated current.**
+This tutorial assumes that you have a working installation of the Arduino IDE, and connection to the ArbotiX-M as described above.
 
-The MX-64 and MX-106 servos require additional hardware when working with an SMPS. The SMPS2DYNAMIXEL will help smooth the SMPS voltage. 
+## How the Communication With the Servos Work
 
-#### Links - Hardware and Software
+The Dynamixel servos are called smart servos. This is because they have both a motor, reduction gear, encoder and a position controller; traditional servos rely on an external controller. This enables us to simply control the servo by giving it a position setpoint, but if we choose, we can control the torque of the motor directly.
 
-Follow these links:
-* [https://learn.trossenrobotics.com/arbotix/7-arbotix-quick-start-guide](https://learn.trossenrobotics.com/arbotix/7-arbotix-quick-start-guide)
-* [https://www.trossenrobotics.com/p/arbotix-robot-controller.aspx](https://www.trossenrobotics.com/p/arbotix-robot-controller.aspx)
-* Download FTDI Drivers: [here](https://www.ftdichip.com/Drivers/VCP.htm)
-* Download RoboPlus 1.1.3: [here](http://en.robotis.com/service/downloadpage.php?ca_id=10)
-* RoboPlus help: [here](http://support.robotis.com/en/software/roboplus_main.htm)
-* Github for [DynaManager repo](https://github.com/Interbotix/dynaManager/releases)
-* Download [DynaManager](https://github.com/Interbotix/dynaManager/releases/tag/1.3)	
+The communication works by polling (asking) the servo for a piece of information, which it then provides. The protocol is described on [Robotis' support page](http://support.robotis.com/en/techsupport_eng.htm#product/dynamixel/dxl_communication.htm). Basically, the servos has a memory-mapped interface called the control table with a range of registers holding static and dynamic content. For example, have a look at the MX-64 servo's [control table at the Robotis support page](http://support.robotis.com/en/techsupport_eng.htm#product/dynamixel/mx_series/mx-64.htm#Control_Table).
 
-RoboPlus is needed for [Dynamixel Wizard](http://support.robotis.com/en/software/roboplus/dynamixel_wizard.htm).
+Every register can be read, but only some can be written to (and some can be written to, but shouldn't be). E.g. a couple of interesting registers to look at is registers 36 and 37, which hold the present position of the servo. The reason for having two registers is that each register holds 8 bits of information, but the encoder on the servo provides 10 bits of resolution. So register 36 holds the lowest eight bits and 37 holds the highest two bits. To read the two registers, the ArbotiX-M must send a request to the relevant servo asking for two bytes starting from register 36, and the servo will respond with a packet containing these. This is all outlined in the article on the protocol from Robotis.
 
-#### Usage
+Fortunately, a set of convenience functions for the ArbotiX-M has been written, so that you do not have to fiddle with high bytes and low bytes, checksums and sending and receiving raw bytes to and from the serial port. The basic convenience funtions are:
+```
+// From ax12.h
+int ax12GetRegister(int id, int regstart, int length);
+void ax12SetRegister(int id, int regstart, int data);
+void ax12SetRegister2(int id, int regstart, int data);
+```
+**These functions are defined in `ax12.h`, a library originally written for the ArbotiX to control AX-12 servos, but now also works with most other Dynamixel servos.**
 
-Refer to the above section of working with an Arbotix-M board.
+With these three functions we can read from or (attempt to) write to any register in the servos. Note that the functions needs and ID. This is name of the sevo that we want to communicat to. The servos are numbered from 1 to 5:
 
-Apparently, the [ArbotiX](https://www.trossenrobotics.com/p/arbotix-robot-controller.aspx) hardware and firmware support a variety of DYNAMIXEL servos. The motors being used for this project are directly compatible.
+ Servo        | ID
+ -------------|---
+ Base         | 1
+ Shoulder     | 2
+ Elbow        | 3
+ Left finger  | 4
+ Right finger | 5
 
-Since we are going to do all our programming in Arduino, we would need an Arduino compatible board unlike the U2D2 (which  I have no idea if it is arduino compatible, probably not).
+For even more comfort a set of macros is also defined in `ax12.h`:
+```
+// From ax12.h
+#define SetPosition(id, pos) (ax12SetRegister2(id, AX_GOAL_POSITION_L, pos))
+#define GetPosition(id) (ax12GetRegister(id, AX_PRESENT_POSITION_L, 2))
+#define TorqueOn(id) (ax12SetRegister(id, AX_TORQUE_ENABLE, 1))
+#define Relax(id) (ax12SetRegister(id, AX_TORQUE_ENABLE, 0))
+```
+Using these, this code:
+```
+int pos = ax12GetRegister(1, 36, 2);
+```
+can be written as:
+```
+int pos = GetPosition(1);
+```
+which is easier to read.
 
-[Quick Start Guide](https://learn.trossenrobotics.com/arbotix/7-arbotix-quick-start-guide)
+Equivalently we can send a setpoint:
+```
+ax12SetRegister2(1, 36, 2500);
+```
+Here we are using `ax12SetRegister2`, as we need to set two registers at once. Alternatively, we can use the convenience-convenice function:
+```
+SetPosition(1, 2500);
+```
 
-To setup ID's using the Arbotix-M board:
-	
-{% include elements/video.html id="SCO_8nrldDE" %}
+#### Setting the PID gains
+You can modify the PID gains of the servos. Note that when you power-cycle the servos, the PID gains are reset to the default values. There is a [PID demo file](https://github.com/AalborgUniversity-ControlLabs/crust-crawler-arms-arbotix/blob/master/Crust%20Crawler%20Arms/pid_controller/pid_controller.ino) in the [crust-crawler-arms-arbotix repository](https://github.com/AalborgUniversity-ControlLabs/crust-crawler-arms-arbotix). Basically, it invokes the `SetPidGains` function from the `dynamixel_mx` library.
 
+#### Reference
 
-### Connections 
-
-![image](https://user-images.githubusercontent.com/24211929/72792820-9e15a600-3c5f-11ea-8b80-16699adca34b.png)
-
-{% include elements/figure.html image="https://user-images.githubusercontent.com/24211929/72793011-ea60e600-3c5f-11ea-804e-e3aa96e03cd6.png" caption="Program the ArbotiX-M Robocontroller to Control a DYNAMIXEL Servo" %}
+* [Aalborg University - Control Labs](https://github.com/AalborgUniversity-ControlLabs/start-here/tree/master/crust-crawler-arms)
 
 ### Tutorials
 
