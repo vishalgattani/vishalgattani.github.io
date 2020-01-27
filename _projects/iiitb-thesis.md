@@ -222,7 +222,7 @@ Without the Arbotix-M board or Dynamixel Shield, we will need the USB2Dynamixel 
 
 {% include elements/figure.html image="https://user-images.githubusercontent.com/24211929/72972589-bd443d00-3df1-11ea-8b92-78526b53beba.png" caption="USB2Dynamixel which is now deprecated and replaced with U2D2" %}
 
-### [Arbotix-M Robocontroller](https://www.trossenrobotics.com/p/arbotix-robot-controller.aspx)
+# [Arbotix-M Robocontroller](https://www.trossenrobotics.com/p/arbotix-robot-controller.aspx)
 
 ![image](https://user-images.githubusercontent.com/24211929/72739864-90621100-3bca-11ea-9b6e-19a03bf42da7.png)
 
@@ -234,10 +234,10 @@ Components required alongside the Arbotix-M are:
 * FTDI Cable 5V for programming
 * 12V 5A Power Supply for the board itself
 
-#### Getting Started with the Arbotix-M
+### Getting Started with the Arbotix-M
 Trossen Robotics has their documentation on their [webpage](http://www.trossenrobotics.com/p/arbotix-robot-controller.aspx) under the 'Documentation and Downloads' tab. Therefore the documentation here is a bit spare in nature, and may focus on things specific to the setup here in the SARL Labs.
 
-#### Steps to setup your PC to program the Arbotix-M and run a demo.
+### Steps to setup your PC to program the Arbotix-M and run a demo.
 1. Download the Arduino IDE (version 1.0.6)
 2. Download the Arbotix-M libraries and hardware description files.
 3. Connect to the ArbotiX-M and upload the sketch.
@@ -258,7 +258,7 @@ The sketchbook folder is not the same as your newly created installation folder.
 
 Now, extract the three folders (hardware/libraries/ArbotiX Sketches) in the newly downloaded zip-archive into your sketchbook folder. You can test if this was succesful by checking `File -> Sketchbook ->` in the IDE, this should now contain a menu with ArbotiX Sketches. If the menu does not show up, you may need to reopen your Arduino IDE.
 
-# Working With the Arbotix-M
+### Working With the Arbotix-M
 
 We will go through:
 
@@ -270,7 +270,7 @@ We will go through:
 
 This tutorial assumes that you have a working installation of the Arduino IDE, and connection to the ArbotiX-M as described above.
 
-## How the Communication With the Servos Work
+##### How the Communication With the Servos Work
 
 The Dynamixel servos are called smart servos. This is because they have both a motor, reduction gear, encoder and a position controller; traditional servos rely on an external controller. This enables us to simply control the servo by giving it a position setpoint, but if we choose, we can control the torque of the motor directly.
 
@@ -324,14 +324,12 @@ Here we are using `ax12SetRegister2`, as we need to set two registers at once. A
 SetPosition(1, 2500);
 ```
 
-#### Setting the PID gains
-You can modify the PID gains of the servos. Note that when you power-cycle the servos, the PID gains are reset to the default values. There is a [PID demo file](https://github.com/AalborgUniversity-ControlLabs/crust-crawler-arms-arbotix/blob/master/Crust%20Crawler%20Arms/pid_controller/pid_controller.ino) in the [crust-crawler-arms-arbotix repository](https://github.com/AalborgUniversity-ControlLabs/crust-crawler-arms-arbotix). Basically, it invokes the `SetPidGains` function from the `dynamixel_mx` library.
 
-#### Reference
+### Reference
 
 * [Aalborg University - Control Labs](https://github.com/AalborgUniversity-ControlLabs/start-here/tree/master/crust-crawler-arms)
 
-### Tutorials
+# Tutorials on Arbotix-M
 
 {% include elements/video.html id="R2yca-9yHy0" %}
 
