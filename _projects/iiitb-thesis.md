@@ -139,8 +139,6 @@ As of now, the pipeline looks something like the picture below.
 
 {% include elements/video.html id="1UPZtS5LVvw" %} 
 
-> ###### Video Details 
-
 This video shows us a blender rig which contains three collections, namely
 
 * Coordinate Data: The raw XYZ location data from the NI Mate add-on
@@ -175,9 +173,7 @@ You can switch between the rigs in different layers and choose the coordinate da
 
 ### Stage 2: Using Inverse Kinematics (IK) to control an arm without tracking human motion
 
-#### [IK](https://easyblend.org/html/rigging/posing/inverse_kinematics/introduction.html#arm-rig-example)
-
-IK simplifies the animation process, and makes it possible to make more advanced animations with lesser effort.
+[IK](https://easyblend.org/html/rigging/posing/inverse_kinematics/introduction.html#arm-rig-example) simplifies the animation process, and makes it possible to make more advanced animations with lesser effort.
 
 IK allows you to position the last bone in a bone chain and the other bones are positioned automatically. This is like how moving someone’s finger would cause his arm to follow it. By normal posing techniques, you would have to start from the root bone, and set bones sequentially till you reach the tip bone: When each parent bone is moved, its child bone would inherit its location and rotation. Thus making tiny precise changes in poses becomes harder farther down the chain, as you may have to adjust all the parent bones first.
 
@@ -309,9 +305,9 @@ void loop() {
 }
 ```
 
-### Experiments
+# Experiments
 
-#### Joint Tracking versus Distance from Kinect V2
+## Joint Tracking versus Distance from Kinect V2
 
 The purpose of this experiment is to analyse whether the tracking from Kinect V2, although seeming real-time, can result in variation of accuracy of the joint being tracked due to increase in distance from the Kinect sensor. According to [Microsoft Forum](https://social.msdn.microsoft.com/Forums/en-US/c95d3e40-6ed6-47a1-a206-5ff26c889c29/kinect-v2-maximum-range?forum=kinectv2sdk), the Kinect v2 can physically sense depth at 8 meters. So, Yes you can sense objects at 5m. The skeleton tracking range is 0.5m to 4.5m, and it has trouble finding a skeleton at closer than 1.5m because of the field of view of the camera. So the cameraZ value will usually fall somewhere between 1.5 and 4.5. However, 4.5 m  is where the system can reliably track body joints. Anything beyond 4.5 meters will lead to inconsistent results in body joints tracking.
 
