@@ -10,7 +10,11 @@ description: Biomimetic Arm using Motion Capture and Inverse Kinematics.
 * TOC
 {:toc}
 
-# Biomimetic Arm with Motion Capture v/s Inverse Kinematics
+# Abstract
+
+#  Introduction
+
+Biomimetic Arm with Motion Capture v/s Inverse Kinematics
 
 - Human upper limb motion captured through Kinect V2 will be transmitted to various actuators that act as joints on the prosthetic arm.
 - The captured data, joint coordinates and angles, will be transmitted through a serial port to arduino and dynamixel shield in order to actuate the servos accordingly.
@@ -22,67 +26,156 @@ description: Biomimetic Arm using Motion Capture and Inverse Kinematics.
 
 ## 3D Printed Myoelectric Prosthetic Arm
 
-## [Reachy Beta](https://www.frontiersin.org/articles/10.3389/fnbot.2019.00065/full)
+> ## [Reachy Beta](https://www.frontiersin.org/articles/10.3389/fnbot.2019.00065/full)
 
 **To prove:**
 
 - [x] Inverse Kinematics for Endpoint Position Control
 - [ ] MoCap Control of Arm using Kinect v2
 
-## [Anthrob – A Printed Anthropomimetic Robot](http://www.cs.cmu.edu/~cga/shoulder/robot2.pdf)
+> ## [Anthrob – A Printed Anthropomimetic Robot](http://www.cs.cmu.edu/~cga/shoulder/robot2.pdf)
 
 **To prove:** Example of an elbow joint flexion and subsequent extension induced by the motor position control of the three elbow joint muscles (brachialis, triceps and biceps brachii, respectively). The figure shows the elbow angle (top panel), the reference (dashed) and current (solid) motor positions of all three muscles (center panel) and the corresponding muscle forces (bottom panel).
 
 ![image](https://user-images.githubusercontent.com/24211929/72436916-953c5480-37c7-11ea-84c7-32ab21b28385.png)
 
-# Software
 
-## Blender 2.78
-## Delicode NI-Mate
-## Arduino/Arbotix-M
-## RoboPlus from ROBOTIS
-
-# Blender
-
-## Motion Capture
+# Chapter 1: Motion Capture Studio
 
 ![kinect_nimate](https://user-images.githubusercontent.com/24211929/72427972-cbbba480-37b2-11ea-93d8-a46998d2f054.gif)
 
-The connections for tracking can be followed through this simple image of the pipepline.
+To build your very own motion capture studio, you are required to install the ceratin software which are described as sections below.
 
-![pipeline](https://user-images.githubusercontent.com/24211929/71520910-89562480-28e4-11ea-8fc5-a829d93af095.png)
+## Software
+
+### Blender 2.78
+
+You can download any release of Blender from [here](https://download.blender.org/release/).
+
+The project aims at producing simulations of bone/joints, depth and infrared buffer produced by a Kinect V2 which will be used to transmit the bone data through a serial port into an arduino board. The simulation consists of the [NI Mate Mocap Rig](https://remington.pro/resources/assets/misc/nimate-mocap-rig/) is a specially made rig for conduction motion capture with an Xbox Kinect, NI Mate, and Blender 3D.
+
+### Kinect SDK 2.0 and Kinect Runtime 2.0
+
+* [KinectSDK-v2.0_1409-Setup.exe](https://www.microsoft.com/en-in/download/details.aspx?id=44561)
+* [KinectRuntime-v2.0_1409-Setup.exe](https://www.microsoft.com/en-us/download/details.aspx?id=44559)
+
+The Kinect for Windows Software Development Kit (SDK) 2.0 enables developers to create applications that support gesture and voice recognition, using Kinect sensor technology on computers running Windows 8, Windows 8.1, and Windows Embedded Standard 8.
+
+The Kinect for Windows Runtime provides the drivers and runtime environment required by Kinect for Windows applications using Kinect sensor technology.
+
+
+
+
+
+### NI Mate and add-ons
+
+* Download [Delicode NI Mate](https://ni-mate.com/download/)
+* Download NI MATE MOCAP RIG v1.0 - 2.7x from [here](https://remington.pro/resources/assets/misc/nimate-mocap-rig/).
+
+The NI-Mate app captures your movement in the camera and converts it to mocap data you can import into Blender and apply to a rigged armature as shown. If you do not understand the video right now, it is fine. I will detail the steps in the upcoming sections of 'Setting up MoCap'.
+
+## Hardware
+
+### Kinect V2
 
 Before we start, it’s important to note that everything in this post is about the Kinect for Xbox One, what most people call the Kinect Version 2 or the Kinect V2. The Kinect can track up to six skeletons having 25 joints, all at one time. The Kinect’s camera coordinates use the Kinect’s infrared sensor to find 3D points of the joints in space. These are the coordinates to use for joint positioning in 3D projects. For more details, refer to this [article](https://medium.com/@lisajamhoury/understanding-kinect-v2-joints-and-coordinate-system-4f4b90b9df16).
 
 ![](https://miro.medium.com/max/433/1*ai7YNHm4yOWC6wFCjDmdAw.png)
 
-In order to have the recorded motion and joint coordinates from the Kinect V2, the open source software Blender has the necessary add-ons from Delicode NI Mate required to create your own moiton capture studio. Before we begin to track all the 25 joints, we have to test if our Kinect is working properly. Follow the tutorial [DIY Kinect Motion Capture Studio](https://www.youtube.com/watch?v=1UPZtS5LVvw) to setup your Kinect with the Blender add-ons.
+In order to have the recorded motion and joint coordinates from the Kinect V2, the open source software Blender has the necessary add-ons from Delicode NI Mate required to create your own motion capture studio.
 
-{% include elements/video.html id="1UPZtS5LVvw" %}
+## Setting up MoCap
 
-The NI-Mate app captures your movement in the camera and converts it to mocap data you can import into Blender and apply to a rigged armature.
+By downloading free add-ons and templates made available for a number of 3D software packages, you can instantly transform your Kinect into a powerful interface with high performance.
+
+### Introduction 
+
+* Stage 1: Using Kinect V2 to get the bone joints onto an animated rig from Blender
+* Stage 2: Using Inverse Kinematics (IK) to control an arm without tracking human motion
+* Stage 3: Using the IK rig inplace of Stage 1 rig to track the motion of an arm
+* Stage 4: Transfer serial data from the rigs in Blender to Arbotix-M 
+* Experiments
+
+### Stage 1: Using Kinect V2 to get the bone joints onto an animated rig from Blender
+
+#### Kinect connections to Windows 10 PC
+
+![image](https://user-images.githubusercontent.com/24211929/73259031-e9463080-41ec-11ea-867c-2750aab8b87e.png)
+
+![image](https://user-images.githubusercontent.com/24211929/73251664-6074c800-41df-11ea-93e0-d5f6fbbce514.png)
+
+#### Delicode NI Mate
+
+##### Usage
+
+Open Delicode NI Mate. On the left, you can find your sensor detected. If you click on `>` beside the sensor, you can choose to transmit the data you want to over an OSC port communication which will be used when we want to use the captured motion to be represented in Blender.
+
+As I am going to opt for tracking of human body joints, I am going to choose `Skeleton Tracking` from the menu. The kinect allows to choose the point of origin when it is tracking joint coordinates. Click on `Skeleton Tracking -> Coordinates` and choose from the options given. I choose the `Sensor` as origin. Remember to checkbox `Skeleton Tracking` from the menu for transporting the coordinates of the joints from kinect to blender for animation and rigging purposes. 
+
+You can `Start Sensor/Stop Sensor` at the top right if you want to restart your device.
+
+> ###### Detecting a User
+
+![Delicode NI mate  2 14 Free - Default_ 28-01-2020 16_50_25](https://user-images.githubusercontent.com/24211929/73290627-c9326380-4224-11ea-8133-8978418bcfb2.png)
+
+
+> ###### Getting the Pose
+
+![Delicode NI mate  2 14 Free - Default_ 28-01-2020 16_50_13](https://user-images.githubusercontent.com/24211929/73290630-c9cafa00-4224-11ea-830b-a7f3df1bd986.png)
+
+> If you are unable to view the sensor data from delicode NI mate despite stopping and starting the sensor repeatedly, click on `File -> Preferences` and uncheck the box for `Use GPU Transfer`. The reasoning for this ...
+
+![Delicode NI mate Preferences 28-01-2020 16_00_20](https://user-images.githubusercontent.com/24211929/73290626-c899cd00-4224-11ea-9500-9a4a57577cd8.png)
+
+Once all the above steps are completed, we are ready to use the kinect data to animate a human-meta rig as taken from Remington Pro's youtube video as continued in Blender section below.
+
+#### Blender 2.78
+
+As of now, the pipeline looks something like the picture below.
+
+![pipeline](https://user-images.githubusercontent.com/24211929/71520910-89562480-28e4-11ea-8fc5-a829d93af095.png)
+
+##### Rigging
+
+{% include elements/video.html id="1UPZtS5LVvw" %} 
+
+> ###### Video Details 
+
+This video shows us a blender rig which contains three collections, namely
+
+* Coordinate Data: The raw XYZ location data from the NI Mate add-on
+
+![Blender_  D__vishal_blender_rc_nimate_rig_b2_79_usethis blend  28-01-2020 23_30_34](https://user-images.githubusercontent.com/24211929/73291479-3c88a500-4226-11ea-871d-2d80a938b5ef.png)
+
+* Capture Armature: The armature you should use for capturing motion
+
+![Blender_  D__vishal_blender_rc_nimate_rig_b2_79_usethis blend  28-01-2020 23_30_43](https://user-images.githubusercontent.com/24211929/73291478-3c88a500-4226-11ea-95d6-efca904ecbad.png)
+
+* Example Retargeted Rig: An example armature demonstrating how you should retarget the capture armature to your model’s armature
+
+![Blender_  D__vishal_blender_rc_nimate_rig_b2_79_usethis blend  28-01-2020 23_30_47](https://user-images.githubusercontent.com/24211929/73291481-3d213b80-4226-11ea-8f41-c292a47ff886.png)
+
+##### Tracking
+
+Once ready, either press `Ctrl+Alt+U` or `File -> User Preferences` and add the respective add-ons/plug-ins i.e, from NI Mate [Blender v2.4](https://ni-mate.com/download/). 
+
+Save User Preferences.
+
+You will notice NI Mate tab on the left of the 3D Viewport. Click on `Start` to start transmitting the data from delicode NI Mate which was running in the previous section.
+
+You can now track your motion using Blender. After clicking on `Start`, you can press the `red` button beside the play button and then click on play to record in keyframes. Click on `Stop` and re-click the red button to stop recording the motion as captured from kinect onto the blender rig.
+
 
 ![poserig_anim](https://user-images.githubusercontent.com/24211929/72428043-ebeb6380-37b2-11ea-8d57-5ba95668f69b.gif)
 
+You can switch between the rigs in different layers and choose the coordinate data which will also give us the graphs of all the joints tracked as we select them. Below is a small video to show the graph for Left Knee.
+
 ![graph1](https://user-images.githubusercontent.com/24211929/72428044-ebeb6380-37b2-11ea-985c-ca7b7ed71834.gif)
 
-## Blender Controller
 
-![Video](https://user-images.githubusercontent.com/24211929/72426222-569aa000-37af-11ea-8f76-4c122fa8cdb4.gif)
+### Stage 2: Using Inverse Kinematics (IK) to control an arm without tracking human motion
 
-The [Blender Controller](https://github.com/alvaroferran/BlenderController) repo shows how to control a robot from blender using python. To execute the controller first upload the arduino code into the board. Then in the blender file, press on "Run Script", then the play icon and finally hover the mouse over the control bone and press the "G" key.
-
-{% include elements/video.html id="mONTXmDgZSE" %}
-
-
-Additional changes have been added to he code to effectively send bone angles to the arduino board using serial communication.
-
-![motor control for arduino base file](https://user-images.githubusercontent.com/24211929/72427403-ae3a0b00-37b1-11ea-8c99-d2c0ebe3c827.PNG)
-
-![Screenshot 15-01-2020 15_52_47](https://user-images.githubusercontent.com/24211929/72426076-163b2200-37af-11ea-998e-55999df9a72b.png)
-
-
-## [IK](https://easyblend.org/html/rigging/posing/inverse_kinematics/introduction.html#arm-rig-example)
+#### [IK](https://easyblend.org/html/rigging/posing/inverse_kinematics/introduction.html#arm-rig-example)
 
 IK simplifies the animation process, and makes it possible to make more advanced animations with lesser effort.
 
@@ -96,7 +189,134 @@ Automatic IK is a tool for quick posing, it can be enabled in the tool shelf in 
 
 ![armrig](https://user-images.githubusercontent.com/24211929/72426754-551da780-37b0-11ea-8dc3-07ace41bf16e.JPG)
 
-The code from before, will be used in this rig to transmit the servo motor actuating values through serial communication.
+### Stage 3: Using the IK rig inplace of Stage 1 rig to track the motion of an arm
+
+[File](https://github.com/vishalgattani/vishalgattani.github.io/blob/master/files/blender/IK_Arm_Example_rigging_with_kinect.blend)
+
+To copy the 3 layers from [rc_nimate_rig_b2_79.blend]() file, ensure the view is in `Object Mode` and not in `Edit or Pose Mode`. Press `Shift` and double press `a` key to select everything in a layer and then click on the second layer pressing `Shift` and press `a` key twice then onto the third. `Shift` key allows you to select multiple objects and pressing `a` twice helps in selecting all the elements. Open the IK file and click the second layer and `Ctrl+V` to paste all the rigs on the second layer. This will not matter as we are only interested in the arm section of the rig.
+
+![Blender  C__Users_IIITB_Downloads_IK_Arm_Example_rigging_with_kinect_demo_29jan blend  28-01-2020 23_58_40](https://user-images.githubusercontent.com/24211929/73293582-27ae1080-422a-11ea-936b-21bbf6d7ad2a.png)
+
+#### Adding Bone Contraints
+
+Bone contraints are needed to be added as there are more armatures in the IK rig than in the Capture Retargeted Armature. We have the arm assembled in such a way that only a few contraints are required to animate it in a way it is Biomimetic in real-time. 
+
+| Arm to be selected | Target | Bone |
+|:-------------:|:-------------:|:-:| 
+| arma      | Capture Armature |Arm_L/Arm_R|
+| armc      | Capture Armature      |Forearm_L/Forearm_R|
+| hand | Capture Armature      |Hand_L/Hand_R|
+
+Once these constraints have been added by selecting the `Pose Mode` in 3D viewport and then `Properties -> Bone Contraints` tab, follow the steps from Tracking section above to keep track of recorded motion.
+
+### Stage 4: Transfer serial data from the rigs in Blender to Arduino 
+
+#### Blender Controller
+
+![Video](https://user-images.githubusercontent.com/24211929/72426222-569aa000-37af-11ea-8f76-4c122fa8cdb4.gif)
+
+The [Blender Controller](https://github.com/alvaroferran/BlenderController) repo shows how to control a robot from blender using python. To execute the controller first upload the arduino code into the board. Then in the blender file, press on "Run Script", then the play icon and finally hover the mouse over the control bone and press the "G" key.
+
+{% include elements/video.html id="mONTXmDgZSE" %}
+
+Additional changes have been added to he code to effectively send bone angles to the arduino board using serial communication.
+
+
+![motor control for arduino base file](https://user-images.githubusercontent.com/24211929/72427403-ae3a0b00-37b1-11ea-8c99-d2c0ebe3c827.PNG)
+
+![Screenshot 15-01-2020 15_52_47](https://user-images.githubusercontent.com/24211929/72426076-163b2200-37af-11ea-998e-55999df9a72b.png)
+
+##### Blender Code
+
+```python
+import bpy
+import math
+import time
+import sys
+import serial
+import glob
+
+port=''.join(glob.glob("/dev/ttyUSB*"))
+ser = serial.Serial('COM3',9600)
+print("connected to: " + ser.portstr)
+
+ob = bpy.data.objects['Armature']
+bpy.context.scene.objects.active = ob
+bpy.ops.object.mode_set(mode='POSE')
+
+def sendAngles():
+    bone1=ob.pose.bones['Link1IK']
+    bone2=ob.pose.bones['Link2IK']
+    pb1 = ob.pose.bones.get("Link1IK")
+    pb2 = ob.pose.bones.get("Link2IK")
+    v1 = pb1.head - pb1.tail
+    v2 = pb2.head - pb2.tail
+    if pb1 and pb2:
+        val = math.degrees(v1.angle(v2))
+        val = str(int(val))
+        print(val)
+        ser.write((val).encode('UTF-8'))
+
+def frameChange(passedScene):	
+	sendAngles()
+    
+bpy.app.handlers.frame_change_pre.append(frameChange)
+```
+
+##### Arduino Code
+
+```c
+#include <Servo.h>
+
+Servo myservo; 
+int pos = 0;    // variable to store the servo position
+int incomingByte = 0;   // for incoming serial data
+
+String readString(){
+  String inString ="";
+  char inChar;
+  while(Serial.available()>0){
+    inChar =(char) Serial.read();
+    inString+=inChar;
+    delay(1);
+  }
+  return inString;
+}
+
+int parseString(String msg){
+    static int a;
+    a = msg.toInt();
+    return a;
+}
+
+void writeValues(int b){
+  myservo.write(b); 
+}
+
+void setup() {
+  myservo.attach(3);
+  myservo.write(0);
+  Serial.begin(9600);
+}
+
+void loop() {
+    if(Serial.available()){
+        String incoming=readString();
+        int angles=parseString(incoming);
+        angles = int(angles);
+        writeValues(angles);
+    }
+}
+```
+
+### Experiments
+
+#### Joint Tracking versus Distance from Kinect V2
+
+The purpose of this experiment is to analyse whether the tracking from Kinect V2, although seeming real-time, can result in variation of accuracy of the joint being tracked due to increase in distance from the Kinect sensor. According to [Microsoft Forum](https://social.msdn.microsoft.com/Forums/en-US/c95d3e40-6ed6-47a1-a206-5ff26c889c29/kinect-v2-maximum-range?forum=kinectv2sdk), the Kinect v2 can physically sense depth at 8 meters. So, Yes you can sense objects at 5m. The skeleton tracking range is 0.5m to 4.5m, and it has trouble finding a skeleton at closer than 1.5m because of the field of view of the camera. So the cameraZ value will usually fall somewhere between 1.5 and 4.5. However, 4.5 m  is where the system can reliably track body joints. Anything beyond 4.5 meters will lead to inconsistent results in body joints tracking.
+
+
+
 
 # Servos, Actuators, Motors and Boards
 
