@@ -48,13 +48,13 @@ To build your very own motion capture studio, you are required to install the ce
 
 ## Software
 
-### Blender 2.78
+**Blender 2.78**
 
 You can download any release of Blender from [here](https://download.blender.org/release/).
 
 The project aims at producing simulations of bone/joints, depth and infrared buffer produced by a Kinect V2 which will be used to transmit the bone data through a serial port into an arduino board. The simulation consists of the [NI Mate Mocap Rig](https://remington.pro/resources/assets/misc/nimate-mocap-rig/) is a specially made rig for conduction motion capture with an Xbox Kinect, NI Mate, and Blender 3D.
 
-### Kinect SDK 2.0 and Kinect Runtime 2.0
+**Kinect SDK 2.0 and Kinect Runtime 2.0**
 
 * [KinectSDK-v2.0_1409-Setup.exe](https://www.microsoft.com/en-in/download/details.aspx?id=44561)
 * [KinectRuntime-v2.0_1409-Setup.exe](https://www.microsoft.com/en-us/download/details.aspx?id=44559)
@@ -63,11 +63,7 @@ The Kinect for Windows Software Development Kit (SDK) 2.0 enables developers to 
 
 The Kinect for Windows Runtime provides the drivers and runtime environment required by Kinect for Windows applications using Kinect sensor technology.
 
-
-
-
-
-### NI Mate and add-ons
+**NI Mate and add-ons**
 
 * Download [Delicode NI Mate](https://ni-mate.com/download/)
 * Download NI MATE MOCAP RIG v1.0 - 2.7x from [here](https://remington.pro/resources/assets/misc/nimate-mocap-rig/).
@@ -76,7 +72,7 @@ The NI-Mate app captures your movement in the camera and converts it to mocap da
 
 ## Hardware
 
-### Kinect V2
+**Kinect V2**
 
 Before we start, it’s important to note that everything in this post is about the Kinect for Xbox One, what most people call the Kinect Version 2 or the Kinect V2. The Kinect can track up to six skeletons having 25 joints, all at one time. The Kinect’s camera coordinates use the Kinect’s infrared sensor to find 3D points of the joints in space. These are the coordinates to use for joint positioning in 3D projects. For more details, refer to this [article](https://medium.com/@lisajamhoury/understanding-kinect-v2-joints-and-coordinate-system-4f4b90b9df16).
 
@@ -98,15 +94,11 @@ By downloading free add-ons and templates made available for a number of 3D soft
 
 ### Stage 1: Using Kinect V2 to get the bone joints onto an animated rig from Blender
 
-#### Kinect connections to Windows 10 PC
+**Kinect connections to Windows 10 PC**
 
 ![image](https://user-images.githubusercontent.com/24211929/73259031-e9463080-41ec-11ea-867c-2750aab8b87e.png)
 
-![image](https://user-images.githubusercontent.com/24211929/73251664-6074c800-41df-11ea-93e0-d5f6fbbce514.png)
-
-#### Delicode NI Mate
-
-##### Usage
+**Delicode NI Mate**
 
 Open Delicode NI Mate. On the left, you can find your sensor detected. If you click on `>` beside the sensor, you can choose to transmit the data you want to over an OSC port communication which will be used when we want to use the captured motion to be represented in Blender.
 
@@ -114,12 +106,12 @@ As I am going to opt for tracking of human body joints, I am going to choose `Sk
 
 You can `Start Sensor/Stop Sensor` at the top right if you want to restart your device.
 
-> ###### Detecting a User
+**Detecting a User**
 
 ![Delicode NI mate  2 14 Free - Default_ 28-01-2020 16_50_25](https://user-images.githubusercontent.com/24211929/73290627-c9326380-4224-11ea-8133-8978418bcfb2.png)
 
 
-> ###### Getting the Pose
+**Getting the Pose**
 
 ![Delicode NI mate  2 14 Free - Default_ 28-01-2020 16_50_13](https://user-images.githubusercontent.com/24211929/73290630-c9cafa00-4224-11ea-830b-a7f3df1bd986.png)
 
@@ -135,7 +127,7 @@ As of now, the pipeline looks something like the picture below.
 
 ![pipeline](https://user-images.githubusercontent.com/24211929/71520910-89562480-28e4-11ea-8fc5-a829d93af095.png)
 
-##### Rigging
+**Rigging**
 
 {% include elements/video.html id="1UPZtS5LVvw" %} 
 
@@ -153,7 +145,7 @@ This video shows us a blender rig which contains three collections, namely
 
 ![Blender_  D__vishal_blender_rc_nimate_rig_b2_79_usethis blend  28-01-2020 23_30_47](https://user-images.githubusercontent.com/24211929/73291481-3d213b80-4226-11ea-8f41-c292a47ff886.png)
 
-##### Tracking
+**Tracking**
 
 Once ready, either press `Ctrl+Alt+U` or `File -> User Preferences` and add the respective add-ons/plug-ins i.e, from NI Mate [Blender v2.4](https://ni-mate.com/download/). 
 
@@ -193,7 +185,7 @@ To copy the 3 layers from [rc_nimate_rig_b2_79.blend]() file, ensure the view is
 
 ![Blender  C__Users_IIITB_Downloads_IK_Arm_Example_rigging_with_kinect_demo_29jan blend  28-01-2020 23_58_40](https://user-images.githubusercontent.com/24211929/73293582-27ae1080-422a-11ea-936b-21bbf6d7ad2a.png)
 
-#### Adding Bone Contraints
+**Adding Bone Contraints**
 
 Bone contraints are needed to be added as there are more armatures in the IK rig than in the Capture Retargeted Armature. We have the arm assembled in such a way that only a few contraints are required to animate it in a way it is Biomimetic in real-time. 
 
@@ -207,7 +199,7 @@ Once these constraints have been added by selecting the `Pose Mode` in 3D viewpo
 
 ### Stage 4: Transfer serial data from the rigs in Blender to Arduino 
 
-#### Blender Controller
+**Blender Controller**
 
 ![Video](https://user-images.githubusercontent.com/24211929/72426222-569aa000-37af-11ea-8f76-4c122fa8cdb4.gif)
 
@@ -222,7 +214,7 @@ Additional changes have been added to he code to effectively send bone angles to
 
 ![Screenshot 15-01-2020 15_52_47](https://user-images.githubusercontent.com/24211929/72426076-163b2200-37af-11ea-998e-55999df9a72b.png)
 
-##### Blender Code
+**Blender Code**
 
 ```python
 import bpy
@@ -259,7 +251,7 @@ def frameChange(passedScene):
 bpy.app.handlers.frame_change_pre.append(frameChange)
 ```
 
-##### Arduino Code
+**Arduino Code**
 
 ```c
 #include <Servo.h>
@@ -305,7 +297,7 @@ void loop() {
 }
 ```
 
-# Experiments
+# Chapter 2: MoCap Experiments
 
 ## Joint Tracking versus Distance from Kinect V2
 
