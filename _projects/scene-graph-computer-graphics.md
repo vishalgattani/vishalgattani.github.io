@@ -1,8 +1,8 @@
 ---
-name: Scene Graph CG
+name: Computer Graphics
 tools: [C++, OpenGL]
 image: https://user-images.githubusercontent.com/24211929/73296133-203d3600-422f-11ea-97c6-5e7c3b5de993.gif
-description: Developing GUI for rendering, translation, scaling, 2D rendering, 3D interactive applications, mesh rendering with basic lighting; using MVC design pattern for software development and Learning mesh parametrization with texture mapping, and lighting; animation of a hierarchical model and tentatively, a virtual reality application.
+description: Developing GUI for rendering, translation, scaling, 2D rendering, 3D interactive applications, mesh rendering with basic lighting, mesh parametrization with texture mapping, and lighting; and animation of a hierarchical model.
 ---
 
 # Table of contents 
