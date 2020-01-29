@@ -303,6 +303,95 @@ void loop() {
 
 The purpose of this experiment is to analyse whether the tracking from Kinect V2, although seeming real-time, can result in variation of accuracy of the joint being tracked due to increase in distance from the Kinect sensor. According to [Microsoft Forum](https://social.msdn.microsoft.com/Forums/en-US/c95d3e40-6ed6-47a1-a206-5ff26c889c29/kinect-v2-maximum-range?forum=kinectv2sdk), the Kinect v2 can physically sense depth at 8 meters. So, Yes you can sense objects at 5m. The skeleton tracking range is 0.5m to 4.5m, and it has trouble finding a skeleton at closer than 1.5m because of the field of view of the camera. So the cameraZ value will usually fall somewhere between 1.5 and 4.5. However, 4.5 m  is where the system can reliably track body joints. Anything beyond 4.5 meters will lead to inconsistent results in body joints tracking.
 
+The Blender [file](https://github.com/vishalgattani/vishalgattani.github.io/blob/master/files/blender/IK_Arm_Example_rigging_with_kinect.blend) will enable us to capture graphs from joints and the angles between bone armatures as we track it.
+
+> Before we save the captured data in a `.csv` format to plot graphs using plotly, the recording should be done in the following order to ensure sync in time between different distance-based experiments. 
+> 1. Start the transmission through NI-mate add-on for all the joints.
+> 2. Click on the record button to start recording. This won't all recording to be saved in blender without pressing the `Play` button in the panel.
+> 3. Once record is clicked, click on the `Play` button to start inserting keyframes.
+> 4. When satisfied with the time for which motion is captured, click on `Pause` first to stop inserting more keyframes.
+> 5. Then click on recording button or `Stop` in NI Mate add-on in tool bar.
+
+After recording the motion, all the data is stored in blender's animation data. This section can be accessed through `id_data.animation_data` and using this ID to get the fcurve by `id_data.animation_data.action.fcurves`. The fcurve's keyframe points can be accessed using `fcurve<index=x,y,z>.keyframe_points`. The detailed code is given below.
+
+**Code for tracking Left Arm**
+
+```python
+import serial
+import pandas as pd
+import numpy as np
+import bpy
+import math
+import os
+from datetime import date
+os.system('cls')
+
+# utility function for searching fcurves
+def find_fcurve(id_data, path, index=0):
+    anim_data = id_data.animation_data
+    for fcurve in anim_data.action.fcurves:
+        if fcurve.data_path == path and fcurve.array_index == index:
+            return fcurve
+
+#for o in bpy.data.objects:
+#    print(o.name, type(o),o.keys())
+# index=2 for the Z curve. Just omit for single value properties.
+
+joints_tracked = []
+for i in bpy.data.objects:
+    joints_tracked.append(i.name)
+    #print(i)
+   
+     
+#keep_joints = ['Head', 'Left_Ankle', 'Left_Elbow', 'Left_Foot', 'Left_Hand', 'Left_Hip', 'Left_Knee', 'Left_Shoulder', 'Left_Wrist', 'Neck', 'Right_Ankle', 'Right_Elbow', 'Right_Foot', 'Right_Hand', 'Right_Hip', 'Right_Knee', 'Right_Shoulder', 'Right_Wrist', 'Torso','Right_Collar','Left_Collar']
+larm = ['Left_Shoulder','Left_Elbow','Left_Wrist','Left_Hand']
+only = list(set(larm) & set(joints_tracked))
+print(only,len(only))
+
+
+fcurves_x_list = []
+fcurves_y_list = []
+fcurves_z_list = []
+objects_fcurves_x_list = []
+objects_fcurves_y_list = []
+objects_fcurves_z_list = []
+
+for i in only:
+    fcurvex = find_fcurve(bpy.data.objects[i], "location", 0) # x axis
+    fcurvey = find_fcurve(bpy.data.objects[i], "location", 1) # y axis
+    fcurvez = find_fcurve(bpy.data.objects[i], "location", 2) # z axis
+    kfp_x = fcurvex.keyframe_points
+    kfp_y = fcurvey.keyframe_points
+    kfp_z = fcurvez.keyframe_points
+    objects_fcurves_x_list.append(kfp_x)
+    objects_fcurves_y_list.append(kfp_y)
+    objects_fcurves_z_list.append(kfp_z)
+   
+df_list = []
+for i in range(len(objects_fcurves_x_list)):
+    print("Creating dataframe: ",only[i])
+    df = pd.DataFrame(columns=['frame', 'x', 'y', 'z'])
+    for j in range(len(objects_fcurves_x_list[0])):
+        l = [objects_fcurves_x_list[i][j].co[0],objects_fcurves_x_list[i][j].co[1],objects_fcurves_y_list[i][j].co[1],objects_fcurves_z_list[i][j].co[1]]
+        df = df.append(pd.Series(l, index=['frame', 'x', 'y', 'z']), ignore_index=True)
+    df_list.append(df)
+
+today = date.today()
+d = today.strftime("%b-%d-%Y")
+print("Saving...")
+for i in range(len(df_list)):
+    df_list[i].to_csv(str(d)+" "+only[i]+'.csv',index=False)
+print("Saved.")
+
+```
+
+This code returns a `.csv` file for every joint with the respective frame numbers, x-axis, y-axis, z-axis coordinate values as taken from Delicode NI Mate's output with the `Sensor as Origin`.
+
+I will run this from varied distances away from the sensor to analyse the recorded motion with respect to distance.
+
+
+
+
 
 
 
