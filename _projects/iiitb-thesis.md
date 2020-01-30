@@ -14,8 +14,6 @@ description: Biomimetic Arm using Motion Capture and Inverse Kinematics.
 
 #  Introduction
 
-Biomimetic Arm with Motion Capture v/s Inverse Kinematics
-
 - Human upper limb motion captured through Kinect V2 will be transmitted to various actuators that act as joints on the prosthetic arm.
 - The captured data, joint coordinates and angles, will be transmitted through a serial port to arduino and dynamixel shield in order to actuate the servos accordingly.
 - The data from both, Motion Capture and Inverse Kinematics, will be synthesised and compared to establish if correlation points exist between the experiments.
@@ -48,13 +46,30 @@ To build your very own motion capture studio, you are required to install the ce
 
 ## Software
 
-**Blender 2.78**
+### Blender 2.78
 
 You can download any release of Blender from [here](https://download.blender.org/release/).
 
 The project aims at producing simulations of bone/joints, depth and infrared buffer produced by a Kinect V2 which will be used to transmit the bone data through a serial port into an arduino board. The simulation consists of the [NI Mate Mocap Rig](https://remington.pro/resources/assets/misc/nimate-mocap-rig/) is a specially made rig for conduction motion capture with an Xbox Kinect, NI Mate, and Blender 3D.
 
-**Kinect SDK 2.0 and Kinect Runtime 2.0**
+As we also need to write certain scripts in python for capturing joint graphs and communicating serially, we need to  install Anaconda to ease the process of installing python libraries. In order to do this, we have to forst open python console in Blender. We see that we have `PYTHON INTERACTIVE CONSOLE 3.x.x`. For me it was 3.5.1,  so we have to  create an environment of python 3.5.1 and install the necessary packages.
+
+> Steps:
+> 1. Locate where the python is stored for Blender software. 
+> 2. Replace the folder name `python` with `___python` which deferences the location as it looking for the python folder.
+> 3. Open an Anaconda Prompt using administrator privileges.
+> 4. Type in `$ conda create  -n <name of environment> python=3.x.x` where name of the environment can be anything and choose the version for the python to be install same as that of the Blender Python Console.
+> 5. Navigate to the created environment in Anaconda folder in `Users -> Anaconda -> envs` to check if new environment is created.
+> 6. In the prompt, type `$activate <name of environment>`.
+> 7. Open another Anaconda Prompt and change directory into where python is stored for blender i.e, `___python`.
+> 8. In the second prompt, we type in `$ Mklink /j python C:\Users\<username>\Anaconda\envs\<name of environment>`. This creates a link from the python in the new environment created to the python that blender uses.
+> 9. Install any new libraries after activating the new environment in the first prompt which will reflect in Blender Python Console.
+
+You are now ready to script in Blender using packages installed from Anaconda Prompt using `pip` or `conda`.
+
+
+
+### Kinect SDK 2.0 and Kinect Runtime 2.0
 
 * [KinectSDK-v2.0_1409-Setup.exe](https://www.microsoft.com/en-in/download/details.aspx?id=44561)
 * [KinectRuntime-v2.0_1409-Setup.exe](https://www.microsoft.com/en-us/download/details.aspx?id=44559)
@@ -63,7 +78,11 @@ The Kinect for Windows Software Development Kit (SDK) 2.0 enables developers to 
 
 The Kinect for Windows Runtime provides the drivers and runtime environment required by Kinect for Windows applications using Kinect sensor technology.
 
-**NI Mate and add-ons**
+
+
+
+
+### NI Mate and add-ons
 
 * Download [Delicode NI Mate](https://ni-mate.com/download/)
 * Download NI MATE MOCAP RIG v1.0 - 2.7x from [here](https://remington.pro/resources/assets/misc/nimate-mocap-rig/).
@@ -72,7 +91,7 @@ The NI-Mate app captures your movement in the camera and converts it to mocap da
 
 ## Hardware
 
-**Kinect V2**
+### Kinect V2
 
 Before we start, it’s important to note that everything in this post is about the Kinect for Xbox One, what most people call the Kinect Version 2 or the Kinect V2. The Kinect can track up to six skeletons having 25 joints, all at one time. The Kinect’s camera coordinates use the Kinect’s infrared sensor to find 3D points of the joints in space. These are the coordinates to use for joint positioning in 3D projects. For more details, refer to this [article](https://medium.com/@lisajamhoury/understanding-kinect-v2-joints-and-coordinate-system-4f4b90b9df16).
 
@@ -388,6 +407,25 @@ print("Saved.")
 This code returns a `.csv` file for every joint with the respective frame numbers, x-axis, y-axis, z-axis coordinate values as taken from Delicode NI Mate's output with the `Sensor as Origin`.
 
 I will run this from varied distances away from the sensor to analyse the recorded motion with respect to distance.
+
+The file which will be used to keep track of graphs is [here](https://github.com/vishalgattani/vishalgattani.github.io/blob/master/files/blender/IK_Arm_Example_rigging_with_kinect_graphs_leftarm.blend).
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
