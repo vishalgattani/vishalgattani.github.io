@@ -648,16 +648,46 @@ However, due to the repetition of motion over varied distances we can see for ou
 
 ### Graphs
 
+When referring to the **Mesh**, I mean the following rig.
+
+![Blender_  D__vishal_chapters_graphs vs distance_IK_Arm_Example_rigging_with_kinect_demo_29jan_record_new_3_withcode_1 blend  04-02-2020 23_28_40](https://user-images.githubusercontent.com/24211929/73772445-276fc100-47a6-11ea-8f1e-d6411066aad2.png)
+
+When referring to the **F-Curves**, the following coordinate data from the capture and retargeted armature is taken for consideration.
+
+![Blender_  D__vishal_chapters_graphs vs distance_IK_Arm_Example_rigging_with_kinect_demo_29jan_record_new_3_withcode_1 blend  04-02-2020 23_29_14](https://user-images.githubusercontent.com/24211929/73772448-276fc100-47a6-11ea-88b8-17e1b4a26218.png)
+
 The motion that was repeated over the distance is as follows. The blender rig has been modified to capture the motion through the kinect over the distances of 1m,2m,3m and 4m and then the graphs were generated using plotly.
 
 ![ezgif com-video-to-gif (3)](https://user-images.githubusercontent.com/24211929/73770273-23da3b00-47a2-11ea-8fda-705571fa2ca0.gif)
 
 The elbow angles for every meter away from the sensor is plotted from the coordinate data available from the kinect sensor through the NI mate add-on.
 
+The F-Curve data from different distances are taken and compared against each other. Though it may seem that these graphs show very little correlation, the response difference is due to the error in recorded the same motion at the exact time as any other recording. However, looking at the bone angles taken during 3 meters and 4 meters, we can safely say that the deviation in the angles which will be transmitted to actuate the dynamixels is very little and has only little to no effect.
+
+<div>
+    <a href="https://plot.ly/~vishalgattani/20/?share_key=e4orq2TEO7il8QAYB479x5" target="_blank" title="Fcurve Elbow Angles vs Distance" style="display: block; text-align: center;"><img src="https://plot.ly/~vishalgattani/20.png?share_key=e4orq2TEO7il8QAYB479x5" alt="Fcurve Elbow Angles vs Distance" style="max-width: 100%;width: 600px;"  width="600" onerror="this.onerror=null;this.src='https://plot.ly/404.png';" /></a>
+    <script data-plotly="vishalgattani:20" sharekey-plotly="e4orq2TEO7il8QAYB479x5" src="https://plot.ly/embed.js" async></script>
+</div>
+
+After receiving the data from the kinect and NI mate add-on and mapping the motion to the IK Arm and then comparing the joint angles in the retargeted rig and the IK Arm rig, we can see that the motion closely resembles that of the recorded motion adn that the transmission from the IK Arm rig to the Dynamixels will be efficient upto a maximum angle difference of 9-10 degrees for rapid motions as it experiences the delay due to the frames per second recording of the kinect.
+
 <div>
     <a href="https://plot.ly/~vishalgattani/18/?share_key=p4u01NOv3N6qOe0DCzdwtz" target="_blank" title="Elbow Angles vs Distance" style="display: block; text-align: center;"><img src="https://plot.ly/~vishalgattani/18.png?share_key=p4u01NOv3N6qOe0DCzdwtz" alt="Elbow Angles vs Distance" style="max-width: 100%;width: 600px;"  width="600" onerror="this.onerror=null;this.src='https://plot.ly/404.png';" /></a>
     <script data-plotly="vishalgattani:18" sharekey-plotly="p4u01NOv3N6qOe0DCzdwtz" src="https://plot.ly/embed.js" async></script>
 </div>
+
+
+<div>
+    <a href="https://plot.ly/~vishalgattani/22/?share_key=Nve4ieLly1TkGPerTiOGjX" target="_blank" title="Elbow Angles vs Distance Comparison" style="display: block; text-align: center;"><img src="https://plot.ly/~vishalgattani/22.png?share_key=Nve4ieLly1TkGPerTiOGjX" alt="Elbow Angles vs Distance Comparison" style="max-width: 100%;width: 600px;"  width="600" onerror="this.onerror=null;this.src='https://plot.ly/404.png';" /></a>
+    <script data-plotly="vishalgattani:22" sharekey-plotly="Nve4ieLly1TkGPerTiOGjX" src="https://plot.ly/embed.js" async></script>
+</div>
+
+
+Following these set of graphs, individual bone angles with respect to the x,y and z-axis will be taken into consideration to check the wrist flexion and extension, wrist abduction and adduction along with ulnar and radial deviation, and shoulder abduction and adduction, shoulder flexion and extension, humeral rotation, and wrist pronation and sulpination. 
+
+![image](https://user-images.githubusercontent.com/24211929/73772784-da401f00-47a6-11ea-80a6-ff425afa4ae0.png)
+
+Inorder to get these angles and rotations, I will need to get the bone matrix and figure out the angles with respect to the coordinate axes. Then I will be able to actuate the dynamixels according to their positions on the prosthetic arm.
 
 
 
