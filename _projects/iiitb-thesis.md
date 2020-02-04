@@ -264,8 +264,8 @@ def sendAngles():
         print(val)
         ser.write((val).encode('UTF-8'))
 
-def frameChange(passedScene):	
-	sendAngles()
+def frameChange(passedScene): 
+  sendAngles()
     
 bpy.app.handlers.frame_change_pre.append(frameChange)
 ```
@@ -411,8 +411,253 @@ I will run this from varied distances away from the sensor to analyse the record
 The file which will be used to keep track of graphs is [here](https://github.com/vishalgattani/vishalgattani.github.io/blob/master/files/blender/IK_Arm_Example_rigging_with_kinect_graphs_leftarm.blend).
 
 
+**Updated Code for tracking Left Arm**
+
+**To track the mesh rig**
+
+```python
+
+import bpy
+import pandas as pd
+from math import degrees
+import numpy as np
+
+def findAnglesBetweenTwoVectors1(v1s, v2s):
+    dot = np.einsum('ijk,ijk->ij',[v1s,v1s,v2s],[v2s,v1s,v2s])
+    return np.degrees(np.arccos(dot[0,:]/(np.sqrt(dot[1,:])*np.sqrt(dot[2,:]))))
 
 
+
+context = bpy.context
+ob = context.object
+# middle of thigh
+tb = ob.pose.bones[2]
+print(tb)
+B = (tb.head + tb.tail) / 2
+
+# the active pose bone
+pb = context.active_pose_bone
+
+print(pb)
+A = pb.head
+C = pb.tail
+
+# angle AB BC
+alpha = (A - B).angle(C - B)
+print(degrees(alpha))
+
+sce = bpy.context.scene
+ob = bpy.context.object
+
+
+
+animation_data = []
+for f in range(sce.frame_start, sce.frame_end+1):
+    sce.frame_set(f)
+    
+    framenum = []
+    #for pbone in ob.pose.bones:
+        #print(pbone.name, pbone.matrix, pbone.head, pbone.tail, pbone.head-pbone.tail)
+        #print(pbone.name, pbone.head, pbone.tail, pbone.head-pbone.tail) 
+        
+    shoulder = ob.pose.bones[2]
+    arma = ob.pose.bones[3]
+    armb = ob.pose.bones[4]
+    armc = ob.pose.bones[5]
+    armd = ob.pose.bones[6]
+    hand = ob.pose.bones[7]
+    
+    v1 = shoulder.tail - shoulder.head
+    v2 = arma.head - arma.tail
+    shouldertoarm = v1.angle(v2)
+    
+    v1 = armb.head - armb.tail
+    v2 = armc.head - armc.tail
+    elbow = v1.angle(v2)
+    
+    v1 = armd.tail - armd.head
+    v2 = hand.head - hand.tail
+    wrist = v1.angle(v2)
+    
+    data = [f, degrees(shouldertoarm),180 - degrees(elbow),degrees(wrist)]
+    animation_data.append(data)
+    print("Frame %i" % f, data)
+
+        
+  
+    
+df = pd.DataFrame(animation_data,columns=['frame', 'shoulder to arm angle', 'elbow angle', 'hand to wrist angle'])
+
+df.to_csv('Mesh Arm Data.csv',index=False)
+```
+
+
+**To track the F-Curve data coming from Kinect and NI Mate** 
+
+```python
+import serial
+import pandas as pd
+import numpy as np
+import bpy
+import math
+import os
+from datetime import date
+import mathutils
+
+os.system('cls')
+
+import numpy as np
+import numpy.linalg as la
+
+def py_ang(v1, v2):
+    """ Returns the angle in radians between vectors 'v1' and 'v2'    """
+    cosang = np.dot(v1, v2)
+    sinang = la.norm(np.cross(v1, v2))
+    return np.arctan2(sinang, cosang)
+
+
+# utility function for searching fcurves
+def find_fcurve(id_data, path, index=0):
+    anim_data = id_data.animation_data
+    for fcurve in anim_data.action.fcurves:
+        if fcurve.data_path == path and fcurve.array_index == index:
+            return fcurve
+
+#for o in bpy.data.objects:
+#    print(o.name, type(o),o.keys())
+# index=2 for the Z curve. Just omit for single value properties.
+
+joints_tracked = []
+for i in bpy.data.objects:
+    joints_tracked.append(i.name) 
+    print(i)
+
+#keep_joints = ['Head', 'Left_Ankle', 'Left_Elbow', 'Left_Foot', 'Left_Hand', 'Left_Hip', 'Left_Knee', 'Left_Shoulder', 'Left_Wrist', 'Neck', 'Right_Ankle', 'Right_Elbow', 'Right_Foot', 'Right_Hand', 'Right_Hip', 'Right_Knee', 'Right_Shoulder', 'Right_Wrist', 'Torso','Right_Collar','Left_Collar'] 
+larm = ['Left_Shoulder','Left_Elbow','Left_Wrist','Left_Hand']
+only = list(set(larm) & set(joints_tracked))
+print(only,len(only))
+
+
+fcurves_x_list = []
+fcurves_y_list = []
+fcurves_z_list = []
+objects_fcurves_x_list = []
+objects_fcurves_y_list = []
+objects_fcurves_z_list = []
+
+for i in only:
+    fcurvex = find_fcurve(bpy.data.objects[i], "location", 0)
+    fcurvey = find_fcurve(bpy.data.objects[i], "location", 1)
+    fcurvez = find_fcurve(bpy.data.objects[i], "location", 2)
+    kfp_x = fcurvex.keyframe_points
+    kfp_y = fcurvey.keyframe_points
+    kfp_z = fcurvez.keyframe_points
+    objects_fcurves_x_list.append(kfp_x)
+    objects_fcurves_y_list.append(kfp_y)
+    objects_fcurves_z_list.append(kfp_z)
+    
+df_list = []
+for i in range(len(objects_fcurves_x_list)):
+    print("Creating dataframe: ",only[i])
+    df = pd.DataFrame(columns=['frame', only[i]+'_x', only[i]+'_y', only[i]+'_z'])
+    for j in range(len(objects_fcurves_x_list[0])):
+        l = [objects_fcurves_x_list[i][j].co[0],objects_fcurves_x_list[i][j].co[1],objects_fcurves_y_list[i][j].co[1],objects_fcurves_z_list[i][j].co[1]]
+        df = df.append(pd.Series(l, index=['frame', only[i]+'_x', only[i]+'_y', only[i]+'_z']), ignore_index=True)
+    df_list.append(df)
+    
+
+dfx = pd.concat([d.set_index('frame') for d in df_list], axis=1).reset_index()
+print(dfx.columns)
+
+dfx["shoulder_to_elbow_x"] = dfx["Left_Elbow_x"] - dfx["Left_Shoulder_x"] 
+dfx["shoulder_to_elbow_y"] = dfx["Left_Elbow_y"] - dfx["Left_Shoulder_y"] 
+dfx["shoulder_to_elbow_z"] = dfx["Left_Elbow_z"] - dfx["Left_Shoulder_z"] 
+
+dfx["elbow_to_hand_x"] = dfx["Left_Hand_x"] - dfx["Left_Elbow_x"] 
+dfx["elbow_to_hand_y"] = dfx["Left_Hand_y"] - dfx["Left_Elbow_y"] 
+dfx["elbow_to_hand_z"] = dfx["Left_Hand_z"] - dfx["Left_Elbow_z"] 
+
+dfx["hand_to_wrist_x"] = dfx["Left_Wrist_x"] - dfx["Left_Hand_x"] 
+dfx["hand_to_wrist_y"] = dfx["Left_Wrist_y"] - dfx["Left_Hand_y"] 
+dfx["hand_to_wrist_z"] = dfx["Left_Wrist_z"] - dfx["Left_Hand_z"] 
+
+dfx['shoulder_to_elbow'] = dfx[["shoulder_to_elbow_x","shoulder_to_elbow_y","shoulder_to_elbow_z"]].values.tolist()
+dfx['elbow_to_hand'] = dfx[["elbow_to_hand_x","elbow_to_hand_y","elbow_to_hand_z"]].values.tolist()
+dfx['hand_to_wrist'] = dfx[["hand_to_wrist_x","hand_to_wrist_y","hand_to_wrist_z"]].values.tolist()
+
+def findAnglesBetweenTwoVectors1(v1s, v2s):
+    dot = np.einsum('ijk,ijk->ij',[v1s,v1s,v2s],[v2s,v1s,v2s])
+    return np.degrees(np.arccos(dot[0,:]/(np.sqrt(dot[1,:])*np.sqrt(dot[2,:]))))
+
+
+v0 = np.array(dfx['shoulder_to_elbow'].values.tolist()) 
+v1 = np.array(dfx['elbow_to_hand'].values.tolist()) 
+v2 = np.array(dfx['hand_to_wrist'].values.tolist()) 
+
+
+elbow_angle = findAnglesBetweenTwoVectors1(v1,-v0)
+wrist_angle = findAnglesBetweenTwoVectors1(v2,v1)
+
+dfx['elbow_angle'] = np.array(elbow_angle)
+dfx['wrist_angle'] = np.array(wrist_angle)
+
+#print(dfx)
+#today = date.today()
+#d = today.strftime("%b-%d-%Y")
+#print("Saving...")
+#for i in range(len(df_list)):
+#    df_list[i].to_csv(only[i]+'.csv',index=False)
+#print("Saved.")
+
+dfx.to_csv('Fcurve Data.csv',index=False)
+
+```
+
+**Python Plotly to plot graphs**
+
+```python 
+from _plotly_future_ import v4_subplots
+import plotly.plotly as py
+import plotly.graph_objs as go
+import pandas as pd
+import plotly.figure_factory as ff
+
+fig = plotly.tools.make_subplots(rows=2, cols=2,shared_xaxes=True,subplot_titles=("Plot 1", "Plot 2", "Plot 3", "Plot 4"))
+
+fig.add_trace(go.Scatter(x=fcurve1.frame, y=fcurve1.elbow_angle,name='fcurve1 1'),row=1,col=1)
+fig.add_trace(go.Scatter(x=mesh1.frame, y=mesh1['elbow angle'],name='mesh1 1'),row=1,col=1)
+
+fig.add_trace(go.Scatter(x=fcurve2.frame, y=fcurve2.elbow_angle,name='fcurve2 2'),row=1,col=2)
+fig.add_trace(go.Scatter(x=mesh2.frame, y=mesh2['elbow angle'],name='mesh2 2'),row=1,col=2)
+
+fig.add_trace(go.Scatter(x=fcurve3.frame, y=fcurve3.elbow_angle,name='fcurve3 3'),row=2,col=1)
+fig.add_trace(go.Scatter(x=mesh3.frame, y=mesh3['elbow angle'],name='mesh3 3'),row=2,col=1)
+
+fig.add_trace(go.Scatter(x=fcurve4.frame, y=fcurve4.elbow_angle,name='fcurve4 4'),row=2,col=2)
+fig.add_trace(go.Scatter(x=mesh4.frame, y=mesh4['elbow angle'],name='mesh4 4'),row=2,col=2)
+
+fig.layout.update({'title': 'Elbow Angles vs Distance'})
+fig.show()
+
+plotly.offline.plot(fig, filename='Elbow Angles vs Distance.html',auto_open = False)
+```
+
+After having tracked the joint trajectories and their respective bone angles that the armature makes after mapping it from the kinect's NI-mate rig to the IK Arm Example rig, I have come to the conclusion that there isn't much of a deviation in the angles with respect to the distance. A maximum of 8-9 degrees has been observed which might be due to the retargeted armature which doesn't fully align with respect to the captured armature from NI mate into the blender. 
+
+However, due to the repetition of motion over varied distances we can see for ourselves that the motion remains mapped as expected onto the armature and the angles closely resemble to that of the actual human arm. We could further analyse by creating such graphs in belnder and having some sensor attached onto the prosthetic arm and figure out the variation and also attach the same sensor on the person whose arm is being tracked. This will establish a closed-loop system and could improve the accuracy of the system in general.
+
+### Graphs
+
+The motion that was repeated over the distance is as follows. The blender rig has been modified to capture the motion through the kinect over the distances of 1m,2m,3m and 4m and then the graphs were generated using plotly.
+
+![ezgif com-video-to-gif (3)](https://user-images.githubusercontent.com/24211929/73770273-23da3b00-47a2-11ea-8fda-705571fa2ca0.gif)
+
+The elbow angles for every meter away from the sensor is plotted from the coordinate data available from the kinect sensor through the NI mate add-on.
+
+<div>
+    <a href="https://plot.ly/~vishalgattani/18/?share_key=p4u01NOv3N6qOe0DCzdwtz" target="_blank" title="Elbow Angles vs Distance" style="display: block; text-align: center;"><img src="https://plot.ly/~vishalgattani/18.png?share_key=p4u01NOv3N6qOe0DCzdwtz" alt="Elbow Angles vs Distance" style="max-width: 100%;width: 600px;"  width="600" onerror="this.onerror=null;this.src='https://plot.ly/404.png';" /></a>
+    <script data-plotly="vishalgattani:18" sharekey-plotly="p4u01NOv3N6qOe0DCzdwtz" src="https://plot.ly/embed.js" async></script>
+</div>
 
 
 
@@ -504,7 +749,7 @@ Follow these links:
 * Download RoboPlus 1.1.3: [here](http://en.robotis.com/service/downloadpage.php?ca_id=10)
 * RoboPlus help: [here](http://support.robotis.com/en/software/roboplus_main.htm)
 * Github for [DynaManager repo](https://github.com/Interbotix/dynaManager/releases)
-* Download [DynaManager](https://github.com/Interbotix/dynaManager/releases/tag/1.3)	
+* Download [DynaManager](https://github.com/Interbotix/dynaManager/releases/tag/1.3)  
 
 RoboPlus is needed for [Dynamixel Wizard](http://support.robotis.com/en/software/roboplus/dynamixel_wizard.htm).
 
@@ -517,7 +762,7 @@ Since we are going to do all our programming in Arduino, we would need an Arduin
 [Quick Start Guide](https://learn.trossenrobotics.com/arbotix/7-arbotix-quick-start-guide)
 
 To setup ID's using the Arbotix-M board:
-	
+  
 {% include elements/video.html id="SCO_8nrldDE" %}
 
 
@@ -680,11 +925,11 @@ SetPosition(1, 2500);
 
 - Can power only one/two servo motors
 - Additional Boards ordered for actuating multiple motors namely
-	- PCA9685
-	![](https://robu.in/wp-content/uploads/2017/09/1pcs-16-Channel-12-bit-PWM-Servo-Driver-I2C-interface-PCA9685-for-Arduino-Raspberry-Pi-DIY.jpg)
+  - PCA9685
+  ![](https://robu.in/wp-content/uploads/2017/09/1pcs-16-Channel-12-bit-PWM-Servo-Driver-I2C-interface-PCA9685-for-Arduino-Raspberry-Pi-DIY.jpg)
 
-	- 16x12-Bit PWM Servo Shield
-	![image](https://user-images.githubusercontent.com/24211929/72687392-51c54b80-3b23-11ea-9dbe-92b64d22040c.png)
+  - 16x12-Bit PWM Servo Shield
+  ![image](https://user-images.githubusercontent.com/24211929/72687392-51c54b80-3b23-11ea-9dbe-92b64d22040c.png)
 
 ### Multiple Fingers - Power Supply used
 
@@ -735,7 +980,7 @@ def sendAngles():
     print(rot)
         
 def frameChange(passedScene):
-	sendAngles()
+  sendAngles()
     
 bpy.app.handlers.frame_change_pre.append(frameChange)
 ```
@@ -810,8 +1055,8 @@ def sendAngles():
     ser.write((val).encode('UTF-8'))
 
 def frameChange(passedScene):
-	sendAngles()    
-	
+  sendAngles()    
+  
 bpy.app.handlers.frame_change_pre.append(frameChange)
 ```
 
@@ -864,7 +1109,7 @@ void loop() {
         int angles=parseString(incoming);
         angles = map(angles,0, 90, 140, 11);
         angles = int(angles);
-	writeValues(angles);
+  writeValues(angles);
     }
 }
 ```
@@ -975,7 +1220,7 @@ void loop() {
         int angles=parseString(incoming);
         angles = map(angles,0, 90, 140, 11);
         angles = int(angles);
-	writeValues(angles);
+  writeValues(angles);
     }
 }
 ```
