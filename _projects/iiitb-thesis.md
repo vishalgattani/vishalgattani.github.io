@@ -677,6 +677,7 @@ After receiving the data from the kinect and NI mate add-on and mapping the moti
 </div>
 
 
+
 <div>
     <a href="https://plot.ly/~vishalgattani/22/?share_key=Nve4ieLly1TkGPerTiOGjX" target="_blank" title="Elbow Angles vs Distance Comparison" style="display: block; text-align: center;"><img src="https://plot.ly/~vishalgattani/22.png?share_key=Nve4ieLly1TkGPerTiOGjX" alt="Elbow Angles vs Distance Comparison" style="max-width: 100%;width: 600px;"  width="600" onerror="this.onerror=null;this.src='https://plot.ly/404.png';" /></a>
     <script data-plotly="vishalgattani:22" sharekey-plotly="Nve4ieLly1TkGPerTiOGjX" src="https://plot.ly/embed.js" async></script>
@@ -763,6 +764,55 @@ The terminology can be explained by the following videos for better understandin
 These gifs are taken from [Mobius Bionics](https://www.mobiusbionics.com/luke-arm/#section-four) for the sole purpose of understanding the terminology.
 
 The graphs of the armature bone `arma` are plotted and analysed for futher insight.
+
+<div>
+    <a href="https://plot.ly/~vishalgattani/28/?share_key=JYaOhCXaWD1zNlEJDA315M" target="_blank" title="Shoulder Armature Bone Angles" style="display: block; text-align: center;"><img src="https://plot.ly/~vishalgattani/28.png?share_key=JYaOhCXaWD1zNlEJDA315M" alt="Shoulder Armature Bone Angles" style="max-width: 100%;width: 600px;"  width="600" onerror="this.onerror=null;this.src='https://plot.ly/404.png';" /></a>
+    <script data-plotly="vishalgattani:28" sharekey-plotly="JYaOhCXaWD1zNlEJDA315M" src="https://plot.ly/embed.js" async></script>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
