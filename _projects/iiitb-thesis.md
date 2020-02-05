@@ -770,7 +770,9 @@ The graphs of the armature bone `arma` are plotted and analysed for futher insig
     <script data-plotly="vishalgattani:28" sharekey-plotly="JYaOhCXaWD1zNlEJDA315M" src="https://plot.ly/embed.js" async></script>
 </div>
 
+From these graphs we can see that the motion, being similar, has resulted in the armature angles to be similar as well. These values, therefore, will not result in massive changes when applied to the prosthetic arm through the Dynamixel motors using Arbotix-M board. 
 
+Furthermore, the need to calculate the humeral rotation and the wrist pronation and supination will enable finer control of the prosthetic arm using Blender. Inorder to achieve these results, the kinect will have to first detect the rotation through the NI mate add-on. Moreover, the radial and ulnar deviation of the wrist and its extension and flexion as detected by the kinect are constrained to a specific range. This range will be calculated next.
 
 
 
