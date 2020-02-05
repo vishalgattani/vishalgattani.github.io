@@ -690,7 +690,7 @@ Following these set of graphs, individual bone angles with respect to the x,y an
 
 Inorder to get these angles and rotations, I will need to get the bone matrix and figure out the angles with respect to the coordinate axes. Then I will be able to actuate the dynamixels according to their positions on the prosthetic arm.
 
-TO begin with, we first need to understand the positioning and the terminology surrounding the armatures in blender. I will be dealing with vectors and matrices and hence, it is important to know which frame values, local or global, will be transmitted serially to the Arbotix-M robocontroller. 
+To begin with, we first need to understand the positioning and the terminology surrounding the armatures in blender. I will be dealing with vectors and matrices and hence, it is important to know which frame values, local or global, will be transmitted serially to the Arbotix-M robocontroller. 
 
 
 ![image](https://user-images.githubusercontent.com/24211929/73831999-53825500-482d-11ea-8541-28aa4734f16e.png)
@@ -761,6 +761,14 @@ The terminology can be explained by the following videos for better understandin
 **Elbow Extension and Flexion**
 ![elbow-flexion](https://user-images.githubusercontent.com/24211929/73836246-d65ade00-4834-11ea-88c6-e41a2a6faa42.gif)
 
+**Wrist Pronation and Supination**
+![Wrist-pronation_1](https://user-images.githubusercontent.com/24211929/73865988-17b9b080-486a-11ea-8071-a195cf914ed3.gif)
+
+**Humeral Rotation**
+![humeral-rotation](https://user-images.githubusercontent.com/24211929/73866494-f4dbcc00-486a-11ea-90c0-f80bec7b28c0.gif)
+
+
+
 These gifs are taken from [Mobius Bionics](https://www.mobiusbionics.com/luke-arm/#section-four) for the sole purpose of understanding the terminology.
 
 The graphs of the armature bone `arma` are plotted and analysed for futher insight.
@@ -772,7 +780,116 @@ The graphs of the armature bone `arma` are plotted and analysed for futher insig
 
 From these graphs we can see that the motion, being similar, has resulted in the armature angles to be similar as well. These values, therefore, will not result in massive changes when applied to the prosthetic arm through the Dynamixel motors using Arbotix-M board. 
 
-Furthermore, the need to calculate the humeral rotation and the wrist pronation and supination will enable finer control of the prosthetic arm using Blender. Inorder to achieve these results, the kinect will have to first detect the rotation through the NI mate add-on. Moreover, the radial and ulnar deviation of the wrist and its extension and flexion as detected by the kinect are constrained to a specific range. This range will be calculated next.
+Furthermore, the need to calculate the humeral rotation and the wrist pronation and supination will enable finer control of the prosthetic arm using Blender. Inorder to achieve these results, the kinect will have to first detect the rotation through the NI mate add-on. 
+
+To detect or incorporate humeral twist amount on our prosthetic arm, Blender enables us to calculate the bone roll and apply it onto our rig. 
+
+![roll](https://user-images.githubusercontent.com/24211929/73858739-e38cc280-485e-11ea-8426-1ff0f6f74599.gif)
+
+This bone roll will help us in the calculation of wrist pronation and supination in addition to the humeral rotation.
+
+The following code allows for the calculation of bone roll in the local space of the bone. The local space of the bone is highlighted in white which will be used for humeral rotation if needed. For humderal rotation, `armb` is used to rotate and for wrist pronation and supination `armd` is used.
+
+**Wrist Pronation and Supination - `armd`**
+
+![Blender_  D__vishal_files_blender_blendercontroller_global_angles_roll_angles blend  05-02-2020 22_43_13](https://user-images.githubusercontent.com/24211929/73865359-218ee400-4869-11ea-83c4-708b0a719188.png)
+
+![Blender_  D__vishal_files_blender_blendercontroller_global_angles_roll_angles blend  05-02-2020 22_43_26](https://user-images.githubusercontent.com/24211929/73865360-218ee400-4869-11ea-9d8b-fb2eb1ced06d.png)
+
+**Humeral Rotation - `armb`**
+
+![Blender_  D__vishal_files_blender_blendercontroller_global_angles_roll_angles blend  05-02-2020 22_49_38](https://user-images.githubusercontent.com/24211929/73865987-17b9b080-486a-11ea-975f-c80843f023ee.png)
+
+![Blender_  D__vishal_files_blender_blendercontroller_global_angles_roll_angles blend  05-02-2020 22_50_10](https://user-images.githubusercontent.com/24211929/73865986-17b9b080-486a-11ea-9aeb-d8a69d2550b3.png)
+
+![Blender_  D__vishal_files_blender_blendercontroller_global_angles_roll_angles blend  05-02-2020 22_59_53](https://user-images.githubusercontent.com/24211929/73866661-38ced100-486b-11ea-84a9-ef78b1219440.png)
+
+![Blender_  D__vishal_files_blender_blendercontroller_global_angles_roll_angles blend  05-02-2020 23_00_08](https://user-images.githubusercontent.com/24211929/73866662-38ced100-486b-11ea-8eb5-bc07dfe3b50b.png)
+
+```python
+import bpy
+import math
+import time
+import sys
+import serial
+import glob
+import os
+os.system('cls')
+
+from mathutils import Vector
+
+#port=''.join(glob.glob("/dev/ttyUSB*"))
+#ser = serial.Serial('COM3',9600)
+#print("connected to: " + ser.portstr)
+
+ob = bpy.data.objects['Armature']
+bpy.context.scene.objects.active = ob
+
+wristrot = bpy.context.scene.objects['Armature']
+wr = wristrot.pose.bones['armd']
+
+bpy.ops.object.mode_set(mode='POSE')
+
+shoulder = ob.pose.bones.get("shoulder")
+arma = ob.pose.bones.get("arma")
+armb = ob.pose.bones.get("armb")
+armc = ob.pose.bones.get("armd")
+armd = ob.pose.bones.get("armd")
+hand = ob.pose.bones.get("hand")
+
+shoulder_xangle = math.degrees(Vector((1,0,0)).angle(shoulder.tail - shoulder.head))
+shoulder_yangle = math.degrees(Vector((0,1,0)).angle(shoulder.tail - shoulder.head))
+shoulder_zangle = math.degrees(Vector((0,0,1)).angle(shoulder.tail - shoulder.head))
+
+arma_x_angle = math.degrees(Vector((1,0,0)).angle(arma.tail - arma.head))
+arma_y_angle = math.degrees(Vector((0,1,0)).angle(arma.tail - arma.head))
+arma_z_angle = math.degrees(Vector((0,0,1)).angle(arma.tail - arma.head))
+
+armb_x_angle = math.degrees(Vector((1,0,0)).angle(armb.tail - armb.head))
+armb_y_angle = math.degrees(Vector((0,1,0)).angle(armb.tail - armb.head))
+armb_z_angle = math.degrees(Vector((0,0,1)).angle(armb.tail - armb.head))
+
+armc_x_angle = math.degrees(Vector((1,0,0)).angle(armc.tail - armc.head))
+armc_y_angle = math.degrees(Vector((0,1,0)).angle(armc.tail - armc.head))
+armc_z_angle = math.degrees(Vector((0,0,1)).angle(armc.tail - armc.head))
+
+armd_x_angle = math.degrees(Vector((1,0,0)).angle(armd.tail - armd.head))
+armd_y_angle = math.degrees(Vector((0,1,0)).angle(armd.tail - armd.head))
+armd_z_angle = math.degrees(Vector((0,0,1)).angle(armd.tail - armd.head))
+
+hand_x_angle = math.degrees(Vector((1,0,0)).angle(hand.tail - hand.head))
+hand_y_angle = math.degrees(Vector((0,1,0)).angle(hand.tail - hand.head))
+hand_z_angle = math.degrees(Vector((0,0,1)).angle(hand.tail - hand.head))
+
+poseBone = armd # or armb for humeral rotation
+
+def sendAngles():   
+    
+    parentRefPoseMtx = poseBone.parent.bone.matrix_local
+    boneRefPoseMtx = poseBone.bone.matrix_local
+    parentPoseMtx = poseBone.parent.matrix
+    bonePoseMtx = poseBone.matrix
+    boneLocMtx = ( parentRefPoseMtx.inverted() * boneRefPoseMtx ).inverted() * ( parentPoseMtx.inverted() * bonePoseMtx )
+    loc, rot, scale = boneLocMtx.decompose()
+    rot = rot.to_euler('XYZ')
+    eul = rot
+    x = math.degrees(eul.x)
+    y = math.degrees(eul.y)
+    z = math.degrees(eul.z)
+    x = round(x, 2)
+    y = round(y, 2)
+    z = round(z, 2)
+    print(x,y,z)         
+
+def frameChange(passedScene):
+    sendAngles()
+    
+bpy.app.handlers.frame_change_pre.append(frameChange)
+
+```
+
+
+Moreover, the radial and ulnar deviation of the wrist and its extension and flexion as detected by the kinect are constrained to a specific range. This range will be calculated next.
 
 
 
