@@ -749,9 +749,11 @@ At frame 180, the `arma` position is clearly perpendicular to the x-axis and we 
 ![tempsnip](https://user-images.githubusercontent.com/24211929/73835034-c04c1e00-4832-11ea-9384-2a44ac392ceb.png)
 
 
-As stated before, there are commercially-available prosthesis such as the [LUKE arm](https://www.mobiusbionics.com/luke-arm/) from [Mobius Bionics](https://www.mobiusbionics.com/) which enables shoulder abduction and adduction, elbow flexion and extension and wrist with combined ulnar/radial deviation.
+There are commercially-available prosthesis such as the [LUKE arm](https://www.mobiusbionics.com/luke-arm/) from [Mobius Bionics](https://www.mobiusbionics.com/) which enables shoulder abduction and adduction, elbow flexion and extension and wrist with combined ulnar/radial deviation.
 
 The terminology can be explained by the following videos for better understanding.
+
+
 **Shoulder Abduction and Adduction**
 ![shoulder-abduction](https://user-images.githubusercontent.com/24211929/73836236-d35fed80-4834-11ea-888c-8fb8aa98d3e5.gif)
 
