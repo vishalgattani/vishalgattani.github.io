@@ -890,6 +890,7 @@ bpy.app.handlers.frame_change_pre.append(frameChange)
 
 ```
 
+Whether the kinect detects such humeral rotations and wrist pronation or supination is yet to be determined. However, due to controlling option available in blender through Inverse Kinematics and the design of the prosthetic enabling us to have such rotations, it would be helpful to determine the roll angles and transmit them to the dynamixels when needed for finer control of the prosthetic arm.
 
 Moreover, the radial and ulnar deviation of the wrist and its extension and flexion as detected by the kinect are constrained to a specific range. This range will be calculated next.
 
