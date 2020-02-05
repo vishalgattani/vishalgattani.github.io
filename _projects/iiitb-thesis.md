@@ -689,9 +689,80 @@ Following these set of graphs, individual bone angles with respect to the x,y an
 
 Inorder to get these angles and rotations, I will need to get the bone matrix and figure out the angles with respect to the coordinate axes. Then I will be able to actuate the dynamixels according to their positions on the prosthetic arm.
 
+TO begin with, we first need to understand the positioning and the terminology surrounding the armatures in blender. I will be dealing with vectors and matrices and hence, it is important to know which frame values, local or global, will be transmitted serially to the Arbotix-M robocontroller. 
 
 
+![image](https://user-images.githubusercontent.com/24211929/73831999-53825500-482d-11ea-8541-28aa4734f16e.png)
 
+The bone's orientation or direction can be determined by subtracting the positions of the head and tail and then performing a vector dot product with the global axes in order to determine direction.
+
+The following rig has the armature bone names as shown in the figure.
+
+![Blender_  D__vishal_chapters_graphs vs distance_IK_Arm_Example_rigging_with_kinect_demo_29jan_record_new_3_withcode_1 blend  04-02-2020 23_28_40](https://user-images.githubusercontent.com/24211929/73772445-276fc100-47a6-11ea-8f1e-d6411066aad2.png)
+
+The angles are calculated using vector multiplication.
+
+```python
+shoulder = ob.pose.bones.get("shoulder")
+arma = ob.pose.bones.get("arma")
+armb = ob.pose.bones.get("armb")
+armc = ob.pose.bones.get("armd")
+armd = ob.pose.bones.get("armd")
+hand = ob.pose.bones.get("hand")
+
+shoulder_xangle = math.degrees(Vector((1,0,0)).angle(shoulder.tail - shoulder.head))
+shoulder_yangle = math.degrees(Vector((0,1,0)).angle(shoulder.tail - shoulder.head))
+shoulder_zangle = math.degrees(Vector((0,0,1)).angle(shoulder.tail - shoulder.head))
+
+arma_x_angle = math.degrees(Vector((1,0,0)).angle(arma.tail - arma.head))
+arma_y_angle = math.degrees(Vector((0,1,0)).angle(arma.tail - arma.head))
+arma_z_angle = math.degrees(Vector((0,0,1)).angle(arma.tail - arma.head))
+
+armb_x_angle = math.degrees(Vector((1,0,0)).angle(armb.tail - armb.head))
+armb_y_angle = math.degrees(Vector((0,1,0)).angle(armb.tail - armb.head))
+armb_z_angle = math.degrees(Vector((0,0,1)).angle(armb.tail - armb.head))
+
+armc_x_angle = math.degrees(Vector((1,0,0)).angle(armc.tail - armc.head))
+armc_y_angle = math.degrees(Vector((0,1,0)).angle(armc.tail - armc.head))
+armc_z_angle = math.degrees(Vector((0,0,1)).angle(armc.tail - armc.head))
+
+armd_x_angle = math.degrees(Vector((1,0,0)).angle(armd.tail - armd.head))
+armd_y_angle = math.degrees(Vector((0,1,0)).angle(armd.tail - armd.head))
+armd_z_angle = math.degrees(Vector((0,0,1)).angle(armd.tail - armd.head))
+
+hand_x_angle = math.degrees(Vector((1,0,0)).angle(hand.tail - hand.head))
+hand_y_angle = math.degrees(Vector((0,1,0)).angle(hand.tail - hand.head))
+hand_z_angle = math.degrees(Vector((0,0,1)).angle(hand.tail - hand.head))
+```
+
+After running the code, the values have been cross checked with that of the recorded motion. The figures down below justify that the values are indeed approximate to that of the recorded motion and therefore, these values can be transmitted to the dynamixels. The dynamixels also can plot the curves being a smart serial servo using Dynamixel Wizard 2.0 and the graphs can then be compared from the Blender rigs and from the Dynamixels to determine any delay in reaching the end goal.
+
+The values in the terminal in the figures are of the format: `{Frame # , angle from x-axis, angle from y-axis, angle from z-axis}` and the angles are measured from the vector which joints the said armature's tail to head.
+
+![Blender_  D__vishal_chapters_graphs vs distance_IK_Arm_Example_rigging_with_kinect_demo_29jan_record_new_4_withcode_1 blend  05-02-2020 16_06_35](https://user-images.githubusercontent.com/24211929/73834371-99d9b300-4831-11ea-9051-17b9446b3e59.png)
+
+![Blender_  D__vishal_chapters_graphs vs distance_IK_Arm_Example_rigging_with_kinect_demo_29jan_record_new_4_withcode_1 blend  05-02-2020 16_07_31](https://user-images.githubusercontent.com/24211929/73834377-9b0ae000-4831-11ea-9b7f-4c8088694298.png)
+
+At frame 180, the `arma` position is clearly perpendicular to the x-axis and we can see from the values generated that it is indeed nearly perpendicular. 
+
+![tempsnip](https://user-images.githubusercontent.com/24211929/73835034-c04c1e00-4832-11ea-9384-2a44ac392ceb.png)
+
+
+As stated before, there are commercially-available prosthesis such as the [LUKE arm](https://www.mobiusbionics.com/luke-arm/) from [Mobius Bionics](https://www.mobiusbionics.com/) which enables shoulder abduction and adduction, elbow flexion and extension and wrist with combined ulnar/radial deviation.
+
+The terminology can be explained by the following videos for better understanding.
+**Shoulder Abduction and Adduction**
+![shoulder-abduction](https://user-images.githubusercontent.com/24211929/73836236-d35fed80-4834-11ea-888c-8fb8aa98d3e5.gif)
+
+**Shoulder Extension and Flexion**
+![shoulder-flexion](https://user-images.githubusercontent.com/24211929/73836241-d529b100-4834-11ea-9075-4a4762da34dc.gif)
+
+**Elbow Extension and Flexion**
+![elbow-flexion](https://user-images.githubusercontent.com/24211929/73836246-d65ade00-4834-11ea-88c6-e41a2a6faa42.gif)
+
+These gifs are taken from [Mobius Bionics](https://www.mobiusbionics.com/luke-arm/#section-four) for the sole purpose of understanding the terminology.
+
+The graphs of the armature bone `arma` are plotted and analysed for futher insight.
 
 
 
