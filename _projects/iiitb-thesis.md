@@ -42,7 +42,7 @@ description: Biomimetic Arm using Motion Capture and Inverse Kinematics.
 
 ![kinect_nimate](https://user-images.githubusercontent.com/24211929/72427972-cbbba480-37b2-11ea-93d8-a46998d2f054.gif)
 
-To build your very own motion capture studio, you are required to install the ceratin software which are described as sections below.
+To build your very own motion capture studio, you are required to install the certain software which are described in the sections below.
 
 ## Software
 
@@ -692,7 +692,8 @@ Each joint rotates around an axis, based from 0-position of the prosthetic arm. 
 
 The individual bone angles with respect to the x,y and z-axis will be taken into consideration to check the wrist flexion and extension, wrist abduction and adduction along with ulnar and radial deviation, and shoulder abduction and adduction, shoulder flexion and extension, humeral rotation, and wrist pronation and sulpination. 
 
-![image](https://user-images.githubusercontent.com/24211929/73772784-da401f00-47a6-11ea-80a6-ff425afa4ae0.png)
+![image](https://user-images.githubusercontent.com/24211929/73925551-3c5a6a80-48f4-11ea-82ed-82598fb6ae8a.png)
+
 
 Inorder to get these angles and rotations, I will need to get the bone matrix and figure out the angles with respect to the coordinate axes. Then I will be able to actuate the dynamixels according to their positions on the prosthetic arm.
 
@@ -757,23 +758,29 @@ At frame 180, the `arma` position is clearly perpendicular to the x-axis and we 
 
 There are commercially-available prosthesis such as the [LUKE arm](https://www.mobiusbionics.com/luke-arm/) from [Mobius Bionics](https://www.mobiusbionics.com/) which enables shoulder abduction and adduction, elbow flexion and extension and wrist with combined ulnar/radial deviation.
 
-The terminology can be explained by the following videos for better understanding.
 
 
-**Shoulder Abduction and Adduction**
+
+**Shoulder Abduction**
 ![shoulder-abduction](https://user-images.githubusercontent.com/24211929/73836236-d35fed80-4834-11ea-888c-8fb8aa98d3e5.gif)
 
-**Shoulder Extension and Flexion**
+**Shoulder Flexion**
 ![shoulder-flexion](https://user-images.githubusercontent.com/24211929/73836241-d529b100-4834-11ea-9075-4a4762da34dc.gif)
 
-**Elbow Extension and Flexion**
+**Elbow Flexion**
 ![elbow-flexion](https://user-images.githubusercontent.com/24211929/73836246-d65ade00-4834-11ea-88c6-e41a2a6faa42.gif)
 
-**Wrist Pronation and Supination**
+**Wrist Pronation**
 ![Wrist-pronation_1](https://user-images.githubusercontent.com/24211929/73865988-17b9b080-486a-11ea-8071-a195cf914ed3.gif)
+
+**Wrist Flexion**
+![wrist-flexion_1](https://user-images.githubusercontent.com/24211929/73925269-d241c580-48f3-11ea-831e-ab34eb26b3a0.gif)
+
 
 **Humeral Rotation**
 ![humeral-rotation](https://user-images.githubusercontent.com/24211929/73866494-f4dbcc00-486a-11ea-90c0-f80bec7b28c0.gif)
+
+
 
 
 
@@ -899,14 +906,6 @@ bpy.app.handlers.frame_change_pre.append(frameChange)
 The arm can undergo humeral rotations and wrist pronation or supination in Blender using control modes. Whether the kinect detects such humeral rotations and wrist pronation or supination is yet to be determined. However, due to controlling option available in blender through Inverse Kinematics and the design of the prosthetic enabling us to have such rotations, it would be helpful to determine the roll angles and transmit them to the dynamixels when needed for finer control of the prosthetic arm.
 
 Moreover, the radial and ulnar deviation of the wrist and its extension and flexion as detected by the kinect are constrained to a specific range. This range will be calculated next.
-
-
-
-
-
-
-
-
 
 
 
