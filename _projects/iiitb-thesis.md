@@ -683,8 +683,14 @@ After receiving the data from the kinect and NI mate add-on and mapping the moti
     <script data-plotly="vishalgattani:22" sharekey-plotly="Nve4ieLly1TkGPerTiOGjX" src="https://plot.ly/embed.js" async></script>
 </div>
 
+## Joint's rotation from Motion Capture and IK
 
-Following these set of graphs, individual bone angles with respect to the x,y and z-axis will be taken into consideration to check the wrist flexion and extension, wrist abduction and adduction along with ulnar and radial deviation, and shoulder abduction and adduction, shoulder flexion and extension, humeral rotation, and wrist pronation and sulpination. 
+Each joint rotates around an axis, based from 0-position of the prosthetic arm. The angles that this joint makes with respect to the global coordinate axis will be used as the bones roll, pitch and yaw. The global coordinate axis will be taken as the IK Rig's global coordinate axes as shown.
+
+
+![globalaxis](https://user-images.githubusercontent.com/24211929/73922408-21d1c280-48ef-11ea-8c55-30a95918ba61.png)
+
+The individual bone angles with respect to the x,y and z-axis will be taken into consideration to check the wrist flexion and extension, wrist abduction and adduction along with ulnar and radial deviation, and shoulder abduction and adduction, shoulder flexion and extension, humeral rotation, and wrist pronation and sulpination. 
 
 ![image](https://user-images.githubusercontent.com/24211929/73772784-da401f00-47a6-11ea-80a6-ff425afa4ae0.png)
 
@@ -890,7 +896,7 @@ bpy.app.handlers.frame_change_pre.append(frameChange)
 
 ```
 
-Whether the kinect detects such humeral rotations and wrist pronation or supination is yet to be determined. However, due to controlling option available in blender through Inverse Kinematics and the design of the prosthetic enabling us to have such rotations, it would be helpful to determine the roll angles and transmit them to the dynamixels when needed for finer control of the prosthetic arm.
+The arm can undergo humeral rotations and wrist pronation or supination in Blender using control modes. Whether the kinect detects such humeral rotations and wrist pronation or supination is yet to be determined. However, due to controlling option available in blender through Inverse Kinematics and the design of the prosthetic enabling us to have such rotations, it would be helpful to determine the roll angles and transmit them to the dynamixels when needed for finer control of the prosthetic arm.
 
 Moreover, the radial and ulnar deviation of the wrist and its extension and flexion as detected by the kinect are constrained to a specific range. This range will be calculated next.
 
