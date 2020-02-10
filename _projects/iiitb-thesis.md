@@ -25,17 +25,22 @@ description: Biomimetic Arm using Motion Capture and Inverse Kinematics.
 ## 3D Printed Myoelectric Prosthetic Arm
 
 > ## [Reachy Beta](https://www.frontiersin.org/articles/10.3389/fnbot.2019.00065/full)
-
-**To prove:**
-
-- [x] Inverse Kinematics for Endpoint Position Control
-- [ ] MoCap Control of Arm using Kinect v2
+> **Experiments:**
+> - [ ] Inverse Kinematics for Endpoint Position Control
+> - [ ] MoCap Control of Arm using Kinect v2
 
 > ## [Anthrob – A Printed Anthropomimetic Robot](http://www.cs.cmu.edu/~cga/shoulder/robot2.pdf)
+> **Experiments:** Example of an elbow joint flexion and subsequent extension induced by the motor position control of the three elbow joint muscles (brachialis, triceps and biceps brachii, respectively). The figure shows the elbow angle (top panel), the reference (dashed) and current (solid) motor positions of all three muscles (center panel) and the corresponding muscle forces (bottom panel).
+> ![image](https://user-images.githubusercontent.com/24211929/72436916-953c5480-37c7-11ea-84c7-32ab21b28385.png)
 
-**To prove:** Example of an elbow joint flexion and subsequent extension induced by the motor position control of the three elbow joint muscles (brachialis, triceps and biceps brachii, respectively). The figure shows the elbow angle (top panel), the reference (dashed) and current (solid) motor positions of all three muscles (center panel) and the corresponding muscle forces (bottom panel).
+> ## [Mechanical Design and Assessment of a Low-Cost 7-DOF Prosthetic Arm for Shoulder Disarticulation](https://www.hindawi.com/journals/abb/2018/4357602/)
+> **Experiments:** 
+> - [ ] Graphs of different motors with their torque, current, power, angular displacement and velocity versus time.
 
-![image](https://user-images.githubusercontent.com/24211929/72436916-953c5480-37c7-11ea-84c7-32ab21b28385.png)
+> ## [Mechanical properties of prosthetic limbs](https://www.rehab.research.va.gov/jour/01/38/3/pdf/klute.pdf)
+> **Possible Research:**
+> - [ ] Evaluate the stiffness characteristics of the prosthetic limb
+ 
 
 
 # Chapter 1: Motion Capture Studio
@@ -773,16 +778,22 @@ There are commercially-available prosthesis such as the [LUKE arm](https://www.m
 **Wrist Pronation**
 ![Wrist-pronation_1](https://user-images.githubusercontent.com/24211929/73865988-17b9b080-486a-11ea-8071-a195cf914ed3.gif)
 
+In Blender, we can generate the motion by controlling the `armd` in IK rig.
+
+![wrist_pronation](https://user-images.githubusercontent.com/24211929/74150856-d2fa9480-4c30-11ea-8753-97e6895ff2f9.gif)
+
+
 **Wrist Flexion**
 ![wrist-flexion_1](https://user-images.githubusercontent.com/24211929/73925269-d241c580-48f3-11ea-831e-ab34eb26b3a0.gif)
-
 
 **Humeral Rotation**
 ![humeral-rotation](https://user-images.githubusercontent.com/24211929/73866494-f4dbcc00-486a-11ea-90c0-f80bec7b28c0.gif)
 
+The above motion can be executed by controlling the `armb` in the IK rig. 
 
+![humeral_twist_1](https://user-images.githubusercontent.com/24211929/74152075-88c6e280-4c33-11ea-96b6-ed346742f37d.gif)
 
-
+![humeral_twist_2](https://user-images.githubusercontent.com/24211929/74152070-86648880-4c33-11ea-82c5-380076684fe5.gif)
 
 These gifs are taken from [Mobius Bionics](https://www.mobiusbionics.com/luke-arm/#section-four) for the sole purpose of understanding the terminology.
 
@@ -805,21 +816,6 @@ This bone roll will help us in the calculation of wrist pronation and supination
 
 The following code allows for the calculation of bone roll in the local space of the bone. The local space of the bone is highlighted in white which will be used for humeral rotation if needed. For humderal rotation, `armb` is used to rotate and for wrist pronation and supination `armd` is used.
 
-**Wrist Pronation and Supination - `armd`**
-
-![Blender_  D__vishal_files_blender_blendercontroller_global_angles_roll_angles blend  05-02-2020 22_43_13](https://user-images.githubusercontent.com/24211929/73865359-218ee400-4869-11ea-83c4-708b0a719188.png)
-
-![Blender_  D__vishal_files_blender_blendercontroller_global_angles_roll_angles blend  05-02-2020 22_43_26](https://user-images.githubusercontent.com/24211929/73865360-218ee400-4869-11ea-9d8b-fb2eb1ced06d.png)
-
-**Humeral Rotation - `armb`**
-
-![Blender_  D__vishal_files_blender_blendercontroller_global_angles_roll_angles blend  05-02-2020 22_49_38](https://user-images.githubusercontent.com/24211929/73865987-17b9b080-486a-11ea-975f-c80843f023ee.png)
-
-![Blender_  D__vishal_files_blender_blendercontroller_global_angles_roll_angles blend  05-02-2020 22_50_10](https://user-images.githubusercontent.com/24211929/73865986-17b9b080-486a-11ea-9aeb-d8a69d2550b3.png)
-
-![Blender_  D__vishal_files_blender_blendercontroller_global_angles_roll_angles blend  05-02-2020 22_59_53](https://user-images.githubusercontent.com/24211929/73866661-38ced100-486b-11ea-84a9-ef78b1219440.png)
-
-![Blender_  D__vishal_files_blender_blendercontroller_global_angles_roll_angles blend  05-02-2020 23_00_08](https://user-images.githubusercontent.com/24211929/73866662-38ced100-486b-11ea-8eb5-bc07dfe3b50b.png)
 
 ```python
 import bpy
