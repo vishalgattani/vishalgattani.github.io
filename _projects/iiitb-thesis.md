@@ -12,12 +12,16 @@ description: Biomimetic Arm using Motion Capture and Inverse Kinematics.
 
 # Abstract
 
+
+
 #  Introduction
 
 - Human upper limb motion captured through Kinect V2 will be transmitted to various actuators that act as joints on the prosthetic arm.
 - The captured data, joint coordinates and angles, will be transmitted through a serial port to arduino and dynamixel shield in order to actuate the servos accordingly.
 - The data from both, Motion Capture and Inverse Kinematics, will be synthesised and compared to establish if correlation points exist between the experiments.
 - Possible control of the prosthetic may also be achieved through Electromyography (EMG).
+
+**Keywords Inverse kinematics · Biomimetics · Graphical Models · Anthropomorphic Motion**
 
 
 # Literature Survey
@@ -899,12 +903,9 @@ bpy.app.handlers.frame_change_pre.append(frameChange)
 
 ```
 
-The arm can undergo humeral rotations and wrist pronation or supination in Blender using control modes. Whether the kinect detects such humeral rotations and wrist pronation or supination is yet to be determined. However, due to controlling option available in blender through Inverse Kinematics and the design of the prosthetic enabling us to have such rotations, it would be helpful to determine the roll angles and transmit them to the dynamixels when needed for finer control of the prosthetic arm.
+The arm can undergo humeral rotations and wrist pronation or supination in Blender using control modes. Whether the kinect detects such humeral rotations and wrist pronation or supination is yet to be determined. However, due to the control option available in blender through Inverse Kinematics and the design of the prosthetic enabling us to have such rotations, it would be helpful to determine the roll angles and transmit them to the dynamixels when needed for finer control of the prosthetic arm.
 
-Moreover, the radial and ulnar deviation of the wrist and its extension and flexion as detected by the kinect are constrained to a specific range. This range will be calculated next.
-
-
-
+Moreover, the radial and ulnar deviation of the wrist and its extension and flexion as detected by the kinect are constrained to a specific range. [Ulnar deviation](http://www.ergovancouver.net/wrist_movements.htm), otherwise known as ulnar flexion, is the movement of bending the wrist to the little finger, or ulnar bone, side. [Radial deviation](http://www.ergovancouver.net/wrist_movements.htm), otherwise known as radial flexion, is the movement of bending the wrist to the thumb, or radial bone, side.
 
 
 
