@@ -967,12 +967,39 @@ The orientation of the FTDI cable is very important - it is possible to plug in 
 
 ## Program the ArbotiX-M Robocontroller to Control a DYNAMIXEL Servo
 
+
+An overview of the hardware of the board can be found [here](https://learn.trossenrobotics.com/arbotix/arbotix-getting-started/38-arbotix-m-hardware-overview.html).
+
+The ArbotiX-M will work with input voltages from 7-30V, but is most commonly used at 11-12V, as most DYNAMIXELs work safely at this voltage.
+
 Move the power jumper towards 'VIN'. This allow you to power the ArbotiX-M from the external power supply.
 
 ![image](https://user-images.githubusercontent.com/24211929/74639588-2b331880-5194-11ea-9c91-8e25b728bbab.png)
 
 
+**[U2D2](http://emanual.robotis.com/docs/en/parts/interface/u2d2/)**
 
+The Arbotix does not work with the DYNAMIXEL Wizard software, you will need a DYNAMIXEL U2D2 to ID your 106T servo. I did try to use the Dynamanager software, however it was not intended for use with the 106T servos, it may or may not work: [here](https://learn.trossenrobotics.com/index.php/getting-started-with-the-arbotix/1-using-the-tr-dynamixel-servo-tool#&panel1-1)
+
+Provided the MX-106 servos are protocol 1, the DYNAMIXEL libraries for the arbotix Trossen Robotics(TR) have should work with the servo. If the servos are protocol 2, TR has had success in loading a previous version of the DYNAMIXEL software (Wizard 1.0) and firmware resetting an earlier version back to protocol 1.
+
+
+![image](https://user-images.githubusercontent.com/24211929/74670811-edec7c00-51cf-11ea-902e-3f4da55e8b69.png)
+
+U2D2 can be connected to the USB port of the PC with the enclosed USB cable. It supports both 3Pin TTL connector and 4Pin RS-485 connector to link up with various DYNAMIXEL’s. U2D2 does not supply power to DYNAMIXEL, therefore, an external power supply should provide power to DYNAMIXEL.
+
+U2D2 does not supply power to DYNAMIXEL, therefore, an external power supply should provide power to DYNAMIXEL as below. Before connecting DYNAMIXEL to an external power supply, please check the recommended voltage for DYNAMIXEL.
+
+> Caution for Power Supply
+> For a stable power supply, it is recommended to use ROBOTIS controller or SMPS2Dynamixel.
+> When connecting cable to DYNAMIXEL, please turn off the power.
+
+**SMPS2Dynamixel**
+
+In order to operate DYNAMIXEL with SMPS2Dynamixel, please connect DYNAMIXEL to SMPS2Dynamixel, then connect SMPS to SMPS2Dynamixel as shown below image.
+Please compare operating voltage of DYNAMIXEL with 12V 5A ROBOTIS SMPS before supplying power.
+
+![image](https://user-images.githubusercontent.com/24211929/74671029-5176a980-51d0-11ea-9594-a4965f523e0d.png)
 
 
 
