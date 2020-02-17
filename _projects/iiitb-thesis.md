@@ -1,6 +1,6 @@
 ---
 name: Thesis
-tools: [C#, XML, WPF]
+tools: [C, Python, Blender, Arduino]
 image: https://user-images.githubusercontent.com/24211929/72992613-0f00bd80-3e1a-11ea-9b60-6f6660652223.gif
 description: Biomimetic Arm using Motion Capture and Inverse Kinematics.
 ---
@@ -909,11 +909,67 @@ Moreover, the radial and ulnar deviation of the wrist and its extension and flex
 
 
 
+# Chapter 3: Arbotix-M Robocontroller for Dynamixels
+
+
+![image](https://user-images.githubusercontent.com/24211929/72739864-90621100-3bca-11ea-9b6e-19a03bf42da7.png)
 
 
 
+**Download the Arduino IDE:** 
+
+You need to install the Arduino IDE to program the controller. Currently (10-09-2015), the Arbotix-M runs on the old Arduino 1.0.6 version. This means that you will need to get and install the old IDE. This, however is actually quite simple. If you have the newest IDE installed already, you don't need uninstall it, the two IDEs can live along side each other. The files are [here](https://www.arduino.cc/en/Main/OldSoftwareReleases).
+
+> Why use the old Arduino IDE?
+> The Arduino IDE 1.0.6 has a different implementation of the Arduino core code than the 1.6. Actually looking at the [release notes](https://www.arduino.cc/en/Main/ReleaseNotes), the Arduino IDE 1.0.1 went into a 1.5 BETA branch in late 2012. The new IDE was an attemt to make a unified IDE for both 8-bit AVR and 32-bit ARM based Arduinos. While the 1.5 BETA developed into 1.6 and went out of the BETA stage, the 1.0.1 developed into the 1.0.6. The big difference is how the hardware definition files are handled in the IDE. Also the original Arduino Serial code is too slow to handle the 1Mbps that we run the Crust Crawler Arms at, so a custom implementation was developed in Vanadium Labs. But looking at the developments in the [code on GitHub](https://github.com/vanadiumlabs/arbotix) it seems branches for the 1.5 and 1.6 IDE are popping up. So maybe we can use the new IDE in the near future.
 
 
+**Install FTDI Drivers:** 
+
+Follow the instructions from this [link](https://www.ftdichip.com/Support/Documents/InstallGuides.htm). Use this [link](https://www.ftdichip.com/Drivers/VCP.htm) to find the setup executable.
+
+**Install the ArbotiX-M Hardware and Library Files:** 
+
+For the Arduino IDE to support the ArbotiX-M, we'll need to add files into the Arduino user folder. Click [here](https://github.com/trossenrobotics/arbotix/archive/master.zip) to download the needed ArbotiX-M Library and Hardware Files.
+
+In this .zip file, there will be 3 folders. 
+
+`hardware` folder contains all of the hardware definitions that will allow the Arduino IDE to build programs for the ATMega644p on the ArbotiX-M. This folder also contains definitions for the AVRSTK500 serial programmer. 
+`libraries` folder contains libraries that will help you use the ArbotiX-M to its full potential. Many of these libraries will be required to compile the programs for InterbotiX robots. Click here for more information on the individual ArbotiX-M Libraries.
+`ArbotiX Sketches` folder contains test code and sample code for various ArbotiX-M projects and InterbotiX robots.
+To install the ArbotiX-M files you will move these 3 folders into your 'Arduino' user folder. 
+
+If you're having trouble finding your 'Arduino' folder, open the Arduino IDE and open the 'Preferences' panel (File->Preferences). Here you will find a file path under 'Sketchbook location:'. This is the path to your 'Arduino' folder.
+
+Now open the Arduino IDE. You should see the following options
+
+Under `Sketch->Import Library->`, you should see Bioloid and Commander among other libraries
+Under `Tools->Board->`, you should see ArbotiX and ArbotiX w/ RX Shield at the top of the list
+Under `Tools->Programmer->`, you should see AVR ISP mkII(Serial)
+
+If all of these are available, then the Arduino IDE is setup and ready to program the ArbotiX-M!
+
+**Connecting the Arbotix Robocontroller to your Computer:**
+
+[Powering the Arbotix-M](https://learn.trossenrobotics.com/arbotix/arbotix-advanced-topics/40-powering-the-arbotix-m.html) can be done in multiple ways.
+
+![image](https://user-images.githubusercontent.com/24211929/74638749-88c66580-5192-11ea-95eb-39ee9bf67269.png)
+
+To power the ArbotiX-M from the FTDI port, move the power jumper so that it connects the middle pin and the `USB` pin.
+
+![image](https://user-images.githubusercontent.com/24211929/74638624-43099d00-5192-11ea-87ef-e9fde8dbcaf1.png)
+
+The orientation of the FTDI cable is very important - it is possible to plug in the cable backwards and you will not be able to program your board. The top FTDI pin with the mark 'BLK' will always connect to the black FTDI cable. This pin is a ground or 'GND' pin. The bottom pin with the mark 'GRN' will always connect to the Green FTDI cable. 
+
+![image](https://user-images.githubusercontent.com/24211929/74639282-a942ef80-5193-11ea-8a14-d653470332b5.png)
+
+![WhatsApp Image 2020-02-17 at 2 36 20 PM](https://user-images.githubusercontent.com/24211929/74639111-51a48400-5193-11ea-898e-189d3deb67d9.jpeg)
+
+## Program the ArbotiX-M Robocontroller to Control a DYNAMIXEL Servo
+
+Move the power jumper towards 'VIN'. This allow you to power the ArbotiX-M from the external power supply.
+
+![image](https://user-images.githubusercontent.com/24211929/74639588-2b331880-5194-11ea-9c91-8e25b728bbab.png)
 
 
 
