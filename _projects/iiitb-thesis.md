@@ -911,6 +911,7 @@ According to [Measurement of Joint Motion: A Guide to Goniometry](https://fadavi
 
 ![image](https://user-images.githubusercontent.com/24211929/74828877-e34bf700-5335-11ea-8c55-b04a801f642f.png)
 
+![extension](https://user-images.githubusercontent.com/24211929/74830524-5b67ec00-5339-11ea-92cd-3a21f9231906.gif)
 
 <div>
     <a href="https://plot.ly/~vishalgattani/45/?share_key=vJAvkyFwS6ly7Hop688t0b" target="_blank" title="Wrist Extension 1" style="display: block; text-align: center;"><img src="https://plot.ly/~vishalgattani/45.png?share_key=vJAvkyFwS6ly7Hop688t0b" alt="Wrist Extension 1" style="max-width: 100%;width: 600px;"  width="600" onerror="this.onerror=null;this.src='https://plot.ly/404.png';" /></a>
@@ -918,10 +919,18 @@ According to [Measurement of Joint Motion: A Guide to Goniometry](https://fadavi
 </div>
 
 
+![flexion 1](https://user-images.githubusercontent.com/24211929/74830945-3c1d8e80-533a-11ea-8209-32b3efadc39f.gif)
+
+
 <div>
     <a href="https://plot.ly/~vishalgattani/41/?share_key=QFcXXrxErZmMcnqUnfd7sx" target="_blank" title="Wrist Flexion 1" style="display: block; text-align: center;"><img src="https://plot.ly/~vishalgattani/41.png?share_key=QFcXXrxErZmMcnqUnfd7sx" alt="Wrist Flexion 1" style="max-width: 100%;width: 600px;"  width="600" onerror="this.onerror=null;this.src='https://plot.ly/404.png';" /></a>
     <script data-plotly="vishalgattani:41" sharekey-plotly="QFcXXrxErZmMcnqUnfd7sx" src="https://plot.ly/embed.js" async></script>
 </div>
+
+
+![felx21](https://user-images.githubusercontent.com/24211929/74831569-7f2c3180-533b-11ea-8eea-508a3687947c.gif)
+
+![flex22](https://user-images.githubusercontent.com/24211929/74831580-83584f00-533b-11ea-80ce-0634bec03bd5.gif)
 
 
 <div>
