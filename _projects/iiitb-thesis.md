@@ -907,6 +907,30 @@ The arm can undergo humeral rotations and wrist pronation or supination in Blend
 
 Moreover, the radial and ulnar deviation of the wrist and its extension and flexion as detected by the kinect are constrained to a specific range. [Ulnar deviation](http://www.ergovancouver.net/wrist_movements.htm), otherwise known as ulnar flexion, is the movement of bending the wrist to the little finger, or ulnar bone, side. [Radial deviation](http://www.ergovancouver.net/wrist_movements.htm), otherwise known as radial flexion, is the movement of bending the wrist to the thumb, or radial bone, side.
 
+According to [Measurement of Joint Motion: A Guide to Goniometry](https://fadavispt.mhmedical.com/content.aspx?bookid=1964&sectionid=147190776), these values range from 60 to 80 degrees for flexion, 60 to 75 degrees for extension, 20 to 25 degrees for radial deviation, and 30 to 40 degrees for ulnar deviation. 
+
+![image](https://user-images.githubusercontent.com/24211929/74828877-e34bf700-5335-11ea-8c55-b04a801f642f.png)
+
+
+<div>
+    <a href="https://plot.ly/~vishalgattani/45/?share_key=vJAvkyFwS6ly7Hop688t0b" target="_blank" title="Wrist Extension 1" style="display: block; text-align: center;"><img src="https://plot.ly/~vishalgattani/45.png?share_key=vJAvkyFwS6ly7Hop688t0b" alt="Wrist Extension 1" style="max-width: 100%;width: 600px;"  width="600" onerror="this.onerror=null;this.src='https://plot.ly/404.png';" /></a>
+    <script data-plotly="vishalgattani:45" sharekey-plotly="vJAvkyFwS6ly7Hop688t0b" src="https://plot.ly/embed.js" async></script>
+</div>
+
+
+<div>
+    <a href="https://plot.ly/~vishalgattani/41/?share_key=QFcXXrxErZmMcnqUnfd7sx" target="_blank" title="Wrist Flexion 1" style="display: block; text-align: center;"><img src="https://plot.ly/~vishalgattani/41.png?share_key=QFcXXrxErZmMcnqUnfd7sx" alt="Wrist Flexion 1" style="max-width: 100%;width: 600px;"  width="600" onerror="this.onerror=null;this.src='https://plot.ly/404.png';" /></a>
+    <script data-plotly="vishalgattani:41" sharekey-plotly="QFcXXrxErZmMcnqUnfd7sx" src="https://plot.ly/embed.js" async></script>
+</div>
+
+
+<div>
+    <a href="https://plot.ly/~vishalgattani/43/?share_key=Ww1FS8G2CSZW5i1YA24Lq8" target="_blank" title="Wrist Flexion 2" style="display: block; text-align: center;"><img src="https://plot.ly/~vishalgattani/43.png?share_key=Ww1FS8G2CSZW5i1YA24Lq8" alt="Wrist Flexion 2" style="max-width: 100%;width: 600px;"  width="600" onerror="this.onerror=null;this.src='https://plot.ly/404.png';" /></a>
+    <script data-plotly="vishalgattani:43" sharekey-plotly="Ww1FS8G2CSZW5i1YA24Lq8" src="https://plot.ly/embed.js" async></script>
+</div>
+
+
+
 
 
 # Chapter 3: Arbotix-M Robocontroller for Dynamixels
@@ -914,6 +938,9 @@ Moreover, the radial and ulnar deviation of the wrist and its extension and flex
 
 ![image](https://user-images.githubusercontent.com/24211929/72739864-90621100-3bca-11ea-9b6e-19a03bf42da7.png)
 
+
+
+An overview of the hardware of the board can be found [here](https://learn.trossenrobotics.com/arbotix/arbotix-getting-started/38-arbotix-m-hardware-overview.html).
 
 
 **Download the Arduino IDE:** 
@@ -965,10 +992,16 @@ The orientation of the FTDI cable is very important - it is possible to plug in 
 
 ![WhatsApp Image 2020-02-17 at 2 36 20 PM](https://user-images.githubusercontent.com/24211929/74639111-51a48400-5193-11ea-898e-189d3deb67d9.jpeg)
 
+## Programming the ArbotiX-M Robocontroller with MPU6050
+
+[Interfacing the Arduino MPU 6050](https://maker.pro/arduino/tutorial/how-to-interface-arduino-and-the-mpu-6050-sensor)
+
+
+
+
+
 ## Program the ArbotiX-M Robocontroller to Control a DYNAMIXEL Servo
 
-
-An overview of the hardware of the board can be found [here](https://learn.trossenrobotics.com/arbotix/arbotix-getting-started/38-arbotix-m-hardware-overview.html).
 
 The ArbotiX-M will work with input voltages from 7-30V, but is most commonly used at 11-12V, as most DYNAMIXELs work safely at this voltage.
 
@@ -976,12 +1009,17 @@ Move the power jumper towards 'VIN'. This allow you to power the ArbotiX-M from 
 
 ![image](https://user-images.githubusercontent.com/24211929/74639588-2b331880-5194-11ea-9c91-8e25b728bbab.png)
 
+> Before you set your servo IDs, here are some things to keep in mind.
+> You can only ID one servo at a time. Do not plug multiple servos into the ArbotiX when using the DYNAManger.
+> Make sure you label your servos as you ID them! This will make the assmebly phase go much faster
+> All servos come pre-set to ID # 1. However we still recomend that you use the DynaManager to set the ID on servo #1. This will make sure the servo's baud rate is set correctly, as well as allow you test the servo.
+> Most kits use only AX-12A or AX-18A servos. For these kits, you can simply ID the servos in sequential, increasing order for however many servos you have.
+
 
 **[U2D2](http://emanual.robotis.com/docs/en/parts/interface/u2d2/)**
 
-The Arbotix does not work with the DYNAMIXEL Wizard software, you will need a DYNAMIXEL U2D2 to ID your 106T servo. I did try to use the Dynamanager software, however it was not intended for use with the 106T servos, it may or may not work: [here](https://learn.trossenrobotics.com/index.php/getting-started-with-the-arbotix/1-using-the-tr-dynamixel-servo-tool#&panel1-1)
-
-Provided the MX-106 servos are protocol 1, the DYNAMIXEL libraries for the arbotix Trossen Robotics(TR) have should work with the servo. If the servos are protocol 2, TR has had success in loading a previous version of the DYNAMIXEL software (Wizard 1.0) and firmware resetting an earlier version back to protocol 1.
+> The Arbotix does not work with the DYNAMIXEL Wizard software, you will need a DYNAMIXEL U2D2 to ID your 106T servo. I did try to use the Dynamanager software, however it was not intended for use with the 106T servos, it may or may not work: [here](https://learn.trossenrobotics.com/index.php/getting-started-with-the-arbotix/1-using-the-tr-dynamixel-servo-tool#&panel1-1)
+> Provided the MX-106 servos are protocol 1, the DYNAMIXEL libraries for the arbotix Trossen Robotics(TR) have should work with the servo. If the servos are protocol 2, TR has had success in loading a previous version of the DYNAMIXEL software (Wizard 1.0) and firmware resetting an earlier version back to protocol 1.
 
 
 ![image](https://user-images.githubusercontent.com/24211929/74670811-edec7c00-51cf-11ea-902e-3f4da55e8b69.png)
@@ -1000,6 +1038,8 @@ In order to operate DYNAMIXEL with SMPS2Dynamixel, please connect DYNAMIXEL to S
 Please compare operating voltage of DYNAMIXEL with 12V 5A ROBOTIS SMPS before supplying power.
 
 ![image](https://user-images.githubusercontent.com/24211929/74671029-5176a980-51d0-11ea-9594-a4965f523e0d.png)
+
+
 
 
 
