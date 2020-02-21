@@ -1,8 +1,8 @@
 ---
-name: Thesis
+name: Biomimetic Arm using Motion Capture and Inverse Kinematics
 tools: [C, Python, Blender, Arduino]
 image: https://user-images.githubusercontent.com/24211929/72992613-0f00bd80-3e1a-11ea-9b60-6f6660652223.gif
-description: Biomimetic Arm using Motion Capture and Inverse Kinematics.
+description: The motivation of this thesis is to implement control strategies on a Hybrid Prosthetic arm that combines the motion capture technology derived from the Kinect through implementing a marker-less motion capture system, which will complement the equipment from Trossen Robotics and the prosthetic design from Reachy. In doing so, two new control strategies are compared and performed: Motion Capture (MoCap) based control and Endpoint control through Inverse Kinematics using Blender software.
 ---
 
 # Table of contents 
@@ -12,7 +12,7 @@ description: Biomimetic Arm using Motion Capture and Inverse Kinematics.
 
 # Abstract
 
-
+**Keywords Inverse kinematics · Biomimetics · Graphical Models · Anthropomorphic Motion**
 
 #  Introduction
 
@@ -21,7 +21,14 @@ description: Biomimetic Arm using Motion Capture and Inverse Kinematics.
 - The data from both, Motion Capture and Inverse Kinematics, will be synthesised and compared to establish if correlation points exist between the experiments.
 - Possible control of the prosthetic may also be achieved through Electromyography (EMG).
 
-**Keywords Inverse kinematics · Biomimetics · Graphical Models · Anthropomorphic Motion**
+
+The human hand is a highly dexterous structure that incorporate a variety of motor systems with complex musculoskeletal structure to provide reaching and grasping movements \cite{mackenzie1994grasping}. In order to replicate the human arm motions through the motor tasks, many researchers have worked to improve capabilities of robotic prosthetic arms by improving the number of degrees of freedoms and their methodologies. Though robotic systems keep improving in terms of their motor capabilities thanks to the advances in mechatronics, incorporating efficient control strategies  that allow a user to harness the full potential of a robotic arm in order to move remains a key challenge in the field of humanoid robotic arms and in rehabilitation engineering [@Mick S, Lapeyre M, Rouanet P, et al. Reachy]. 
+
+According to [@Mick S, Lapeyre M, Rouanet P, et al. Reachy], driving a prosthetic arm requires thorough testing before it is integrated into a finished system. Moreover, such control will need to preserve the anatomical consistencies between human arm and the robot prostheses while employing devices that enforce human-like motion. 
+
+Whilst there are many ways in which we can control a robotic arm, motion capture systems provide a trivial solution in attempting to reproduce human-like motion in a prosthetic arm. Indeed, there have been many motion capture systems - marker-based and marker-less systems that capture human motion and help us in understanding and modeling human motion. 
+
+
 
 
 # Literature Survey
@@ -46,8 +53,42 @@ description: Biomimetic Arm using Motion Capture and Inverse Kinematics.
 > - [ ] Evaluate the stiffness characteristics of the prosthetic limb
  
 
+# Biomechanics of human movement
 
-# Chapter 1: Motion Capture Studio
+ human movement is
+achieved through a complex and highly coordinated mechanical interaction between bones,
+muscles, ligaments and joints within the musculoskeletal system. Any injury to, or lesion in,
+any of the individual elements of the musculoskeletal system will change the mechanical interaction and cause degradation, instability or disability of movement. On the other hand, proper
+modification, manipulation and control of the mechanical environment can help prevent
+injury, correct abnormality, and speed healing and rehabilitation. Therefore, understanding
+the biomechanics and loading of each element during movement using motion analysis is helpful for studying disease etiology, making decisions about treatment, and evaluating treatment
+effects.
+
+# The Applications of Microsoft Kinect for Human Motion Capture and Analysis 
+
+## Intro
+
+
+
+# Development of a motion capture system using Kinect and Blender
+
+## Intro
+
+Microsoft Kinect V2 is identified as one of the low-cost tools available today in the field of motion capture and analysis of human locomotion. Therefore, this section aims at developing a motion capture system using Microsoft Kinect; focusing on developing the interface using Blender to capture motion as well as analysing measurements from captured or recorded motion data. The work is divided into several stages which include installation (Microsoft Kinect and Blender); experimental setup; motion capture; includes the data acquisition protocol, data collection and data analysis based on the computer vision data. [Link](https://www.researchgate.net/publication/283575042_Development_of_a_motion_capture_system_using_kinect)
+
+
+
+
+
+
+
+
+
+
+
+
+
+# Setting Up Mocap
 
 ![kinect_nimate](https://user-images.githubusercontent.com/24211929/72427972-cbbba480-37b2-11ea-93d8-a46998d2f054.gif)
 
@@ -112,13 +153,11 @@ In order to have the recorded motion and joint coordinates from the Kinect V2, t
 
 By downloading free add-ons and templates made available for a number of 3D software packages, you can instantly transform your Kinect into a powerful interface with high performance.
 
-### Introduction 
-
-* Stage 1: Using Kinect V2 to get the bone joints onto an animated rig from Blender
-* Stage 2: Using Inverse Kinematics (IK) to control an arm without tracking human motion
-* Stage 3: Using the IK rig inplace of Stage 1 rig to track the motion of an arm
-* Stage 4: Transfer serial data from the rigs in Blender to Arbotix-M 
-* Experiments
+- [x] Using Kinect V2 to get the bone joints onto an animated rig from Blender
+- [x] Using Inverse Kinematics (IK) to control an arm without tracking human motion
+- [x] Using the IK rig inplace of Stage 1 rig to track the motion of an arm
+- [ ] Transfer serial data from the rigs in Blender to Arbotix-M 
+- Experiments
 
 ### Stage 1: Using Kinect V2 to get the bone joints onto an animated rig from Blender
 
@@ -138,7 +177,6 @@ You can `Start Sensor/Stop Sensor` at the top right if you want to restart your 
 
 ![Delicode NI mate  2 14 Free - Default_ 28-01-2020 16_50_25](https://user-images.githubusercontent.com/24211929/73290627-c9326380-4224-11ea-8133-8978418bcfb2.png)
 
-
 **Getting the Pose**
 
 ![Delicode NI mate  2 14 Free - Default_ 28-01-2020 16_50_13](https://user-images.githubusercontent.com/24211929/73290630-c9cafa00-4224-11ea-830b-a7f3df1bd986.png)
@@ -147,11 +185,9 @@ You can `Start Sensor/Stop Sensor` at the top right if you want to restart your 
 
 ![Delicode NI mate Preferences 28-01-2020 16_00_20](https://user-images.githubusercontent.com/24211929/73290626-c899cd00-4224-11ea-9500-9a4a57577cd8.png)
 
-Once all the above steps are completed, we are ready to use the kinect data to animate a human-meta rig as taken from Remington Pro's youtube video as continued in Blender section below.
+Once all the above steps are completed, we are ready to use the kinect data to animate a human-meta rig as taken from Remington Pro's youtube video as continued below.
 
-#### Blender 2.78
-
-As of now, the pipeline looks something like the picture below.
+As of now, the pipeline looks like:
 
 ![pipeline](https://user-images.githubusercontent.com/24211929/71520910-89562480-28e4-11ea-8fc5-a829d93af095.png)
 
@@ -193,7 +229,7 @@ You can switch between the rigs in different layers and choose the coordinate da
 
 ### Stage 2: Using Inverse Kinematics (IK) to control an arm without tracking human motion
 
-[IK](https://easyblend.org/html/rigging/posing/inverse_kinematics/introduction.html#arm-rig-example) simplifies the animation process, and makes it possible to make more advanced animations with lesser effort.
+[IK Arm Blend File](https://easyblend.org/html/rigging/posing/inverse_kinematics/introduction.html#arm-rig-example) simplifies the animation process, and makes it possible to make more advanced animations with lesser effort.
 
 IK allows you to position the last bone in a bone chain and the other bones are positioned automatically. This is like how moving someone’s finger would cause his arm to follow it. By normal posing techniques, you would have to start from the root bone, and set bones sequentially till you reach the tip bone: When each parent bone is moved, its child bone would inherit its location and rotation. Thus making tiny precise changes in poses becomes harder farther down the chain, as you may have to adjust all the parent bones first.
 
@@ -241,6 +277,8 @@ Additional changes have been added to he code to effectively send bone angles to
 ![motor control for arduino base file](https://user-images.githubusercontent.com/24211929/72427403-ae3a0b00-37b1-11ea-8c99-d2c0ebe3c827.PNG)
 
 ![Screenshot 15-01-2020 15_52_47](https://user-images.githubusercontent.com/24211929/72426076-163b2200-37af-11ea-998e-55999df9a72b.png)
+
+### Code
 
 **Blender Code**
 
@@ -325,7 +363,7 @@ void loop() {
 }
 ```
 
-# Chapter 2: MoCap Experiments
+# MoCap Experiments
 
 ## Joint Tracking versus Distance from Kinect V2
 
@@ -768,8 +806,6 @@ At frame 180, the `arma` position is clearly perpendicular to the x-axis and we 
 There are commercially-available prosthesis such as the [LUKE arm](https://www.mobiusbionics.com/luke-arm/) from [Mobius Bionics](https://www.mobiusbionics.com/) which enables shoulder abduction and adduction, elbow flexion and extension and wrist with combined ulnar/radial deviation.
 
 
-
-
 **Shoulder Abduction**
 ![shoulder-abduction](https://user-images.githubusercontent.com/24211929/73836236-d35fed80-4834-11ea-888c-8fb8aa98d3e5.gif)
 
@@ -803,6 +839,8 @@ These gifs are taken from [Mobius Bionics](https://www.mobiusbionics.com/luke-ar
 
 The graphs of the armature bone `arma` are plotted and analysed for futher insight.
 
+### Graphs
+
 <div>
     <a href="https://plot.ly/~vishalgattani/28/?share_key=JYaOhCXaWD1zNlEJDA315M" target="_blank" title="Shoulder Armature Bone Angles" style="display: block; text-align: center;"><img src="https://plot.ly/~vishalgattani/28.png?share_key=JYaOhCXaWD1zNlEJDA315M" alt="Shoulder Armature Bone Angles" style="max-width: 100%;width: 600px;"  width="600" onerror="this.onerror=null;this.src='https://plot.ly/404.png';" /></a>
     <script data-plotly="vishalgattani:28" sharekey-plotly="JYaOhCXaWD1zNlEJDA315M" src="https://plot.ly/embed.js" async></script>
@@ -811,6 +849,10 @@ The graphs of the armature bone `arma` are plotted and analysed for futher insig
 From these graphs we can see that the motion, being similar, has resulted in the armature angles to be similar as well. These values, therefore, will not result in massive changes when applied to the prosthetic arm through the Dynamixel motors using Arbotix-M board. 
 
 Furthermore, the need to calculate the humeral rotation and the wrist pronation and supination will enable finer control of the prosthetic arm using Blender. Inorder to achieve these results, the kinect will have to first detect the rotation through the NI mate add-on. 
+
+
+
+## Wrist and Arm Motions available in Blender
 
 To detect or incorporate humeral twist amount on our prosthetic arm, Blender enables us to calculate the bone roll and apply it onto our rig. 
 
@@ -903,6 +945,9 @@ bpy.app.handlers.frame_change_pre.append(frameChange)
 
 ```
 
+
+## Wrist Motions through Motion Capture
+
 The arm can undergo humeral rotations and wrist pronation or supination in Blender using control modes. Whether the kinect detects such humeral rotations and wrist pronation or supination is yet to be determined. However, due to the control option available in blender through Inverse Kinematics and the design of the prosthetic enabling us to have such rotations, it would be helpful to determine the roll angles and transmit them to the dynamixels when needed for finer control of the prosthetic arm.
 
 Moreover, the radial and ulnar deviation of the wrist and its extension and flexion as detected by the kinect are constrained to a specific range. [Ulnar deviation](http://www.ergovancouver.net/wrist_movements.htm), otherwise known as ulnar flexion, is the movement of bending the wrist to the little finger, or ulnar bone, side. [Radial deviation](http://www.ergovancouver.net/wrist_movements.htm), otherwise known as radial flexion, is the movement of bending the wrist to the thumb, or radial bone, side.
@@ -910,6 +955,8 @@ Moreover, the radial and ulnar deviation of the wrist and its extension and flex
 According to [Measurement of Joint Motion: A Guide to Goniometry](https://fadavispt.mhmedical.com/content.aspx?bookid=1964&sectionid=147190776), these values range from 60 to 80 degrees for flexion, 60 to 75 degrees for extension, 20 to 25 degrees for radial deviation, and 30 to 40 degrees for ulnar deviation. 
 
 ![image](https://user-images.githubusercontent.com/24211929/74828877-e34bf700-5335-11ea-8c55-b04a801f642f.png)
+
+### Graphs
 
 ![extension](https://user-images.githubusercontent.com/24211929/74830524-5b67ec00-5339-11ea-92cd-3a21f9231906.gif)
 
@@ -947,8 +994,6 @@ According to [Measurement of Joint Motion: A Guide to Goniometry](https://fadavi
 
 ![image](https://user-images.githubusercontent.com/24211929/72739864-90621100-3bca-11ea-9b6e-19a03bf42da7.png)
 
-
-
 An overview of the hardware of the board can be found [here](https://learn.trossenrobotics.com/arbotix/arbotix-getting-started/38-arbotix-m-hardware-overview.html).
 
 
@@ -957,6 +1002,7 @@ An overview of the hardware of the board can be found [here](https://learn.tross
 You need to install the Arduino IDE to program the controller. Currently (10-09-2015), the Arbotix-M runs on the old Arduino 1.0.6 version. This means that you will need to get and install the old IDE. This, however is actually quite simple. If you have the newest IDE installed already, you don't need uninstall it, the two IDEs can live along side each other. The files are [here](https://www.arduino.cc/en/Main/OldSoftwareReleases).
 
 > Why use the old Arduino IDE?
+
 > The Arduino IDE 1.0.6 has a different implementation of the Arduino core code than the 1.6. Actually looking at the [release notes](https://www.arduino.cc/en/Main/ReleaseNotes), the Arduino IDE 1.0.1 went into a 1.5 BETA branch in late 2012. The new IDE was an attemt to make a unified IDE for both 8-bit AVR and 32-bit ARM based Arduinos. While the 1.5 BETA developed into 1.6 and went out of the BETA stage, the 1.0.1 developed into the 1.0.6. The big difference is how the hardware definition files are handled in the IDE. Also the original Arduino Serial code is too slow to handle the 1Mbps that we run the Crust Crawler Arms at, so a custom implementation was developed in Vanadium Labs. But looking at the developments in the [code on GitHub](https://github.com/vanadiumlabs/arbotix) it seems branches for the 1.5 and 1.6 IDE are popping up. So maybe we can use the new IDE in the near future.
 
 
@@ -1018,28 +1064,25 @@ Move the power jumper towards 'VIN'. This allow you to power the ArbotiX-M from 
 
 ![image](https://user-images.githubusercontent.com/24211929/74639588-2b331880-5194-11ea-9c91-8e25b728bbab.png)
 
-> Before you set your servo IDs, here are some things to keep in mind.
-> You can only ID one servo at a time. Do not plug multiple servos into the ArbotiX when using the DYNAManger.
-> Make sure you label your servos as you ID them! This will make the assmebly phase go much faster
-> All servos come pre-set to ID # 1. However we still recomend that you use the DynaManager to set the ID on servo #1. This will make sure the servo's baud rate is set correctly, as well as allow you test the servo.
-> Most kits use only AX-12A or AX-18A servos. For these kits, you can simply ID the servos in sequential, increasing order for however many servos you have.
 
+** [U2D2](http://emanual.robotis.com/docs/en/parts/interface/u2d2/)**
 
-**[U2D2](http://emanual.robotis.com/docs/en/parts/interface/u2d2/)**
+E-manual: link(http://support.robotis.com/en/product/auxdevice/interface/u2d2.htm)
 
-> The Arbotix does not work with the DYNAMIXEL Wizard software, you will need a DYNAMIXEL U2D2 to ID your 106T servo. I did try to use the Dynamanager software, however it was not intended for use with the 106T servos, it may or may not work: [here](https://learn.trossenrobotics.com/index.php/getting-started-with-the-arbotix/1-using-the-tr-dynamixel-servo-tool#&panel1-1)
-> Provided the MX-106 servos are protocol 1, the DYNAMIXEL libraries for the arbotix Trossen Robotics(TR) have should work with the servo. If the servos are protocol 2, TR has had success in loading a previous version of the DYNAMIXEL software (Wizard 1.0) and firmware resetting an earlier version back to protocol 1.
+> The Arbotix does not work with the DYNAMIXEL Wizard software, you will need a DYNAMIXEL U2D2 to ID your 106T servo. I did try to use the Dynamanager software, however it was not intended for use with the 106T servos, it may or may not work: [here](https://learn.trossenrobotics.com/index.php/getting-started-with-the-arbotix/1-using-the-tr-dynamixel-servo-tool#&panel1-1).
+
+> Provided the MX-106 servos are protocol 1, the DYNAMIXEL libraries for the arbotix Trossen Robotics(TR) should work with the servo. If the servos are protocol 2, TR has had success in loading a previous version of the DYNAMIXEL software (Wizard 1.0) and firmware resetting an earlier version back to protocol 1.
 
 
 ![image](https://user-images.githubusercontent.com/24211929/74670811-edec7c00-51cf-11ea-902e-3f4da55e8b69.png)
+
+U2D2 is a small size USB communication converter that enables to control and to operate the DYNAMIXEL with the PC.
 
 U2D2 can be connected to the USB port of the PC with the enclosed USB cable. It supports both 3Pin TTL connector and 4Pin RS-485 connector to link up with various DYNAMIXEL’s. U2D2 does not supply power to DYNAMIXEL, therefore, an external power supply should provide power to DYNAMIXEL.
 
 U2D2 does not supply power to DYNAMIXEL, therefore, an external power supply should provide power to DYNAMIXEL as below. Before connecting DYNAMIXEL to an external power supply, please check the recommended voltage for DYNAMIXEL.
 
-> Caution for Power Supply
-> For a stable power supply, it is recommended to use ROBOTIS controller or SMPS2Dynamixel.
-> When connecting cable to DYNAMIXEL, please turn off the power.
+> For a stable power supply, it is recommended to use ROBOTIS controller or SMPS2Dynamixel. When connecting cable to DYNAMIXEL, please turn off the power.
 
 **SMPS2Dynamixel**
 
@@ -1634,3 +1677,6 @@ void loop() {
 
 
 
+# References
+
+[@Mick S, Lapeyre M, Rouanet P, et al. Reachy]: https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6703080/
