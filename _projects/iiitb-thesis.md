@@ -16,15 +16,22 @@ In this study, two control strategies to drive an 8-DoF robot arm are presented.
 
 **Keywords: Motion Capture · Forward Kinematics · Inverse kinematics · Biomimetics · Graphical Models · Anthropomorphic Motion**
 
-The motivation of this thesis is to implement control strategies on a Hybrid Prosthetic arm that combines the motion capture technology derived from the Kinect through implementing a marker-less motion capture system, which will complement the equipment from Trossen Robotics and the prosthetic design from Reachy. In doing so, two new control strategies are compared and performed - Motion Capture (MoCap) based control and Endpoint control through Inverse Kinematics using Blender software.
+The motivation of this thesis is to implement control strategies on a Hybrid Prosthetic arm that combines the motion capture technology derived from the Kinect through implementing a marker-less motion capture system, which will complement the equipment from Trossen Robotics and the prosthetic design from Reachy. In doing so, two new control strategies are compared and performed - Motion Capture (MoCap) based control and Endpoint control through Inverse Kinematics using Blender Game Engine.
 
-
+---
+**Real-time Forward Kinematic control**
 <iframe width="560" height="315" src="https://www.youtube.com/embed/PMpMItoWi10" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-
-<iframe width="560" height="315" src="https://www.youtube.com/embed/KM01i11d400" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-
-<iframe width="560" height="315" src="https://www.youtube.com/embed/C5rUWDf6tCQ" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-
-<iframe width="560" height="315" src="https://www.youtube.com/embed/gC0M-iCVxCw" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-
+---
+**Real-time Inverse Kinematic control**
 <iframe width="560" height="315" src="https://www.youtube.com/embed/HLasnmpaBvk" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+---
+**Inverse Kinematics - Path Following**
+<iframe width="560" height="315" src="https://www.youtube.com/embed/C5rUWDf6tCQ" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+---
+**Inverse Kinematics - Teleoperation mode**
+<iframe width="560" height="315" src="https://www.youtube.com/embed/KM01i11d400" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+---
+**Applying recorded motion through MoCap using Kinect onto the Robotic arm**
+<iframe width="560" height="315" src="https://www.youtube.com/embed/gC0M-iCVxCw" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+---
+
