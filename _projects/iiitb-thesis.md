@@ -21,27 +21,27 @@ The motivation of this thesis is to implement control strategies on a Hybrid Pro
 ---
 
 **Real-time Forward Kinematic control**
-<iframe width="560" height="315" align="center" src="https://www.youtube.com/embed/z2TQiBxfes8" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<iframe width="560" height="315" align="middle" src="https://www.youtube.com/embed/z2TQiBxfes8" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 ---
 
 **Real-time Inverse Kinematic control**
-<iframe width="560" height="315" align="center" src="https://www.youtube.com/embed/jVuarIHhB2E" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<iframe width="560" height="315" align="middle" src="https://www.youtube.com/embed/jVuarIHhB2E" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 ---
 
 **Inverse Kinematics - Path Following**
-<iframe width="560" height="315" align="center" src="https://www.youtube.com/embed/puwA0zmrOlI" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<iframe width="560" height="315" align="middle" src="https://www.youtube.com/embed/puwA0zmrOlI" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 ---
 
 **Inverse Kinematics - Teleoperation mode**
-<iframe width="560" height="315" align="center" src="https://www.youtube.com/embed/BEpcV4U-CsI" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<iframe width="560" height="315" align="middle" src="https://www.youtube.com/embed/BEpcV4U-CsI" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 ---
 
 **Applying recorded motion through MoCap using Kinect onto the Robotic arm**
-<iframe width="560" height="315" align="center" src="https://www.youtube.com/embed/gIVJBudU4Do" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<iframe width="560" height="315" align="middle" src="https://www.youtube.com/embed/gIVJBudU4Do" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 ---
 
