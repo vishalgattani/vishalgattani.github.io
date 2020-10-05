@@ -12,4 +12,10 @@ description: The motivation of this thesis is to implement control strategies on
 
 # Abstract
 
-**Keywords Inverse kinematics · Biomimetics · Graphical Models · Anthropomorphic Motion**
+In this study, two control strategies to drive an 8-DoF robot arm are presented. With the use of motion capture technology such as the Kinect, the robot arm was able to reproduce the actions of a human operator to perform simple tasks such as reaching and grasping objects. A visual representation of the human arm is modeled in Blender Game Engine which formed the basis of understanding the kinematics for the human upper limb and use of Blender as a visualization, simulation and emulation tool to gain qualitative information about the robot’s behavior and effectiveness. Through inverse kinematics using Blender Game Engine, new human-like motions can be modeled to perform various telerobotic tasks.  This study demonstrated the abilities of Blender as an interface to control and program the robot arm, as well as providing support for motion capture using NI-Mate to capture human motions in real-time. The capabilities of the robotic arm is demonstrated by conducting experiments based on: forward kinematics, inverse kinematics, path following based on inverse kinematics, applying a recorded motion onto the arm using Motion Capture. The biomimetic robot design and control strategies makes it highly suitable for telerobotic medical and surgical applications in the future.
+
+**Keywords: Motion Capture · Forward Kinematics · Inverse kinematics · Biomimetics · Graphical Models · Anthropomorphic Motion**
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/PMpMItoWi10" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+
