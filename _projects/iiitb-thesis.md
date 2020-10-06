@@ -1,11 +1,11 @@
 ---
-name: Biomimetic Arm using Motion Capture and Inverse Kinematics
+name: Kinematic COntrol of a Biomimetic Robot Arm through Motion Capture and Inverse Kinematics for Telerobotic applications
 tools: [C, Python, Blender, Arduino]
 image: https://user-images.githubusercontent.com/24211929/72992613-0f00bd80-3e1a-11ea-9b60-6f6660652223.gif
 description: 8 Degree of Freedom (8-DoF) Biomimetic Robotic arm control using Blender Game Engine
 ---
 
-# Table of contents 
+# Kinematic COntrol of a Biomimetic Robot Arm through Motion Capture and Inverse Kinematics for Telerobotic applications
 
 * TOC
 {:toc}
@@ -17,6 +17,8 @@ In this study, two control strategies to drive an 8-DoF robot arm are presented.
 **Keywords: Motion Capture · Forward Kinematics · Inverse kinematics · Biomimetics · Graphical Models · Anthropomorphic Motion**
 
 The motivation of this thesis is to implement control strategies on a Hybrid Prosthetic arm that combines the motion capture technology derived from the Kinect through implementing a marker-less motion capture system, which will complement the equipment from Trossen Robotics and the prosthetic design from Reachy. In doing so, two new control strategies are compared and performed - Motion Capture (MoCap) based control and Endpoint control through Inverse Kinematics using Blender Game Engine.
+
+# Experiments (Videos)
 
 ---
 
