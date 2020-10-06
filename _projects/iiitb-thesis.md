@@ -1,11 +1,9 @@
 ---
-name: Kinematic COntrol of a Biomimetic Robot Arm through Motion Capture and Inverse Kinematics for Telerobotic applications
+name: Kinematic Control of a Biomimetic Robot Arm through Motion Capture and Inverse Kinematics for Telerobotic applications
 tools: [C, Python, Blender, Arduino]
 image: https://user-images.githubusercontent.com/24211929/72992613-0f00bd80-3e1a-11ea-9b60-6f6660652223.gif
 description: 8 Degree of Freedom (8-DoF) Biomimetic Robotic arm control using Blender Game Engine
 ---
-
-# Kinematic COntrol of a Biomimetic Robot Arm through Motion Capture and Inverse Kinematics for Telerobotic applications
 
 * TOC
 {:toc}
