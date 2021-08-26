@@ -1,10 +1,10 @@
 - name: LaTeX
   percentage: 80
-  color: dark
+  color: success
 
 - name: Blender Rigging
   percentage: 80
-  color: info
+  color: success
 
 - name: OpenGL
   percentage: 70
