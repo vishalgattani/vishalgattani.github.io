@@ -79,7 +79,7 @@ No scene graph is used to implement the scene. The controls are as follows in th
   -Rotation of the scene can be done using the following keys which rotate in either of the ***x,y,z*** axes either in ***clockwise*** or ***anticlockwise*** direction.
     * I,J,O,K,P,L are the keys which help in rotation of the scene anticlockwise and clockwise in x,y,z axes respectively.
     
-## Phase 2 Implementation}}}
+## Phase 2 Implementation
 
 1. Scene Graph
     - A model graph node is created such that the position of the current model node would depend on the position of the parent model node.
