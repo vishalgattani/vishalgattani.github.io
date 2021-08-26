@@ -3,7 +3,7 @@
   color: dark
 
 - name: Blender Rigging
-  percentage: 75
+  percentage: 80
   color: info
 
 - name: OpenGL
