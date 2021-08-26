@@ -1,6 +1,6 @@
 ---
 name: PlutoX Programmable Drone
-tools: [C#, XML, WPF]
+tools: [C#, Python]
 image: https://user-images.githubusercontent.com/24211929/73069259-4d0de800-3ed3-11ea-890c-4421e8a01061.png
 description: Programming the PlutoX drone for collision avoidance, target following and sensor fusion.
 ---
@@ -13,7 +13,7 @@ description: Programming the PlutoX drone for collision avoidance, target follow
 
 # Pluto X
 
-In this project, we worked on programming the PlutoX drone to achieve results such as collision avoidance, following a target and getting sensor data mounted on top of the drone. The sensors used to achieve the above said behavior are the IR sensors (V53LOX) and analog sensors to determine the temperature and pressure when the drone is in flight mode.
+In this project, we used the PlutoX drone to achieve results such as collision avoidance, following a target and fetching sensor data mounted on top of the drone during aerial surveillance. The sensors used to achieve the above said behavior are the IR sensors (V53LOX) and analog sensors to determine the temperature and pressure when the drone is in flight mode.
 
 {% include elements/figure.html image="https://user-images.githubusercontent.com/24211929/73069496-e0dfb400-3ed3-11ea-8336-217f73147548.png" caption="Pluto X Drone" %}
 
