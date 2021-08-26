@@ -9,9 +9,8 @@ weight: 3
 
 Hi I am **{{ site.author.name }}** :wave:,<br>
 
-Currently, I am a student at IIIT Bangalore. My academic interests lie in the areas of Robotics and Control. At present, I am pursuing thesis work and I will, hopefully, be able to finish it by May 2020.
+Currently, I am pursuing Master of Science at University of Maryland College Park, majoring in Systems Engineering with a concentration in Robotics. I completed my integrated Masters in Electronics and Communication Engineering at [International Institute of Information Technology Bangalore](https://www.iiitb.ac.in/). My academic interests lie in the areas of Robotics and Control. Previously, I was employed as a Research Associate at [Surgical and Assistive Robotics Lab](https://www.iiitb.ac.in/sarl/sarl.html) led by Prof. Madhav Rao.
 
-Apart from academics, I play video games and watch a lot of science fiction and TV series. 
 
 <div class="row">
 {% include about/skills.html title="Programming Skills" source=site.data.programming-skills %}
