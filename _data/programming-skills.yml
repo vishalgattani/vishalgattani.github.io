@@ -1,6 +1,14 @@
 - name: Python
   percentage: 85
   color: danger
+  
+- name: Arduino
+  percentage: 80
+  color: 
+
+- name: Processing
+  percentage: 75
+  color: 
 
 - name: MATLAB
   percentage: 75
@@ -9,3 +17,5 @@
 - name: C/C++
   percentage: 70
   color: dark
+
+
