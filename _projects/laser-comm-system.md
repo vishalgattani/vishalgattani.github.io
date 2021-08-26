@@ -3,6 +3,7 @@ name: Laser Communication System
 tools: [Sensors, Analog Ciruits]
 image: ![Laser_transmitter_10-21-2015](https://user-images.githubusercontent.com/24211929/131023658-0df219bd-4af3-446b-b36b-4f020225de6b.png)
 description: To transmit audio from a computer speaker using a power amplifier, a laser diode transmitter and a receiver using photo resistor.
+---
 
 # Table of contents 
 
