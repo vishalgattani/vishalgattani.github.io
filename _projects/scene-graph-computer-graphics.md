@@ -33,42 +33,43 @@ meshes given in .ply file format.
 - Phase 2: Define a scene graph to manage these models. Animate the objects on the lines described in the next section below. Manage lights and camera settings to create the different effects.
 
 ## Phase 1
--Create a scene comprising of a floor/ground and at least 4 objects. The floor/ground is a plane. Each of the objects is a triangulated surface model, read in as a **.ply** file. 
--Arrange the model objects on the floor/ ground, sufficiently far apart. 
--Set up 4 point sources of light, positioned at different locations, and each shining directly on one of the objects. Lights can be turned on/off individually. Use keys/mouse-clicks (or GUI controls) to turn lights on/off. For example, hitting numbers 1-4 will toggle the state (on or off) of that light. Note that each light points to one of the model objects.
--Each of the objects should be renderable with each of the texture images and with each of the mapping schemes listed below. Use the following schemes to generate texture coords for vertices:
-    1. A cylindrical map
-     2. A spherical map
-       3. A planar map
-        4. An arbitrary pre-image mapping (such as that computed by OpenGL as a default mapping)
+- Create a scene comprising of a floor/ground and at least 4 objects. The floor/ground is a plane. Each of the objects is a triangulated surface model, read in as a **.ply** file. 
+- Arrange the model objects on the floor/ ground, sufficiently far apart. 
+- Set up 4 point sources of light, positioned at different locations, and each shining directly on one of the objects. Lights can be turned on/off individually. Use keys/mouse-clicks (or GUI controls) to turn lights on/off. For example, hitting numbers 1-4 will toggle the state (on or off) of that light. Note that each light points to one of the model objects.
+- Each of the objects should be renderable with each of the texture images and with each of the mapping schemes listed below. Use the following schemes to generate texture coords for vertices:
+   1. A cylindrical map
+   2. A spherical map
+   3. A planar map
+   4. An arbitrary pre-image mapping (such as that computed by OpenGL as a default mapping)
     
     
 ## Phase 2
 Add animation to the scene and introduce controls as described below.
--Design and implement a scene graph and add the models to this, The structure of the scene graph should help the implementation of program features described below. Rendering of the scene for each frame should be implemented by rendering this scene graph.
--Add animation to the objects in the scene as follows:Assume the 4 objects are named A, B, C and D. The objects move as follows:
+- Design and implement a scene graph and add the models to this, The structure of the scene graph should help the implementation of program features described below. Rendering of the scene for each frame should be implemented by rendering this scene graph.
+- Add animation to the objects in the scene as follows:Assume the 4 objects are named A, B, C and D. The objects move as follows:
     1.Object A is fixed with respect to the floor
-     2. Object B moves in a circular (or similar path) around object A, and wobbles left and right as it traverses this path
-        3. Object C starts some distance away from B, and tries to move towards B, constantly adjusting its direction depending on the current position of B.
-       4. Object D sits on top ot C, and jumps up and down while staying on top of C.
--The four lights used in Phase 1 now track their target objects, as they move around.
+    2. Object B moves in a circular (or similar path) around object A, and wobbles left and right as it traverses this path
+    3. Object C starts some distance away from B, and tries to move towards B, constantly adjusting its direction depending on the current position of B.
+    4. Object D sits on top ot C, and jumps up and down while staying on top of C.
+- The four lights used in Phase 1 now track their target objects, as they move around.
 
 For all the above, an appropriate scene graph is set up and manage all animations and rendering through traversal of the scene graph.
 
 
 ## Phase 1 Implementation
-No scene graph is used to implement the scene.
-The controls are as follows in the implementation of Phase-1.
--The mouse acts like the camera. Moving the mouse moves the view.
+No scene graph is used to implement the scene. The controls are as follows in the implementation of Phase-1.
+- The mouse acts like the camera. Moving the mouse moves the view.
 ![1](https://user-images.githubusercontent.com/24211929/130899582-75eb7232-e872-4c29-9965-c1f5f57a1721.png)
     
- -The lights on each object can be controlled by the keyboard buttons from \textbf{0} to \textbf{5} where: 
+ - The lights on each object can be controlled by the keyboard buttons from \textbf{0} to \textbf{5} where: 
     * 0: Switch off all lights
     * 1: Switch on light on 1$^{st}$ object
-        * 2: Switch on light on 2$^{nd}$ object
-        * 3: Switch on light on 3$^{rd}$ object
-        * 4: Switch on light on 4$^{th}$ object
-        * 5: Switch on all lights
+    * 2: Switch on light on 2$^{nd}$ object
+    * 3: Switch on light on 3$^{rd}$ object
+    * 4: Switch on light on 4$^{th}$ object
+    * 5: Switch on all lights
+
+
 ![2](https://user-images.githubusercontent.com/24211929/130899580-7c5e3676-5cb8-46d6-ac5d-cdf325356530.png)
     
 ![3](https://user-images.githubusercontent.com/24211929/130899579-c7cc5508-bd0b-41b2-827b-9deb352561c3.png)
@@ -81,14 +82,14 @@ The controls are as follows in the implementation of Phase-1.
 ## Phase 2 Implementation}}}
 
 1. Scene Graph
-    -A model graph node is created such that the position of the current model node would depend on the position of the parent model node.
-     -Creating a dependency for each model with its parent through its local matrix and world matrix for each node.
-      -The draw function of the root of the scene graph results in recursive function calls to the draw function of its children sending its current position as the parameters.
+    - A model graph node is created such that the position of the current model node would depend on the position of the parent model node.
+    - Creating a dependency for each model with its parent through its local matrix and world matrix for each node.
+    - The draw function of the root of the scene graph results in recursive function calls to the draw function of its children sending its current position as the parameters.
     
     
 2. Animation
     - Object ID is added to keep track of its motion in the scene or to procedurally animate it having less control over the object.
-        -The draw function of a model uses \textbf{glfwGetTime()} as the variable to update the time elapsed of the scene graph node and update its position of itself according to the values.
+    - The draw function of a model uses \textbf{glfwGetTime()} as the variable to update the time elapsed of the scene graph node and update its position of itself according to the values.
 
 ![4](https://user-images.githubusercontent.com/24211929/130899578-cc7ab5d1-80f1-4193-a804-34c09d076453.png)
     
