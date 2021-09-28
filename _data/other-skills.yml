@@ -1,12 +1,10 @@
 - name: LaTeX
-  percentage: 80
   color: success
 
-- name: Blender Rigging
-  percentage: 80
+- name: Blender Game Engine and Rigging
   color: success
 
 - name: OpenGL
-  percentage: 70
   color: success
-  
+ 
+
