@@ -1,7 +1,10 @@
 - name: LaTeX
   color: success
 
-- name: Blender Game Engine and Rigging
+- name: Blender Game Engine 
+  color: success
+
+- name: Character Rigging and Animation
   color: success
 
 - name: OpenGL
