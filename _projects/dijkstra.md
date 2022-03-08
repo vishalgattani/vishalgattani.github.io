@@ -46,7 +46,9 @@ meshes given in .ply file format.
 
 The above video shows the node exploration and the optimal path generation after the goal node is reached. 
 
-# Dijkstra's Algortithm Pseudocode
+<!-- # Dijkstra's Algortithm Pseudocode
+
+ -->
 
 <!-- 
 > while Q is not empty:
@@ -57,8 +59,9 @@ The above video shows the node exploration and the optimal path generation after
 >       dist[v] ← alt
 >       prev[v] ← u
 > return dist[], prev[] -->
-
+<!-- 
 ```{python, eval = FALSE}
+
 open_set, closed_set = (),()
 open_set[start index] = start
 
@@ -89,7 +92,7 @@ while open_set is not empty:
 						open_set(new_node_id) ← v  
 
 ```
-
+ -->
 
 # References
 
