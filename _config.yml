@@ -20,6 +20,8 @@ nav_exclude:                        # Pages with the following paths will be exc
   - index.html
   - blog/tags.html
   - blog/page-:num/index.html
+  - docs/elements.md
+  - docs/docs.md
 
 
 ### Author Info ###
