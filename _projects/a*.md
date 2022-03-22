@@ -1,7 +1,7 @@
 ---
 name: A* Algorithm - Path Planning
 tools: [Python, matplotlib]
-image: https://user-images.githubusercontent.com/24211929/159383893-be4f017e-e750-4c95-81d1-a3952eaba50b.mp4
+image: https://user-images.githubusercontent.com/24211929/159390771-bf0cce5e-5255-43c1-9010-149fa303ebdf.gif
 description: Implementation of A* algorithm for a Robot
 ---
 
@@ -30,7 +30,9 @@ The following image shows the action set that can be performed by the Robot in c
 
 # Visualization 
 
-https://user-images.githubusercontent.com/24211929/159383851-806f3025-10d9-41f4-8f0a-ae68fdd7b860.mp4
+<!-- ![astar](https://user-images.githubusercontent.com/24211929/159390771-bf0cce5e-5255-43c1-9010-149fa303ebdf.gif) -->
+
+<!-- https://user-images.githubusercontent.com/24211929/159383851-806f3025-10d9-41f4-8f0a-ae68fdd7b860.mp4 -->
 
 https://user-images.githubusercontent.com/24211929/159383893-be4f017e-e750-4c95-81d1-a3952eaba50b.mp4
 
