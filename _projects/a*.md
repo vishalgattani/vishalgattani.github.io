@@ -31,9 +31,9 @@ The following image shows the action set that can be performed by the Robot in c
 # Visualization 
 
 <!-- ![astar](https://user-images.githubusercontent.com/24211929/159390771-bf0cce5e-5255-43c1-9010-149fa303ebdf.gif) -->
-<iframe align="middle" src="https://user-images.githubusercontent.com/24211929/159383851-806f3025-10d9-41f4-8f0a-ae68fdd7b860.mp4" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<iframe width="1920" height="1440" align="middle" src="https://user-images.githubusercontent.com/24211929/159383851-806f3025-10d9-41f4-8f0a-ae68fdd7b860.mp4" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
-<iframe align="middle" src="https://user-images.githubusercontent.com/24211929/159383893-be4f017e-e750-4c95-81d1-a3952eaba50b.mp4" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<iframe width="1920" height="1440" align="middle" src="https://user-images.githubusercontent.com/24211929/159383893-be4f017e-e750-4c95-81d1-a3952eaba50b.mp4" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 The above videos shows the node exploration and the optimal path generation after the goal node is reached. 
 
