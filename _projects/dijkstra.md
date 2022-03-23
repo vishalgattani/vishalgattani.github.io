@@ -118,6 +118,10 @@ The obstacle space is represented in the following image.
 
 3. If the user wishes a live animation, the opencv library will show node exploration.
 4. If the user wishes to save the video, user requires to to input `[y/n]`.
+5. Given map dimensions, each whitespace inside the map has the follwoing index: `index = j*width+i` where i and j are the nodes (whitespace pixel grid) coordinates.
+6. The open set and closed set are dictionaries with key being the index and value being the node.
+
+
 
 
 <p align="right">(<a href="#top">back to top</a>)</p>
