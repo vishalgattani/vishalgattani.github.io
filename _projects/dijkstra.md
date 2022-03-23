@@ -52,9 +52,6 @@ description: Implementation of Dijkstra algorithm for a Point Robot
 <!-- ABOUT THE PROJECT -->
 # About The Project
 
-[![Product Name Screen Shot][product-screenshot]](https://example.com)
-
-
 This project aims to implement Dijkstra’s Algorithm to find a path between start and end point on a given map for a point robot. 
 The obstacle space is represented in the following image.
 
