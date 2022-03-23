@@ -52,6 +52,9 @@ description: Implementation of Dijkstra algorithm for a Point Robot
 <!-- ABOUT THE PROJECT -->
 # About The Project
 
+
+
+
 This project aims to implement Dijkstra’s Algorithm to find a path between start and end point on a given map for a point robot. 
 The obstacle space is represented in the following image.
 
@@ -140,11 +143,8 @@ The obstacle space is represented in the following image.
     - [x] Enlarge obstacle spaces using half-plane methods.
     - [ ] Enlarge obstacle spaces by moving the robot around the osbtacle to better the configuration space.
 
-- [x] Implement the A* algorithm to search the graph for goal node.
+- [x] Implement the Dijkstra's algorithm to search the graph for goal node.
   - [x] Generate the cost to travel to the goal.
-  - [x] Implement a threshold distance around the goal.
-  - [x] Find duplicate nodes by applying a threshold of 0.5 units in by matrix method. 
-    - [x] `visited[width/threshold][height/threshold][12]` where 12 stands for `360/30` as the robot can only rotate 30 degrees.
 
 - [x] Implement the backtracking to find the optimal path.
 
