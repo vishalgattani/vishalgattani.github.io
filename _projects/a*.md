@@ -52,9 +52,6 @@ description: Implementation of A* algorithm for a Robot
 <!-- ABOUT THE PROJECT -->
 # About The Project
 
-[![Product Name Screen Shot][product-screenshot]](https://example.com)
-
-
 This project aims to implement A* Algorithm to find a path between start and end point on a given map for a point/rigid robot. The obstacle space is represented as follows:
 
 
