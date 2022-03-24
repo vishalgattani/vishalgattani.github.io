@@ -2,10 +2,10 @@
 <script src="{{ '/assets/js/remote-projects.js' | relative_url }}"></script>
 
 <!-- <div class="card-columns m-3 mt-5"> -->
-<div class="card-columns m-3">
+<div class="card-columns m-5 mt-5">
 <!-- <div class="card" style="width: 18rem;"> -->
   <!-- Remote Projects -->
-  {% for remote_project in page.remote_projects[::-1] %}
+  {% for remote_project in page.remote_projects %}
 
     {%- for repo in site.github.public_repositories -%}
       {%- if remote_project == repo.name -%}
