@@ -12,7 +12,7 @@ description:  A 2-Dimensional Radar using Ultrasonic sensors & Arduino
 <!-- PROJECT LOGO -->
 <br />
 <div align="center">
-  <a href="https://github.com/vishalgattani/Path-Planning">
+  <a href="https://github.com/vishalgattani/RadArduino">
     <img src="https://user-images.githubusercontent.com/24211929/159631172-b1f75d0d-b9c2-48c2-8033-221d0694befb.png" alt="Logo" width="80" height="80">
   </a>
 
