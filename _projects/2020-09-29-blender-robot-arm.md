@@ -1,8 +1,8 @@
 ---
-name: Robotic arm control using Blender Game Engine
+name: Robotic Arm Control using BGE
 tools: [C, Python, Blender, Arduino]
 image: https://user-images.githubusercontent.com/24211929/72992613-0f00bd80-3e1a-11ea-9b60-6f6660652223.gif
-description: Kinematic Control of an 8 Degree of Freedom (8-DoF) Biomimetic Robot Arm through Motion Capture and Inverse Kinematics for Telerobotic applications
+description: Control of an 8-DoF Robot Arm using Blender Game Engine (BGE) and Kinect.
 ---
 
 * TOC
