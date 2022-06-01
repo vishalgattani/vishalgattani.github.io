@@ -6,37 +6,14 @@ image: https://user-images.githubusercontent.com/24211929/131023658-0df219bd-4af
 description: Audio transmission using a laser diode transmitter and photo resistor receiver.
 ---
 
-<div id="top"></div>
 
-<!-- [![Contributors][contributors-shield]][contributors-url] -->
-<!-- [![Forks][forks-shield]][forks-url] -->
-<!-- [![Stargazers][stars-shield]][stars-url] -->
-<!-- [![Issues][issues-shield]][issues-url] -->
-<!-- [![MIT License][license-shield]][license-url] -->
-<!-- [![LinkedIn][linkedin-shield]][linkedin-url] -->
-
-
-
-<!-- PROJECT LOGO -->
-<br />
 <div align="center">
-  <a>
-    <img src="https://user-images.githubusercontent.com/24211929/159631172-b1f75d0d-b9c2-48c2-8033-221d0694befb.png" alt="Logo" width="80" height="80">
-  </a>
 
-<h3 align="center">Laser Communication Systemg</h3>
+
+<h3 align="center">Laser Communication System</h3>
 
   <p align="center">
-    To transmit audio from a computer speaker using a power amplifier, a laser diode transmitter and a receiver using photo resistor.
-    <!-- <br />
-    <a href="https://github.com/vishalgattani/Path-Planning"><strong>Explore the docs »</strong></a>
-    <br />
-    <br />
-    <a href="https://user-images.githubusercontent.com/24211929/159383851-806f3025-10d9-41f4-8f0a-ae68fdd7b860.mp4">View Demo</a>
-    ·
-    <a href="https://github.com/vishalgattani/Path-Planning/issues">Report Bug</a>
-    ·
-    <a href="https://github.com/vishalgattani/Path-Planning/issues">Request Feature</a> -->
+    Transmitting audio from a computer speaker using a power amplifier, a laser diode transmitter and a receiver using photo resistor.
   </p>
 </div>
 

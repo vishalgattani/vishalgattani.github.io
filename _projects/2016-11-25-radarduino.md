@@ -5,12 +5,9 @@ image: https://user-images.githubusercontent.com/24211929/159839136-8e2f90a6-8b1
 description:  A 2-Dimensional Radar using Ultrasonic sensors & Arduino
 ---
 
-<div id="top"></div>
-<br />
+
 <div align="center">
-  <a href="https://github.com/vishalgattani/RadArduino">
-    <img src="https://user-images.githubusercontent.com/24211929/159631172-b1f75d0d-b9c2-48c2-8033-221d0694befb.png" alt="Logo" width="80" height="80">
-  </a>
+
 
 <h3 align="center">RadArduino</h3>
 
@@ -91,20 +88,6 @@ map the surroundings. Once this data is obtained from the sensor, it is used to 
 # Features
 - [x] 2D Radar with fading effect
 
-<!-- CONTRIBUTING -->
-# Contributing
-
-If you have a suggestion that would make this better, please fork the [repo](https://github.com/vishalgattani/RadArduino) and create a pull request. You can also simply open an issue with the tag "enhancement". Don't forget to give the project a star! Thanks again!
-
-<!-- 1. Fork the Project
-2. Create your Feature Branch (`git checkout -b feature/AmazingFeature`)
-3. Commit your Changes (`git commit -m 'Add some AmazingFeature'`)
-4. Push to the Branch (`git push origin feature/AmazingFeature`)
-5. Open a Pull Request -->
-
-<!-- LICENSE -->
-
-<!-- CONTACT -->
 ## Contact
 
 - <a href="mailto:vishalgattani09@gmail.com"><img src="https://img.shields.io/badge/-vishalgattani09@gmail.com-D14836?style=flat&logo=Gmail&logoColor=white"/></a>
