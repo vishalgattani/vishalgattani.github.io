@@ -71,3 +71,7 @@
     width: percentage($i/100);
   }
 }
+
+.table-wrapper {
+  overflow-x: scroll;
+}
