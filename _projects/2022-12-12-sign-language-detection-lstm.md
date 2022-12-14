@@ -50,6 +50,7 @@ Once the model is trained, it can be incorporated into a MediaPipe pipeline for 
 MediaPipe combines individual neural models for face mesh, human pose, and hands and has a total of 543 landmarks (33 pose landmarks, 468 face landmarks, and 21 hand landmarks per hand). All landmarks consist of $x$, $y$, and $z$ coordinates, except pose landmarks, which consist of a visibility coordinate along with $x$, $y$, and $z$ coordinates.
 
 ## [Hand Landmark Model](https://google.github.io/mediapipe/solutions/hands.html)
+
 ![](https://mediapipe.dev/images/mobile/hand_landmarks.png)
 
 The user shall be required to input the initial amounts of resources to the SRRS simulation namely: the printable materials, non-printable materials, raw materials, and environmental materials. The user shall also provide a build quality range for the factory-made initial robot that shall replicate and create more robots. The BDD for SRRS is shown below.
@@ -57,7 +58,7 @@ The user shall be required to input the initial amounts of resources to the SRRS
 
 # LSTM Model
 
-![LSTM Model Architecture](https://github.com/vishalgattani/sign-language-mediapipe-lstm/blob/main/images/LSTM-model.png)
+![LSTM Model Architecture](https://github.com/vishalgattani/sign-language-mediapipe-lstm/blob/main/images/LSTM-model.png?raw=true)
 
 Considered three layers of LSTM, each with 64, 128, and 64 nodes, with ReLU as the activation function for each layer. The stacked LSTM structure allows for deeper training so that more complex input patterns can be extracted at every layer with disabled return sequences in the final LSTM layer. This is due to the fact that only the output of the last hidden layer is passed to the next Dense layer. In addition to this, there are three layers of fully connected networks, each with 64, 32, and 3 units, respectively. Since the output is one of our defined actions, the last Dense layer has a unit size corresponding to the number of actions defined. A categorical cross entropy was used as the loss metric.
 
@@ -69,9 +70,12 @@ Considered three layers of LSTM, each with 64, 128, and 64 nodes, with ReLU as t
 <iframe width="900" height="400" frameborder="0" scrolling="no" src="//plotly.com/~vishalgattani/183.embed"></iframe>
 
 ## Real-Time Sign Language Detection
-!["Call"](https://github.com/vishalgattani/sign-language-mediapipe-lstm/blob/main/images/action-result-call.png)
-!["Thanks"](https://github.com/vishalgattani/sign-language-mediapipe-lstm/blob/main/images/action-result-thanks.png)
-!["Hello"](https://github.com/vishalgattani/sign-language-mediapipe-lstm/blob/main/images/action-result-hello.png)
+
+!["Call"](https://github.com/vishalgattani/sign-language-mediapipe-lstm/blob/main/images/action-result-call.png?raw=true)
+
+!["Thanks"](https://github.com/vishalgattani/sign-language-mediapipe-lstm/blob/main/images/action-result-thanks.png?raw=true)
+
+!["Hello"](https://github.com/vishalgattani/sign-language-mediapipe-lstm/blob/main/images/action-result-hello.png?raw=true)
 
 # References
 - Jones, A., & Straub, J. (2021). Simulation and Analysis of Self-Replicating Robot Decision-Making Systems. Computers, 10(1), 9. [https://doi.org/10.3390/computers10010009](https://doi.org/10.3390/computers10010009)
