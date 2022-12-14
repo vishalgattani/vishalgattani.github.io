@@ -57,21 +57,21 @@ The user shall be required to input the initial amounts of resources to the SRRS
 
 # LSTM Model
 
-![](https://github.com/vishalgattani/sign-language-mediapipe-lstm/blob/main/images/LSTM-model.png)
+![LSTM Model Architecture](https://github.com/vishalgattani/sign-language-mediapipe-lstm/blob/main/images/LSTM-model.png)
 
-Considered three layers of LSTM, each with 64, 128, and 64 nodes, with ReLU as the activation function for all three layers. The stacked LSTM structure allows for deeper training so that more complex input patterns can be extracted at every layer with disabled return sequences in the final LSTM layer. This is due to the fact that only the output of the last hidden layer is passed to the next Dense layer. In addition to this, there are three layers of fully connected networks, each with 64, 32, and 3 units, respectively. Since the output is one of our defined actions, the last Dense layer has a unit size corresponding to the number of actions defined. A categorical cross entropy was used as the loss metric.
+Considered three layers of LSTM, each with 64, 128, and 64 nodes, with ReLU as the activation function for each layer. The stacked LSTM structure allows for deeper training so that more complex input patterns can be extracted at every layer with disabled return sequences in the final LSTM layer. This is due to the fact that only the output of the last hidden layer is passed to the next Dense layer. In addition to this, there are three layers of fully connected networks, each with 64, 32, and 3 units, respectively. Since the output is one of our defined actions, the last Dense layer has a unit size corresponding to the number of actions defined. A categorical cross entropy was used as the loss metric.
 
 
 # Results
 
 ## LSTM Model Summary
-<iframe width="900" height="800" frameborder="0" scrolling="no" src="//plotly.com/~vishalgattani/181.embed"></iframe>
-<iframe width="900" height="800" frameborder="0" scrolling="no" src="//plotly.com/~vishalgattani/183.embed"></iframe>
+<iframe width="900" height="400" frameborder="0" scrolling="no" src="//plotly.com/~vishalgattani/181.embed"></iframe>
+<iframe width="900" height="400" frameborder="0" scrolling="no" src="//plotly.com/~vishalgattani/183.embed"></iframe>
 
 ## Real-Time Sign Language Detection
-![](https://github.com/vishalgattani/sign-language-mediapipe-lstm/blob/main/images/action-result-call.png)
-![](https://github.com/vishalgattani/sign-language-mediapipe-lstm/blob/main/images/action-result-thanks.png)
-![](https://github.com/vishalgattani/sign-language-mediapipe-lstm/blob/main/images/action-result-hello.png)
+!["Call"](https://github.com/vishalgattani/sign-language-mediapipe-lstm/blob/main/images/action-result-call.png)
+!["Thanks"](https://github.com/vishalgattani/sign-language-mediapipe-lstm/blob/main/images/action-result-thanks.png)
+!["Hello"](https://github.com/vishalgattani/sign-language-mediapipe-lstm/blob/main/images/action-result-hello.png)
 
 # References
 - Jones, A., & Straub, J. (2021). Simulation and Analysis of Self-Replicating Robot Decision-Making Systems. Computers, 10(1), 9. [https://doi.org/10.3390/computers10010009](https://doi.org/10.3390/computers10010009)
