@@ -44,19 +44,8 @@ MediaPipe is a framework for building cross-platform multimodal applied machine 
 Pose detection is the process of detecting the posture or position of a person or object in an image or video. This can be useful for applications such as tracking human movement, recognizing gestures, and analyzing body language. MediaPipe provides tools and pre-built models for pose detection that can be used to build pose detection pipelines.
 
 # Pipeline
-```mermaid
-graph LR;
-    A[Blender] -->|Webcam| B[[BlendARMocap]];
-    B --> Z[[Mediapipe]];
-    Z --> C{Extract landmarks};
-    C -->|Face| D[Reachy Orbita];
-    C -->|Hands| E[Reachy Gripper];
-    C -->|Pose| F[Reachy Arm];
-    C -->|Holistic| G[Reachy];
-    G --- D;
-    G --- E;
-    G --- F;
-```
+
+[![](https://mermaid.ink/img/pako:eNpVkU1vgzAMhv9K5DOtCpS24zCpH7Q7rNrUHSYVOLhJtkYDEoVUagf896VQJBYpku33sePYFVDJOITwrVGdyeshKYg9y3iV8YJxnZLR6Ln-5CeKeU1WcRdfHvaSokrTjl7dIXKM4z1nApVQvFeOrbKuoqvRSA3JsGA56p-y6fR1W36LlNdkEx840vONvOmTMJgOiRebV9Yk6pGdFkrZ7obMuyxtlW2PLHX-v4TMRGkErcnugTzknZVHZDN0oqGzBQdyrnMUzM6puksJmDPPeQKhNZn9TwJJ0VjuohgaHjFhpIbwC7OSO4AXIz9uBYXQ6AvvoY1AO_O8DyosIKzgCqG3GHtzdzqfTRazwPd8P3DgZsOuO_Zm04nv2vsUBE-NA79S2gJum31s7ceTvO1g36223XDzB1bHlZs?type=png)](https://mermaid-js.github.io/mermaid-live-editor/edit#pako:eNpVkU1vgzAMhv9K5DOtCpS24zCpH7Q7rNrUHSYVOLhJtkYDEoVUagf896VQJBYpku33sePYFVDJOITwrVGdyeshKYg9y3iV8YJxnZLR6Ln-5CeKeU1WcRdfHvaSokrTjl7dIXKM4z1nApVQvFeOrbKuoqvRSA3JsGA56p-y6fR1W36LlNdkEx840vONvOmTMJgOiRebV9Yk6pGdFkrZ7obMuyxtlW2PLHX-v4TMRGkErcnugTzknZVHZDN0oqGzBQdyrnMUzM6puksJmDPPeQKhNZn9TwJJ0VjuohgaHjFhpIbwC7OSO4AXIz9uBYXQ6AvvoY1AO_O8DyosIKzgCqG3GHtzdzqfTRazwPd8P3DgZsOuO_Zm04nv2vsUBE-NA79S2gJum31s7ceTvO1g36223XDzB1bHlZs)
 
 # [Mediapipe](https://google.github.io/mediapipe/)
 
