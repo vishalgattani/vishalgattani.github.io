@@ -71,11 +71,11 @@ MediaPipe combines individual neural models for face mesh, human pose, and hands
 
 ## Pose Detection using BlendARMocap
 
-![Pose Detection using BlendARMocap](https://github.com/vishalgattani/reachy-blender/blob/master/results/pose_transfer.gif)
+![Pose Detection using BlendARMocap](https://github.com/vishalgattani/reachy-blender/blob/master/results/pose_transfer.gif?raw=true)
 
 ## Teleoperation - Gripper
 
-![Teleoperation using BlendARMocap on Reachy - Gripper](https://github.com/vishalgattani/reachy-blender/blob/master/results/teleoperation_gripper.gif)
+![Teleoperation using BlendARMocap on Reachy - Gripper](https://github.com/vishalgattani/reachy-blender/blob/master/results/teleoperation_gripper.gif?raw=true)
 
 # References
 
