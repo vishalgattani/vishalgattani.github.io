@@ -1,7 +1,7 @@
 ---
 name: Teleoperation of Reachy using Mediapipe and BlendArMocap
 tools: [Python, Blender, Reachy, Mediapipe]
-image:
+image: https://github.com/vishalgattani/reachy-blender/blob/master/results/pose_transfer.gif?raw=true
 description: Using Mediapipe to estimate 3D pose and transfer motion onto a 7-DoF robot arm for teleoperation applications.
 ---
 
@@ -45,17 +45,17 @@ Pose detection is the process of detecting the posture or position of a person o
 
 # Pipeline
 ```mermaid
-graph LR
-    A[Blender] -->|Webcam| B[[BlendARMocap]]
-    B --> Z[[Mediapipe]]
-    Z --> C{Extract landmarks}
-    C -->|Face| D[Reachy Orbita]
-    C -->|Hands| E[Reachy Gripper]
-    C -->|Pose| F[Reachy Arm]
-    C -->|Holistic| G[Reachy]
-    G --- D
-    G --- E
-    G --- F
+graph LR;
+    A[Blender] -->|Webcam| B[[BlendARMocap]];
+    B --> Z[[Mediapipe]];
+    Z --> C{Extract landmarks};
+    C -->|Face| D[Reachy Orbita];
+    C -->|Hands| E[Reachy Gripper];
+    C -->|Pose| F[Reachy Arm];
+    C -->|Holistic| G[Reachy];
+    G --- D;
+    G --- E;
+    G --- F;
 ```
 
 # [Mediapipe](https://google.github.io/mediapipe/)
