@@ -53,8 +53,6 @@ MediaPipe combines individual neural models for face mesh, human pose, and hands
 
 ![](https://mediapipe.dev/images/mobile/hand_landmarks.png)
 
-The user shall be required to input the initial amounts of resources to the SRRS simulation namely: the printable materials, non-printable materials, raw materials, and environmental materials. The user shall also provide a build quality range for the factory-made initial robot that shall replicate and create more robots. The BDD for SRRS is shown below.
-
 
 # LSTM Model
 
@@ -78,8 +76,9 @@ Considered three layers of LSTM, each with 64, 128, and 64 nodes, with ReLU as t
 !["Hello"](https://github.com/vishalgattani/sign-language-mediapipe-lstm/blob/main/images/action-result-hello.png?raw=true)
 
 # References
-- Jones, A., & Straub, J. (2021). Simulation and Analysis of Self-Replicating Robot Decision-Making Systems. Computers, 10(1), 9. [https://doi.org/10.3390/computers10010009](https://doi.org/10.3390/computers10010009)
-- Jones A, Straub J. Concepts for 3D Printing-Based Self-Replicating Robot Command and Coordination Techniques. Machines. 2017; 5(2):12. [https://doi.org/10.3390/machines5020012](https://doi.org/10.3390/machines5020012)
+- CM. Rajalakshmi Sachin Agrawal, Agnishrota Chakraborty. 2022. RealTime Hand Gesture Recognition System Using MediaPipe and LSTM.
+International Journal of Research Publication and Reviews (2022). [pdf](https://ijrpr.com/uploads/V3ISSUE4/IJRPR3693.pdf)
+-
 
 
 
