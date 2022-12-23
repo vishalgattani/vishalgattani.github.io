@@ -1,8 +1,8 @@
 ---
-name: RadArduino 
+name: RadArduino
 tools: [Arduino, Processing]
 image: https://user-images.githubusercontent.com/24211929/159839136-8e2f90a6-8b14-4dfd-8d49-e00f13d33ad0.gif
-description:  A 2-Dimensional Radar using Ultrasonic sensors & Arduino
+description:  A 2-Dimensional Radar using Ultrasonic sensors & Arduino.
 ---
 
 
@@ -27,7 +27,7 @@ description:  A 2-Dimensional Radar using Ultrasonic sensors & Arduino
 
 
 
-# Table of contents 
+# Table of contents
 
 * TOC
 {:toc}
@@ -35,14 +35,14 @@ description:  A 2-Dimensional Radar using Ultrasonic sensors & Arduino
 
 # Introduction
 
-This project works on the principle of SONAR to detect obstacles in areas where other sensors might not be able to produce effective results. For instance, camera and IR sensors may be able to function properly under extreme conditions, and therefore, an ultrasonic was chosen. 
+This project works on the principle of SONAR to detect obstacles in areas where other sensors might not be able to produce effective results. For instance, camera and IR sensors may be able to function properly under extreme conditions, and therefore, an ultrasonic was chosen.
 
 The Ultrasonic sound waves has an extremely high pitch that humans cannot hear and is also free from external noises from passive or active sources. The sensor transmits an ultrasonic sound that has a frequency of about 40 kHz. The sensor has two main partstransducer that creates an ultrasonic sound wave while the other part listens to its echo.
 
 The HC-SR04 ultrasonic distance sensor is an economical sensor that provides 2cm to 400cm of non-contact measurement functionality with a ranging accuracy that can reach up to 3mm. Each HC-SR04 module includes an ultrasonic transmitter, a receiver and a control circuit.
 
 The implementation of this project starts by constructing a mount for the ultrasonic sensor which allows the sensor to encompass a semi-circle, i.e. rotate 180 degrees and provide results to
-map the surroundings. Once this data is obtained from the sensor, it is used to map the surroundings by Processing IDE which generates a Radar like environment on the monitor as it continuously probes converting the 2-Dimensional Cartesian coordinates into polar coordinates. 
+map the surroundings. Once this data is obtained from the sensor, it is used to map the surroundings by Processing IDE which generates a Radar like environment on the monitor as it continuously probes converting the 2-Dimensional Cartesian coordinates into polar coordinates.
 
 ![radar4](https://user-images.githubusercontent.com/24211929/159839136-8e2f90a6-8b14-4dfd-8d49-e00f13d33ad0.gif)
 
@@ -61,7 +61,7 @@ map the surroundings. Once this data is obtained from the sensor, it is used to 
    ```sh
    git clone https://github.com/vishalgattani/RadArduino.git
    ```
-   
+
 2. Circuit Schematic (with LCD) is as follows:
 
 <img width="1133" alt="Screen Shot 2022-03-24 at 12 20 02 AM" src="https://user-images.githubusercontent.com/24211929/159841437-b1da91e9-8499-48a6-b705-501c0448685f.png">
