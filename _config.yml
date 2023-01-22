@@ -4,7 +4,7 @@ description         : >-                               # >- means to ignore newl
                       "I use tabs over spaces."
 
 baseurl             : ""                     # Change to empty quotes if you are hosting your site at <your-username>.github.io directly
-repository          : YoussefRaafatNasry/portfolYOU     # Change to <your-username>/<your-username>.github.io (or remove it if you don't need remote projects)
+repository          : vishalgattani/vishalgattani.github.io     # Change to <your-username>/<your-username>.github.io (or remove it if you don't need remote projects)
 remote_theme        : YoussefRaafatNasry/portfolYOU
 open_new_tab        : false                             # Opens external URLs in new tab (works for posts, projects and navbar only)
 
@@ -20,7 +20,9 @@ nav_exclude:                                            # The following paths ar
   - pages/404.html
   - pages/index.md
   - documentation/partials/**                           # For Documentation Only
-
+  - documentation/docs.md
+  - documentation/elements.html
+  - pages/blog.html
 
 ### Author Info ###
 author:
@@ -75,7 +77,7 @@ analytics:
 # See https://www.buymeacoffee.com/
 buymeacoffee:
   enabled: false
-  username: your_username
+  username: vishalgattani
   color: "#007bff"
   message: "Thank you for visiting."                    # Message to be displayed aside from the button for a few seconds.
   description: "Support me on Buy me a coffee!"
