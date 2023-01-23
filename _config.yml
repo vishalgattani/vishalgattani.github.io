@@ -76,7 +76,7 @@ analytics:
 ### Buy me a coffee ###
 # See https://www.buymeacoffee.com/
 buymeacoffee:
-  enabled: false
+  enabled: true
   username: vishalgattani
   color: "#007bff"
   message: "Thank you for visiting."                    # Message to be displayed aside from the button for a few seconds.
@@ -88,6 +88,11 @@ defaults:
   - scope:
       path: ""
       type: "projects"
+    values:
+      layout: "page"
+   - scope:
+      path: ""
+      type: "publications"
     values:
       layout: "page"
   - scope:                                              # For Documentation Only
