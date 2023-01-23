@@ -13,4 +13,9 @@ Gemfile.lock
 
 # Log Files
 *.log
+
+_includes/.DS_Store
+_projects/.DS_Store
+documentation/.DS_Store
+stl/.DS_Store
 .DS_Store
