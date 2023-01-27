@@ -22,7 +22,7 @@ nav_exclude:                                            # The following paths ar
   - documentation/partials/**                           # For Documentation Only
   - documentation/docs.md
   - documentation/elements.html
-  - pages/blog.html
+  # - pages/blog.html
 
 ### Author Info ###
 author:
