@@ -95,7 +95,7 @@ defaults:
       layout: "page"
   - scope:
       path: ""
-      type: "publications"
+      type: "research"
     values:
       layout: "page"
   - scope:                                              # For Documentation Only
