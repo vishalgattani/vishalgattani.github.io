@@ -57,9 +57,9 @@ collections:
   projects:
     output: true
     permalink: /projects/:name
-  publications:
+  research:
     output: true
-    permalink: /publications/:name
+    permalink: /research/:name
   elements:                                             # For Documentation Only
     output: true                                        # For Documentation Only
 
