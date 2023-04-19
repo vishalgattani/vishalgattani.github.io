@@ -1,7 +1,7 @@
 
 <div class="card-columns m-3 mt-5">
   <!-- Local Projects -->
-  {% for project in site.publications %}
+  {% for project in site.research %}
 
     {%- assign project_type  = "local" -%}
     {%- assign project_id    = project.name | slugify -%}
@@ -18,7 +18,7 @@
       {%- assign external    = false -%}
     {%- endif -%}
 
-    {% include publications/project-card.html %}
+    {% include research/project-card.html %}
 
   {% endfor %}
 
