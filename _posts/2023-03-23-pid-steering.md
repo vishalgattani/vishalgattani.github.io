@@ -15,9 +15,11 @@ Source: [Habrador](https://www.habrador.com/tutorials/pid-controller/1-car-follo
 
 We can  determine if the car should steer left or right to reach a waypoint. However, in real-life scenarios, the car gradually steers towards its intended heading and then drives in a mear to perfect straight path. If the gradual steering is not implemented, the wheels will rapidly switch to the left or right when the car is driving straight towards the waypoint. To minimize this behavior, an approach is to take the rolling average of the steering angles, with the addition of a PID controller.
 
-<!-- https://user-images.githubusercontent.com/24211929/235016578-0dd0d6f1-bc26-4c44-bcae-62b372e075b8.mov -->
+<!--  -->
 
-<iframe align="middle" src="https://user-images.githubusercontent.com/24211929/235016578-0dd0d6f1-bc26-4c44-bcae-62b372e075b8.mov"  allowfullscreen></iframe>
+<video src="https://user-images.githubusercontent.com/24211929/235016578-0dd0d6f1-bc26-4c44-bcae-62b372e075b8.mov" controls="controls" style="max-width: 730px;"></video>
+
+<!-- <iframe align="middle" src="https://user-images.githubusercontent.com/24211929/235016578-0dd0d6f1-bc26-4c44-bcae-62b372e075b8.mov"  allowfullscreen></iframe> -->
 
 <!-- ![Drunk Steering](https://user-images.githubusercontent.com/24211929/235016578-0dd0d6f1-bc26-4c44-bcae-62b372e075b8.mov) -->
 
@@ -80,6 +82,8 @@ averageSteeringAngle = averageSteeringAngle + ((steeringAngle - averageSteeringA
 ```
 # Result
 
+<video src="https://user-images.githubusercontent.com/24211929/235016579-95dd581d-aaea-47d0-8f94-b5fafc48b6b8.mov" controls="controls" style="max-width: 730px;"></video>
+
 <!-- https://user-images.githubusercontent.com/24211929/235016579-95dd581d-aaea-47d0-8f94-b5fafc48b6b8.mov -->
 
-<iframe align="middle" src="https://user-images.githubusercontent.com/24211929/235016579-95dd581d-aaea-47d0-8f94-b5fafc48b6b8.mov" allowfullscreen></iframe>
+<!-- <iframe align="middle" src="https://user-images.githubusercontent.com/24211929/235016579-95dd581d-aaea-47d0-8f94-b5fafc48b6b8.mov" allowfullscreen></iframe> -->
