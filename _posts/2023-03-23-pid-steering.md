@@ -46,7 +46,7 @@ This is the CTE. But we still do not know if we have to steer left or right to m
       steerDirection = -1
 ```
 
-Once we know the direction, the total error is
+Once we know the direction, the total error is given by:
 ```shell
   error = steerDirection*error
 ```
