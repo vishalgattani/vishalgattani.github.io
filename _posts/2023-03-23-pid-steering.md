@@ -12,6 +12,7 @@ Source: [Habrador](https://www.habrador.com/tutorials/pid-controller/1-car-follo
 # About the concept
 
 ***Why do you need to minimize a steering error?***
+
 We can  determine if the car should steer left or right to reach a waypoint. However, in real-life scenarios, the car gradually steers towards its intended heading and then drives in a mear to perfect straight path. If the gradual steering is not implemented, the wheels will rapidly switch to the left or right when the car is driving straight towards the waypoint. To minimize this behavior, an approach is to take the rolling average of the steering angles, with the addition of a PID controller.
 
 <iframe align="middle" src="https://user-images.githubusercontent.com/24211929/235016578-0dd0d6f1-bc26-4c44-bcae-62b372e075b8.mov" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
