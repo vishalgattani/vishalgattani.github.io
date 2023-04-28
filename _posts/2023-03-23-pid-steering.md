@@ -1,7 +1,7 @@
 ---
 title: Minimize steering error with a PID controller
 tags: [PID, Robotics, Controls]
-style: border
+style: fill
 color: secondary
 description: Minimize steering error of a self-driving car following a series of waypoints.
 ---

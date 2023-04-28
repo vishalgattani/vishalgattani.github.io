@@ -1,7 +1,7 @@
 ---
 title: Bayesian Belief Networks using GeNIe
 tags: [Assurance Case, Bayesian Belief Networks, Probability]
-style: border
+style: fill
 color: primary
 description: An implementation of "Probabilistic Model of Belief in Safety Cases".
 ---
