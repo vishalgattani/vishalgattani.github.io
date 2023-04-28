@@ -3,7 +3,7 @@ title: Bayesian Belief Networks using GeNIe
 tags: [Assurance Case, Bayesian Belief Networks, Probability]
 style: fill
 color: primary
-description: How Bayesian Belief Networks help in answering questions about the presence of a cause given the presence of an effect.
+description: How can Bayesian Belief Networks help in answering questions about the presence of a cause given the presence of an effect?
 ---
 
 <!-- Source: [A Probabilistic Model of Belief in Safety Cases](https://www.diva-portal.org/smash/get/diva2:1499879/FULLTEXT01.pdf) -->
