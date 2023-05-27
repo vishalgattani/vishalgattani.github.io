@@ -28,9 +28,9 @@ description: An implementation of "Probabilistic Model of Belief in Safety Cases
 * TOC
 {:toc} -->
 
-# About the concept
+<!-- # About the concept
 
-An implementation of [Probabilistic Model of Belief in Safety Cases](https://www.diva-portal.org/smash/get/diva2:1499879/FULLTEXT01.pdf) to compute a lower limit or worst case belief in the top level claim of a safety case.
+An implementation of [Probabilistic Model of Belief in Safety Cases](https://www.diva-portal.org/smash/get/diva2:1499879/FULLTEXT01.pdf) to compute a lower limit or worst case belief in the top level claim of a safety case. -->
 
 # Bayesian Belief Networks (BBNs)
 
@@ -151,4 +151,4 @@ From above figure, if it were to be a complete safety case, the CPT values for `
 <!-- <img width="1552" alt="Screenshot 2023-01-18 at 2 22 39 AM" src="https://user-images.githubusercontent.com/24211929/214272286-6087487c-4fd3-4a5e-85ca-08a688a9a07d.png"> -->
 
 <!--
-<img width="638" alt="Screenshot 2023-01-18 at 2 22 39 AM" src="https://user-images.githubusercontent.com/24211929/214272286-6087487c-4fd3-4a5e-85ca-08a688a9a07d.png"> --> -->
+<img width="638" alt="Screenshot 2023-01-18 at 2 22 39 AM" src="https://user-images.githubusercontent.com/24211929/214272286-6087487c-4fd3-4a5e-85ca-08a688a9a07d.png"> -->
