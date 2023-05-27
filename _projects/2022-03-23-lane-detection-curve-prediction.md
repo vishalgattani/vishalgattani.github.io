@@ -1,11 +1,11 @@
 ---
 name: Car Lane Detection
 tools: [Python,OpenCV,Computer Vision]
-image: https://github.com/plotly/plotly.py/assets/24211929/54282046-8a60-4cd3-b1b9-252bb5938b3d?raw=true
+image: https://github.com/plotly/plotly.py/assets/24211929/6fe06dc7-2680-4467-8ef1-fa05840655ae.gif?raw=true
 description: Detect lanes on a road in real time using the OpenCV computer vision library and Python.
 # external_url: https://github.com/vishalgattani/PID-self-driving-car/tree/main
 ---
-
+<!-- gif == https://github.com/plotly/plotly.py/assets/24211929/6fe06dc7-2680-4467-8ef1-fa05840655ae -->
 
 # Table of contents
 
@@ -13,6 +13,10 @@ description: Detect lanes on a road in real time using the OpenCV computer visio
 {:toc}
 
 # About the project
+
+<video src="https://github.com/plotly/plotly.py/assets/24211929/54282046-8a60-4cd3-b1b9-252bb5938b3d" controls="controls" style="max-width: 730px;"></video>
+
+
 A program that reads a video stream and outputs an annotated video that shows the following:
 1. The current lane
 2. The radius of curvature of the lane
