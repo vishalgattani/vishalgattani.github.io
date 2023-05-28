@@ -1,6 +1,6 @@
 ---
 name: Teleoperation of Reachy using Mediapipe and BlendArMocap
-tools: [Python, Blender, Reachy, Mediapipe]
+tools: [Simulation, Python, Blender, Reachy, Mediapipe]
 image: https://github.com/vishalgattani/reachy-blender/blob/master/results/pose_transfer.gif?raw=true
 description: Using Mediapipe to estimate 3D pose and transfer motion onto a 7-DoF robot arm for teleoperation applications.
 ---

@@ -1,6 +1,6 @@
 ---
 name: Robotic Arm Control using Blender and Kinect
-tools: [C, Python, Blender, Arduino]
+tools: [Simulation, C, Python, Blender, Arduino]
 image: https://user-images.githubusercontent.com/24211929/72992613-0f00bd80-3e1a-11ea-9b60-6f6660652223.gif
 description: Control of an 8-DoF Robot Arm using Blender Game Engine (BGE) and Kinect.
 ---

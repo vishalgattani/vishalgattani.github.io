@@ -1,6 +1,6 @@
 ---
 name: Laser Communication System
-tools: [Sensors, Analog Ciruits]
+tools: [Analog Ciruits, Sensors]
 image: https://user-images.githubusercontent.com/24211929/131023658-0df219bd-4af3-446b-b36b-4f020225de6b.png
 <!-- description: To transmit audio from a computer speaker using a power amplifier, a laser diode transmitter and a receiver using photo resistor. -->
 description: Audio transmission using a laser diode transmitter and photo resistor receiver.
@@ -17,7 +17,7 @@ description: Audio transmission using a laser diode transmitter and photo resist
   </p>
 </div>
 
-# Table of contents 
+# Table of contents
 
 * TOC
 {:toc}

@@ -1,6 +1,6 @@
 ---
 name: RadArduino
-tools: [Arduino, Processing]
+tools: [Electronics, Sensors, Arduino, Processing]
 image: https://user-images.githubusercontent.com/24211929/159839136-8e2f90a6-8b14-4dfd-8d49-e00f13d33ad0.gif
 description:  A 2-Dimensional Radar using Ultrasonic sensors & Arduino.
 ---
