@@ -1,41 +1,24 @@
-- title: Graduate Research Assistant, University of Maryland, College Park
+- title: Graduate Research Assistant, Simulation-based System Design Lab, College Park
   from: Nov 2021
-  to: Present
-  description: Researching test and evaluation solutions to ensure confidence in artificial intelligence and autonomous systems at simulation-based system design laboratory.
+  to: May 2023
+  description: Employed scenario descriptive language for Unity simulator to probabilistically generate scenarios for rapid operational development and testing. Implemented features to evaluate the simulator’s capabilities and limitations in diverse situations and conditions.
 
 - title: Student, University of Maryland, College Park
   from: Aug 2021
-  to: Present
+  to: May 2023
   description: Master of Science in Systems Engineering, specializing in Robotics.
 
 - title: Research Associate, Surgical and Assistive Robotics Lab, IIIT-B
   from: Oct 2020
   to: July 2021
-  description: Integration of a dual arm robotic system with a depth camera for biomimetic control via Motion Capture using Microsoft Kinect Azure.
-#   - Conducted guided experiments, maintained software and precise documentation of findings.
-
+  description: Analyzed human motion capture with Microsoft Kinect V2 and Azure Kinect to achieve efficient motion capture. Managed a team to develop a dual-arm robotic system through depth cameras for biomimetic control.
 
 - title: Research Intern, Mercedes-Benz Research & Development India, Bangalore, India
   from: May 2018
   to: July 2018
-#   description: Worked with an inter-disciplinary team on a next generation electric car to come up with test plans and solutions for various problems.
-#   - Developed a Data-Driven Reinforcement Learning-Based Power Supply Management System for the cooling control unit of the electric vehicle.
-#   - Developed a software tool for compiling, verifying accuracy and sorting information to prepare source data for computer entry.
+  description: Created a reinforcement learning (RL) based HVAC optimization system to regulate the temperature of an electric vehicle minimizing energy consumption.
 
 - title: Student, International Institute of Information Technology Bangalore, India
-  from: 2015
-  to: 2020
+  from: Aug 2015
+  to: Sep 2020
   description: Integrated Master of Technology, Electronics and Communication Engineering
-
-
-
-
-# - title: Student, FIITJEE Junior College, Hyderabad, Telangana, IN
-#   from: 2014
-#   to: 2012
-#   description: 
-
-# - title: Student, All Saints’ High School, Hyderabad, Telangana, IN
-#   from: 2012
-#   to: 2002
-#   description: 
