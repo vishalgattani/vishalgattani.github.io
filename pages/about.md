@@ -10,7 +10,7 @@ weight: 4
 <!-- Hi I am **{{ site.author.name }}** :wave:,<br> -->
 Hi, I am Vishal! :wave:,<br>
 
-I graduated from the University of Maryland College Park with a [Master of Science in Systems Engineering Degree](https://isr.umd.edu/education/msse-degree). I recently defended my thesis dissertation on Experimental Design using Bayesian Belief Network for Simulation-based assurance cases to determine the optimal experimental design for a simulation. Using Bayesian Networks, I implemented a Bayesian framework that helps understand which areas the experimentation should focus on to achieve successful confidence in the development of assurance cases.
+I graduated from the University of Maryland College Park with a [Master of Science in Systems Engineering](https://isr.umd.edu/education/msse-degree) degree. I recently defended my thesis dissertation on Experimental Design using Bayesian Belief Network for Simulation-based assurance cases to determine the optimal experimental design for a simulation. Using Bayesian Networks, I implemented a Bayesian framework that helps understand which areas the experimentation should focus on to achieve successful confidence in the development of assurance cases.
 
 I worked as a Graduate Research Assistant at [Simulation-Based System Design Laboratory](https://enme.umd.edu/research/simulation-based-system-design-laboratory) under [Dr. Jeffrey Herrmann](https://enme.umd.edu/clark/faculty/547/Jeffrey-Herrmann) to implement simulation tools for rapid operational development and testing by developing features for randomized scenario generation and improving the simulator's features and functionalities.
 
