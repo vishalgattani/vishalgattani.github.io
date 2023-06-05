@@ -36,9 +36,15 @@ description: A cost estimate analysis to deploy and maintain a Bitcoin mining fa
 
 # About the project
 
-| ![4a2a24e3a3eb32e368602e7ecec51294](https://github.com/vishalgattani/cryptofarm/assets/24211929/dc960162-8877-440c-807c-445ad97ad73b) |
+<p align="center">
+  <img src="https://github.com/vishalgattani/cryptofarm/assets/24211929/dc960162-8877-440c-807c-445ad97ad73b">
+  <br>
+  <a href="https://dribbble.com/shots/4938640-Crypto-Mining">Image Source - Holypix!</a>
+</p>
+
+<!-- | ![4a2a24e3a3eb32e368602e7ecec51294](https://github.com/vishalgattani/cryptofarm/assets/24211929/dc960162-8877-440c-807c-445ad97ad73b) |
 |:--:|
-| [Image Source - Holypix](https://dribbble.com/shots/4938640-Crypto-Mining) |
+| [Image Source - Holypix](https://dribbble.com/shots/4938640-Crypto-Mining) | -->
 
 
 
