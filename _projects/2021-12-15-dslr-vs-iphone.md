@@ -14,44 +14,23 @@ description: An objective and subjective comparison between the pictures taken t
 <!-- PROJECT LOGO -->
 
 <br />
-
 <div align="center">
-
-
-
-
 <h3 align="center">Comparative Study between DSLR and Smartphone Camera</h3>
-
-
-
-<p align="center">
-
-An objective and subjective comparison between the pictures taken through the two cameras and matching it with the photographer's experience while capturing the pictures.
-
-<br />
-
-<a href="https://github.com/vishalgattani/dslr-vs-iphone"><strong>Explore the code »</strong></a>
-
-<br />
-
-<br />
-
-
-
-<a href="https://github.com/vishalgattani/dslr-vs-iphone/issues">Report Bug</a>
-
-·
-
-<a href="https://github.com/vishalgattani/dslr-vs-iphone/issues">Request Feature</a>
-
-</p>
-
+	<p align="center">
+		An objective and subjective comparison between the pictures taken through the two cameras and matching it with the photographer's experience while capturing the pictures.
+		<br />
+		<a href="https://github.com/vishalgattani/dslr-vs-iphone"><strong>Explore the code »</strong></a>
+		<br />
+		<br />
+		<a href="https://github.com/vishalgattani/dslr-vs-iphone/issues">Report Bug</a>
+		·
+		<a href="https://github.com/vishalgattani/dslr-vs-iphone/issues">Request Feature</a>
+	</p>
 </div>
 
 # Table of contents
 
 * TOC
-
 {:toc}
 
 
@@ -80,7 +59,10 @@ The metrics defined for the analysis of each image are as follows:
 ## Objective Metrics
 
 1. Exposure: Exposure is commonly defined as the amount of light that reaches the image sensor. For this study, the photographers are asked to maintain the same exposure value. The exposure value is calculated using the following formula:
+
+
 $$ EV = log_2(100 * aperture^2 / (ISO * shutter speed))$$
+
 From [Exposure](https://www.omnicalculator.com/other/exposure) and [Shutter Speed](https://www.omnicalculator.com/other/shutter-speed):
 
 | EV | Type of lighting situation |
@@ -114,9 +96,9 @@ From [Exposure](https://www.omnicalculator.com/other/exposure) and [Shutter Spee
 
 
 
-2. Tonal Range: To calculate the tonal range of an image, we use an HSV map. The colors from the map that are not present in the image are blackened out. Alternatively, the color range is also calculated in the form of a percentage.
-3. Contrast: An intensity histogram is used to calculate the contrast in the images. Images with higher contrast are expected to show two peaks that are separated by low intensities. Pictures with lower contrast have an equal spread of intensities on the histogram.
-4. Camera settings:
+1. Tonal Range: To calculate the tonal range of an image, we use an HSV map. The colors from the map that are not present in the image are blackened out. Alternatively, the color range is also calculated in the form of a percentage.
+2. Contrast: An intensity histogram is used to calculate the contrast in the images. Images with higher contrast are expected to show two peaks that are separated by low intensities. Pictures with lower contrast have an equal spread of intensities on the histogram.
+3. Camera settings:
 The camera settings used for this analysis are as follows:
 - Aperture: The aperture opening is the place where the light gets into the camera. Aperture settings come in values called the f-stop, or f-number, that range from values as low as f/1.0 (for large aperture opening) to as high as f/64 (for really small pinhole size aperture openings). The larger the aperture opening is, the more light is allowed to enter. The smaller the aperture opening is, the lesser light is allowed to enter. The aperture opening also affects the depth of field of the photo.
 - Shutter speed: The duration that the shutter is left open depends on the shutter speed of our camera. The faster the shutter speed is, the lesser the amount of light that the sensor is exposed to. Shutter speed can be set from fractions of a second (for sports or action photography) to a couple of minutes (for long exposure shots).
@@ -177,7 +159,9 @@ Image Quality Assessment (IQA) algorithms take an arbitrary image as input and o
 ## Blind/Referenceless Image Spatial Quality Evaluator (BRISQUE)
 
 The steps needed for BRISQUE algorithm used for No-Reference IQA are as follows:
+
 ```mermaid
+
 flowchart LR
 subgraph img[Original Image]
 direction LR
@@ -198,9 +182,8 @@ direction LR
 	score[Predict Score using SVM]
 end
 
-
-
 img --> NSS --> fv ---> predict ---> quality[Quality Score]
+
 ```
 ### Extract Natural Scene Statistics (NSS)
 

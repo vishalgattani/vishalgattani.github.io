@@ -10,8 +10,6 @@ description: A cost estimate analysis to deploy and maintain a Bitcoin mining fa
 <!-- PROJECT LOGO -->
 <br />
 <div align="center">
-
-
 <h3 align="center">Cryptofarm</h3>
 
   <p align="center">
@@ -20,7 +18,6 @@ description: A cost estimate analysis to deploy and maintain a Bitcoin mining fa
     <a href="https://github.com/vishalgattani/cryptofarm"><strong>Explore the code »</strong></a>
     <br />
     <br />
-
     <a href="https://github.com/vishalgattani/cryptofarm/issues">Report Bug</a>
     ·
     <a href="https://github.com/vishalgattani/cryptofarm/issues">Request Feature</a>
