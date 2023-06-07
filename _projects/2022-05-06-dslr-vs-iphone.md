@@ -201,13 +201,13 @@ There are a few different ways to normalize an image. One such normalization is 
 <img src="https://learnopencv.com/wp-content/uploads/2018/06/mscn-visualization-steps.png">
 </p>
 
-#### #### Pairwise products for neighborhood relationships
+#### Pairwise products for neighborhood relationships
 
 MSCN provides a good normalization for pixel intensities. However, the difference in natural vs. distorted images is not limited to pixel intensity distributions, but also the relationship between a pixel and its neighbors.
 
 To capture neighborhood relationships the authors used **pair-wise products** of MSCN image with a shifted version of the MSCN image. Four orientations are used to find the pairwise product for the MSCN coefficients, namely: Horizontal (H), Vertical (V), Left-Diagonal (D1), Right-Diagonal (D2).
 
-### ### Calculate Feature Vectors
+### Calculate Feature Vectors
 
 Until now, we have derived 5 images from the original image — 1 MSCN image and 4 pairwise product images to capture neighbor relationships (Horizontal, Vertical, Left Diagonal, Right Diagonal).
 
