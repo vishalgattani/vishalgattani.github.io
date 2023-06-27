@@ -35,9 +35,7 @@ description: Finding the minimum time path through the tesla network of supercha
   <img width="1261" alt="supercharger" src="https://github.com/vishalgattani/supercharger/assets/24211929/0a34cde8-8acf-4f1a-af8c-440f88337e48">
 </p> -->
 
-<iframe src="https://github.com/vishalgattani/supercharger/blob/main/Council_Bluffs_IA_to_Cadillac_MI.html" width="100%" height="500"></iframe>
-
-{% include https://github.com/vishalgattani/supercharger/blob/main/Council_Bluffs_IA_to_Cadillac_MI.html %}
+<iframe width="900" height="800" frameborder="0" scrolling="no" src="//plotly.com/~vishalgattani/185.embed"></iframe>
 
 > Objective: Construct a search algorithm to find the minimum time path through the tesla network of supercharging stations. Each supercharger will refuel the vehicle at a different rate given in km/hr of charge time. Your route does not have to fully charge at every visited charger, so long as it never runs out of charge between two chargers. You should expect to need no more than 4-6 hours to solve this problem. We suggest implementing a quick brute force method before attempting to find an optimal routine.
 
