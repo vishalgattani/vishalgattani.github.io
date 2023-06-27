@@ -1,11 +1,9 @@
 ---
 name: Supercharger
 tools: [Path Planning, Python]
-image: https://github.com/vishalgattani/cryptofarm/assets/24211929/6d29e792-a662-48cb-9308-ca938e4fffad
+image: https://github.com/vishalgattani/supercharger/assets/24211929/0a34cde8-8acf-4f1a-af8c-440f88337e48
 description: Finding the minimum time path through the tesla network of supercharging stations.
 ---
-
-<!-- ![0fccf2294537a33711fbd757a2e3054c](https://github.com/vishalgattani/cryptofarm/assets/24211929/6d29e792-a662-48cb-9308-ca938e4fffad) -->
 
 <!-- PROJECT LOGO -->
 <br />
