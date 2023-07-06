@@ -35,7 +35,7 @@ description: Finding the minimum time path through the tesla network of supercha
   <img width="1261" alt="supercharger" src="https://github.com/vishalgattani/supercharger/assets/24211929/0a34cde8-8acf-4f1a-af8c-440f88337e48">
 </p> -->
 
-<iframe width="900" height="800" frameborder="0" scrolling="no" src="//plotly.com/~vishalgattani/185.embed"></iframe>
+<!-- <iframe width="900" height="800" frameborder="0" scrolling="no" src="//plotly.com/~vishalgattani/185.embed"></iframe> -->
 
 <script src="https://cdn.plot.ly/plotly-latest.min.js"></script><div id="47aad293-ade6-4c43-8ea7-93c02804cabe" class="plotly-graph-div" style="height:100%; width:100%;"></div><script type="text/javascript"></script>
 
