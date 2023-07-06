@@ -1,7 +1,7 @@
 ---
 name: Supercharger
 tools: [Path Planning, Python]
-image: https://github.com/vishalgattani/supercharger/assets/24211929/0a34cde8-8acf-4f1a-af8c-440f88337e48
+image: https://github.com/vishalgattani/supercharger/assets/24211929/fb7ed8a9-a423-4b82-9e17-6c8b44f2f813
 description: Finding the minimum time path through the tesla network of supercharging stations.
 ---
 
