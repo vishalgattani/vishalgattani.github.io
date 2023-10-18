@@ -1,8 +1,8 @@
 ---
 title: Asset Inventory Management System using Asset Bundles
-tags: [Unity, Game Development]
+tags: [Unity, Game Development, C#]
 style: fill
-color: success
+color: secondary
 description: Inventory system is used in most of the games. But how would you create one using just Asset Bundles?
 ---
 

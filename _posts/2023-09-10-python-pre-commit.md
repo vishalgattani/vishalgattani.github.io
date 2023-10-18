@@ -2,7 +2,7 @@
 title: Committing to Excellence - How Pre-Commit Hooks Keep Your Codebase Prettier and Your Commits Tidier
 tags: [Software Development, Clean Code, Python]
 style: fill
-color: success
+color: info
 description: Are your code commits in need of a makeover? Dive into the captivating world of pre-commit hooks in this =blog post. Discover how these magical tools can transform your codebase into a work of art, ensuring pristine formatting and enchanting commit messages.
 ---
 
