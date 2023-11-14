@@ -8,7 +8,7 @@ description: Determining assurance case beliefs using Bayesian Belief Networks a
 <!-- PROJECT LOGO -->
 <br />
 <div align="center">
-<h3 align="center">Tesla Supercharger</h3>
+<h3 align="center">PyBBN Assurance Cases</h3>
 
   <p align="center">
     Determining assurance case beliefs using Bayesian Belief Networks and Design of Experiments.
