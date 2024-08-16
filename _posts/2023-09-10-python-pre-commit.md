@@ -3,7 +3,7 @@ title: Committing to Excellence - How Pre-Commit Hooks Keep Your Codebase Pretti
 tags: [Software Development, Clean Code, Python]
 style: fill
 color: info
-description: Are your code commits in need of a makeover? Dive into the captivating world of pre-commit hooks in this =blog post. Discover how these magical tools can transform your codebase into a work of art, ensuring pristine formatting and enchanting commit messages.
+description: Are your code commits in need of a makeover? Dive into the captivating world of pre-commit hooks in this blog post and discover how these magical tools can transform your codebase into a work of art, ensuring pristine formatting and enchanting commit messages.
 ---
 
 Pre-commit hooks in Git are like your code's personal stylist, working their magic just before it hits the stage (the repository). They're the backstage crew making sure your commits look sharp, sound good, and bring their A-game. These hooks let you run scripts and commands to ensure your code meets the highest quality standards. It's like having a mini-festival in your local environment, with tasks that include code formatting for the perfect outfit, linting to catch style blunders, and even testing to make sure your code is ready to rock the show without any surprises!
@@ -26,6 +26,7 @@ repos:
     -   id: check-yaml
     -   id: end-of-file-fixer
     -   id: trailing-whitespace
+    -   id: check-docstring-first
     -   id: check-merge-conflict
     -   id: mixed-line-ending
         args: [--fix=lf]
@@ -39,6 +40,10 @@ repos:
     rev: 23.9.1
     hooks:
     -   id: black
+- repo: https://github.com/pycqa/flake8
+    rev: 4.0.1
+    hooks:
+    -   id: flake8
 # optional (if you have any test scripts)
 -   repo: local
     hooks:
@@ -51,10 +56,10 @@ repos:
 
 Specifically, it does the following:
 
-- Configures the Black formatter and the Black Jupyter extension to format Python code in a standardized way.
-- Configures the Flake8 linter to check for style violations and errors in the code.
-- Configures the trailing-whitespace hook to remove any trailing whitespace in the files being committed.
-- Configures a custom `run_tests` hook to run a script that executes the test suite for the project.
+- Configures the *Black* formatter and the Black Jupyter extension to format Python code in a standardized way.
+- Configures the *Flake8* linter to check for style violations and errors in the code.
+- Configures the *trailing-whitespace* hook to remove any trailing whitespace in the files being committed.
+- Optional:  Configures a custom `run_tests` hook to run a script that executes the test suite for the project.
 
 "*repos*" is a keyword in the pre-commit configuration file that specifies a list of Git repositories containing hooks that should be installed and used by the pre-commit framework. Each repository in the list is specified as a YAML dictionary with the following keys:
 - repo: The URL of the Git repository containing the hooks.
