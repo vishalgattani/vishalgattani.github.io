@@ -1,9 +1,9 @@
 ---
-title: Committing to Excellence - How Pre-Commit Hooks Keep Your Codebase Prettier and Your Commits Tidier
+title: Committing to Excellence - How Pre-Commit hooks keep my codebase prettier
 tags: [Software Development, Clean Code, Python]
 style: fill
 color: info
-description: Are your code commits in need of a makeover? Dive into the captivating world of pre-commit hooks in this blog post and discover how these magical tools can transform your codebase into a work of art, ensuring pristine formatting and enchanting commit messages.
+description: Are your code commits in need of a makeover? Commit to pre-commit hooks!
 ---
 
 Pre-commit hooks in Git are like your code's personal stylist, working their magic just before it hits the stage (the repository). They're the backstage crew making sure your commits look sharp, sound good, and bring their A-game. These hooks let you run scripts and commands to ensure your code meets the highest quality standards. It's like having a mini-festival in your local environment, with tasks that include code formatting for the perfect outfit, linting to catch style blunders, and even testing to make sure your code is ready to rock the show without any surprises!
@@ -70,4 +70,4 @@ Specifically, it does the following:
 
 After following these steps, pre-commit will run automatically before every commit to ensure that the code conforms to the rules defined by the hooks in the `.pre-commit-config.yaml` file.
 
-As we wrap up our pre-commit hook adventure, it's time to embrace the groovier, cleaner, and more polished Git experience they bring. With these magical tools, your code commits will be the rockstars of your repository – perfectly styled, in tune, and ready to hit the stage. Say goodbye to last-minute errors and code mishaps. Let the power of pre-commit hooks take your coding journey to a whole new level, where quality and style are non-negotiable. So, start jamming with these hooks and turn your code commits into the showstoppers they were born to be. Keep coding, keep committing, and always keep it funky!
+As we wrap up our pre-commit hook adventure, it's time to embrace the groovier, cleaner, and more polished Git experience they bring. With these magical tools, your code commits will be the rockstars of your repository – perfectly styled, in tune, and ready to hit the stage even if multiple people are working on the same codebase. Say goodbye to last-minute errors and code mishaps by leting the power of pre-commit hooks take your coding journey to a whole new level, where quality and style are non-negotiable! Keep coding, keep committing, and always keep it funky!
