@@ -3,7 +3,7 @@ name: Unity Simulator
 tools: [Game Development, Unity, C#]
 image: https://cdn.dribbble.com/users/60266/screenshots/1896503/attachments/323320/game-development_2.png?resize=800x600&vertical=center
 description: Building simulator for robotic applications.
-external_url: https://gitlab.com/vishalgattani/unity-simulator/-/wikis/home
+# external_url: https://gitlab.com/vishalgattani/unity-simulator/-/wikis/home
 ---
 
 <!-- PROJECT LOGO -->
@@ -62,11 +62,14 @@ This project is solely being built from scratch for learning purposes. The proje
 - [ ] Time scale
 - [ ] Dynamic time of day
 
-## Traffic waypoint system
-- [ ] Create pedestrian traffic
-- [ ] Randomize directions
-- [ ] Create branching off points
-- [ ] Randomize branching off of a waypoint
+## [Traffic waypoint system](https://github.com/vishalgattani/unity-traffic-system/)
+
+In my blog post regarding animating mixamo characters in Unity using the Animator component, I have created a simple character controller that is used to animate the NPC in the Unity project to move from one waypoint to another. This project aims to create a traffic waypoint system that can be used to control the movement of the NPC.
+- [x] Create an NPC: For simulating the behavior of the NPC, I have used animations from Mixamo and added a character controller to the NPC.
+- [x] Create Waypoint system: Using the Unity editor, I have created a waypoint system that can be used to set the waypoints for the traffic. This would include branching off points and randomization of directions. Also, ath each branch the NPC decides to take the branch in a random manner using a probability.
+  - [x] Create waypoints
+  - [x] Create branching points
+- [x] Create pedestrian traffic: Spawning a certain number of pedestrians at random points along the waypoints, randomizing their directions and speeds.
 
 # Simulations
 
