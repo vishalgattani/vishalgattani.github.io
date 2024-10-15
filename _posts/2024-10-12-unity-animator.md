@@ -23,6 +23,8 @@ This component has 5 properties:
 4. Speed: This property is used to set the speed of the animations.
 5. Layer Weights: This property is used to set the layer weights of the animations.
 
+Out of these 5 properties, we will be using the `Controller` property to assign the `Animator Controller` asset to the `Animator` component. The rest of the properties are not required for the moment.
+
 Using the animators Grid Pane as a visual interface, we can create, modify and connect animation states that we fetched from Mixamo. Add the downloaded animations from the Mixamo website to the Unity project and then drag and drop the animations into the animator's grid pane.
 
 ![](https://miro.medium.com/v2/resize:fit:640/format:webp/1*LTOiZ25Tpmo1Nwvu2Ia1fA.png)
