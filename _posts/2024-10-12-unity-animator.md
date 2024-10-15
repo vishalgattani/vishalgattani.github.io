@@ -8,7 +8,7 @@ description: You may have seen a non-player character in many games such as Gran
 
 # Introduction
 
-As a part of my Game Development journey, I have been working on a Unity project to create a waypoint-based Traffic System. In doing so, I have come across the concept of animations in Unity which brought back memories of my days when I used to make digital animations using Blender Game Enginer and Mixamo by Adobe. Mixamo is an online platform owned by Adobe that provides a library of pre-built animations that can be used in games without requiring extensive manual work or advanced animation skills. 
+As a part of my Game Development journey, I have been working on a Unity project to create a [waypoint-based Traffic System](https://github.com/vishalgattani/unity-traffic-system/). In doing so, I have come across the concept of animations in Unity which brought back memories of my days when I used to make digital animations using Blender Game Enginer and [Mixamo](https://www.mixamo.com/) by Adobe. Mixamo is an online platform owned by Adobe that provides a library of pre-built animations that can be used in games without requiring extensive manual work or advanced animation skills. 
 
 In this post, I will discuss the fundamentals of animating these characters as I have journeyed through learning Unity's animation system by importing the Mixamo animations into Unity. In doing so, I have used the `Animator` component and the `Animator Controller` asset within Unity to handle multiple animations in a GameObject based on a State Machine approach.
 
@@ -61,6 +61,10 @@ The script references the animator component and updates the parameters we set i
 # End Result
 
 <video src="https://github.com/user-attachments/assets/19538267-e845-446d-9949-5fb58b3a29d3" controls="controls" style="max-width: 730px;"></video>
+
+# Futuristic Additions
+
+Now that I can have a way to animate the NPC, I can add some more features to the project. For instance, I can transition between multiple animation states based on the time elapsed or amke the NPCs fall based on collision detection? Fun stuff! But I will leave that for another post.
 
 
 
