@@ -11,35 +11,35 @@
 #   icon  : fab fa-dribbble
 #   color : 444444
 
-email:
-  url   : "mailto:vishalgattani09@gmail.com"
-  icon  : fas fa-envelope
-  color : db4437
+# email:
+#   url   : "mailto:vishalgattani09@gmail.com"
+#   icon  : fas fa-envelope
+#   color : db4437
 
 # facebook:
 #   url   : https://www.facebook.com/
 #   icon  : fab fa-facebook
 #   color : 3b5998
 
-github:
-  url   : https://www.github.com/vishalgattani
-  icon  : fab fa-github
-  color : 333333
+# github:
+#   url   : https://www.github.com/vishalgattani
+#   icon  : fab fa-github
+#   color : 333333
 
-gitlab:
-  url   : https://gitlab.com/vishalgattani
-  icon  : fab fa-gitlab
-  color : fca326
+# gitlab:
+#   url   : https://gitlab.com/vishalgattani
+#   icon  : fab fa-gitlab
+#   color : fca326
 
-instagram:
-  url   : https://www.instagram.com/vishalgattani
-  icon  : fab fa-instagram
-  color : 405de6
+# instagram:
+#   url   : https://www.instagram.com/vishalgattani
+#   icon  : fab fa-instagram
+#   color : 405de6
 
-linkedin:
-  url   : https://www.linkedin.com/in/vishalgattani
-  icon  : fab fa-linkedin-in
-  color : 007bb5
+# linkedin:
+#   url   : https://www.linkedin.com/in/vishalgattani
+#   icon  : fab fa-linkedin-in
+#   color : 007bb5
 
 # medium:
 #   url   : https://medium.com/@
@@ -71,10 +71,10 @@ linkedin:
 #   icon  : fab fa-twitch
 #   color : 6441a5
 
-twitter:
-  url   : https://www.twitter.com/VishalGattani
-  icon  : fab fa-twitter
-  color : 1da1f2
+# twitter:
+#   url   : https://www.twitter.com/VishalGattani
+#   icon  : fab fa-twitter
+#   color : 1da1f2
 
 # vimeo:
 #   url   : https://www.vimeo.com/
