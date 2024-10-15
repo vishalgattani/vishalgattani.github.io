@@ -1,5 +1,5 @@
 ---
-title: How to Build a Complete Python Package in minutes!
+title: How to Animate Characters in Unity using Mixamo Animations?
 tags: [Unity, C#, Game Development, Animation]
 style: fill
 color: secondary
