@@ -26,10 +26,10 @@ github:
   icon  : fab fa-github
   color : 333333
 
-# gitlab:
-#   url   : https://www.gitlab.com/
-#   icon  : fab fa-gitlab
-#   color : fca326
+gitlab:
+  url   : https://gitlab.com/vishalgattani
+  icon  : fab fa-gitlab
+  color : fca326
 
 instagram:
   url   : https://www.instagram.com/vishalgattani
@@ -37,7 +37,7 @@ instagram:
   color : 405de6
 
 linkedin:
-  url   : https://www.linkedin.com/in/vishal-gattani-71692611a/
+  url   : https://www.linkedin.com/in/vishalgattani
   icon  : fab fa-linkedin-in
   color : 007bb5
 
