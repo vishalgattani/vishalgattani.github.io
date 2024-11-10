@@ -1,4 +1,3 @@
-
 ---
 name: Building A Structured Streaming Data Pipeline
 tools: [Simulation, Unity, ROS, Python, Apache Spark, Apache Cassandra, Apache Kafka, Docker]
