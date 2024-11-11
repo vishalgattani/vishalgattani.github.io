@@ -1,9 +1,9 @@
 ---
 name: Laser Communication System
-tools: [Analog Ciruits, Sensors]
+tools: [LTSpice, MultiSIM, Arduino]
 image: https://user-images.githubusercontent.com/24211929/131023658-0df219bd-4af3-446b-b36b-4f020225de6b.png
-<!-- description: To transmit audio from a computer speaker using a power amplifier, a laser diode transmitter and a receiver using photo resistor. -->
 description: Audio transmission using a laser diode transmitter and photo resistor receiver.
+expertise: [Electronics, Sensors, Analog Circuit Design]
 ---
 
 

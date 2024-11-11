@@ -1,8 +1,9 @@
 ---
 name: Supercharger
-tools: [Path Planning, Python]
+tools: [Python, BeautifulSoup]
 image: https://github.com/vishalgattani/supercharger/assets/24211929/fb7ed8a9-a423-4b82-9e17-6c8b44f2f813
 description: Finding the minimum time path through the tesla network of supercharging stations.
+expertise: [Robotics, Path Planning, Data Visualization, Web Scraping]
 ---
 
 <!-- PROJECT LOGO -->

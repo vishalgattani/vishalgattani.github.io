@@ -1,8 +1,9 @@
 ---
 name: Comparative Study between DSLR and Smartphone Camera
-tools: [Systems Engineering, Human Factors Engineering, Image Analysis, Python]
+tools: [Python]
 image:
 description: An objective and subjective comparison between the pictures taken through the two cameras.
+expertise: [Systems Engineering, Human Factors Engineering, Image Analysis]
 ---
 
 

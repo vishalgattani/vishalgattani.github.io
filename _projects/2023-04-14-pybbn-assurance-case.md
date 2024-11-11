@@ -1,8 +1,9 @@
 ---
 name: PyBBN Assurance Cases
-tools: [Bayesian Belief Networks, Design of Experiments, Assurance case, Python]
+tools: [Python]
 image: https://github.com/vishalgattani/pybbn/assets/24211929/5bd6b900-93ba-47c5-bcc0-38bd9f043345
 description: Determining assurance case beliefs using Bayesian Belief Networks and Design of Experiments.
+expertise: [Probablistic Modeling, Graph Theory, Safety Assurance Case Design, Design of Experiments, Simulation, Data Visualization]
 ---
 
 <!-- PROJECT LOGO -->

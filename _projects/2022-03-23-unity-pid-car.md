@@ -1,9 +1,10 @@
 ---
 name: PID controller for Self-Driving Car
-tools: [Simulation, Unity]
+tools: [Unity]
 image: https://user-images.githubusercontent.com/24211929/235055436-d38645f4-5454-46de-8e01-d82bf3800fe8.gif?raw=true
 description: Implementation of PID controller for a self-driving car following waypoints.
 external_url: https://github.com/vishalgattani/PID-self-driving-car/tree/main
+expertise: [Robotics, Path Planning, Control Theory, Simulation, Game Development]
 ---
 
 

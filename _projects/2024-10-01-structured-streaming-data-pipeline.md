@@ -1,9 +1,10 @@
 ---
 name: Building A Structured Streaming Data Pipeline
-tools: [Simulation, Unity, ROS, Python, Apache Spark, Apache Cassandra, Apache Kafka, Docker]
+tools: [Unity, ROS, Python, Apache Spark, Apache Cassandra, Apache Kafka, Docker]
 image: https://github.com/user-attachments/assets/0732ae15-da6d-41dd-a9e3-3ef47933d829
 description: Robot Operating System (ROS) is a framework for building robot applications that generates large amounts of data. As there are complexities involving in collecting and processing data, it is important to have a structured pipeline to process the data.
 external_url: https://github.com/vishalgattani/quixotic-kafka
+expertise: [Simulation, Data Engineering, Containerization]
 ---
 
 # Building A Structured Streaming Data Pipeline

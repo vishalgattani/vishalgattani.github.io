@@ -1,8 +1,9 @@
 ---
 name: Sign Language Detection using Mediapipe and LSTM
-tools: [Computer Vision, Python, Tensorflow, Keras, Mediapipe]
+tools: [Python, Tensorflow, Keras, Mediapipe]
 image:
 description: An implementation of sign language detection using an LSTM NN built on TF Keras and Mediapipe.
+expertise: [Computer Vision, Neural Networks, Artifical Intelligence]
 ---
 
 <!-- ![srrs_compressed_cropped](https://user-images.githubusercontent.com/24211929/170116184-5f5ef498-213a-4ac2-b7c5-38e7c6b45394.gif)

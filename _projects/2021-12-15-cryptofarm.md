@@ -1,8 +1,9 @@
 ---
 name: Cryptofarm
-tools: [Systems Engineering, Cost Estimation, Python, API]
+tools: [Python, REST API]
 image: https://github.com/vishalgattani/cryptofarm/assets/24211929/6d29e792-a662-48cb-9308-ca938e4fffad
 description: A cost estimate analysis to deploy and maintain a Bitcoin mining farm/rig.
+expertise: [Data Visualization, Systems Engineering, Cost Estimation, Project Management]
 ---
 
 <!-- ![0fccf2294537a33711fbd757a2e3054c](https://github.com/vishalgattani/cryptofarm/assets/24211929/6d29e792-a662-48cb-9308-ca938e4fffad) -->
