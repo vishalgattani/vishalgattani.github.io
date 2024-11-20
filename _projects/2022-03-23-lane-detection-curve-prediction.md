@@ -3,7 +3,7 @@ name: Car Lane Detection
 tools: [Python,OpenCV]
 image: https://github.com/vishalgattani/vishalgattani.github.io/assets/24211929/8d7ffbed-35ff-4611-b795-e28cf1f6d4ea
 description: Detect lanes on a road in real time using the OpenCV computer vision library and Python.
-expertise: [Robotics, Computer Vision, Artificial Intelligence, Image Analysis]
+expertise: [Robotics, Computer Vision, Image Analysis]
 # external_url: https://github.com/vishalgattani/PID-self-driving-car/tree/main
 ---
 <!-- gif == https://github.com/plotly/plotly.py/assets/24211929/6fe06dc7-2680-4467-8ef1-fa05840655ae -->
