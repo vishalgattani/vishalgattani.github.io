@@ -43,7 +43,7 @@ linkedin:
 
 calendar:
   url   : https://calendly.com/vishalgattani09/30min
-  icon  : fa-regular fa-calendar
+  icon  : fa-solid fa-calendar
   color : 007bb5
 
 # medium:
