@@ -10,10 +10,10 @@ experitise: [Game Development, Simulation, Robotics]
 <!-- PROJECT LOGO -->
 <br />
 <div align="center">
-<h3 align="center">PyBBN Assurance Cases</h3>
+<h3 align="center">Unity Robotics Simulator</h3>
 
   <p align="center">
-    Determining assurance case beliefs using Bayesian Belief Networks and Design of Experiments.
+    Building simulator for robotic applications.
     <br />
     <a href="https://gitlab.com/vishalgattani/unity-simulator/-/wikis/home"><strong>Explore the project »</strong></a>
     <br />
@@ -26,25 +26,26 @@ experitise: [Game Development, Simulation, Robotics]
 
 # Motivation
 
-This project is solely being built from scratch for learning purposes. The project aims to improve skills in the following areas:
+This project is solely being built from scratch for learning purposes to improve skills in the following areas:
 1. Game development
 2. Robotics
 3. Artificial Intelligence
 
 # Features of Simulator
 
-## Unity-ROS
+## Unity-ROS (TBD)
 
 ## Asset inventory system
 
 1. [x] Browse an asset bundle
 2. [x] Load an asset bundle
-3. [ ] Load multiple asset bundles
-4. [x] Spawn an obstacle using raycasting to the ground layers
-5. [x] Save configuration in a `.json`
-6. [ ] Load configuration from a `.json`
-7. [ ] Need to load the asset bundles for assets within the `.json` first
-8. [x] Unload an asset bundle
+3. [x] Load multiple asset bundles
+4. [x] Unload an asset bundle
+5. [x] Spawn an obstacle using raycasting to the ground layers
+6. [x] Save configuration in a `.json`
+7. [ ] Load configuration from a `.json`
+8. [ ] Need to load the asset bundles for assets within the `.json` first
+9. [x] Unload an asset bundle
 
 ## Randomization of scenario using `Scenic`
 
@@ -61,7 +62,7 @@ This project is solely being built from scratch for learning purposes. The proje
 - [x] Moon color with time
 - [x] Sky horizon color with time
 - [ ] Time scale
-- [ ] Dynamic time of day
+- [x] Dynamic time of day
 
 ## [Traffic waypoint system](https://github.com/vishalgattani/unity-traffic-system/)
 
