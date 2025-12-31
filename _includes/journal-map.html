@@ -1,0 +1,12 @@
+<style>
+    #map {
+      height: 600px; /* Use px or vh, but ensure it's substantial */
+      width: 100%;
+      z-index: 1;    /* Fixes issues where map sits behind other elements */
+    }
+</style>
+
+<script>
+    // Attach to window to ensure global access in external scripts
+    window.journalEntries = {{ site.data.journal_map | jsonify }};
+</script>
