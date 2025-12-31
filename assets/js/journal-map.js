@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", () => {
-    // 1. Check if the map container exists to avoid errors on other pages
+    // 1. Check if the map container exists
     if (!document.getElementById("map")) return;
 
     // 2. Initialize map (Start centered on World)
@@ -11,22 +11,48 @@ document.addEventListener("DOMContentLoaded", () => {
       attribution: "© OpenStreetMap contributors",
     }).addTo(map);
 
-    // 4. Access the global variable we defined in the HTML
+    // 4. Define "Base" class for custom icons (Standard Size)
+    const CustomIcon = L.Icon.extend({
+        options: {
+            iconSize:     [32, 32], // Standard square size
+            iconAnchor:   [16, 32], // Tip of the pin (Bottom Center)
+            popupAnchor:  [0, -32]  // Where the popup opens
+        }
+    });
+
+    // 5. Access Global Data
     const entries = window.journalEntries || [];
     const bounds = L.latLngBounds();
     let hasMarkers = false;
 
-    // 5. Loop through entries and add markers
+    // 6. Loop through entries
     entries.forEach(entry => {
         // Only map entries that have lat/lng defined
         if (entry.lat && entry.lng) {
-            const marker = L.marker([entry.lat, entry.lng]).addTo(map);
 
+            // --- A. Handle Custom Icons ---
+            let markerOptions = {};
+            if (entry.icon) {
+                markerOptions.icon = new CustomIcon({
+                    iconUrl: `/assets/images/markers/${entry.icon}.png`
+                });
+            }
+
+            // --- B. Handle Optional Fields (Date & Entry) ---
+            // Only create the HTML strings if the data exists.
+            // Otherwise, set them to an empty string ''.
+            const dateHtml = entry.date ? `<p><strong>${entry.date}</strong></p>` : '';
+            const entryHtml = entry.entry ? `<p>${entry.entry}</p>` : '';
+
+            // --- C. Create Marker ---
+            const marker = L.marker([entry.lat, entry.lng], markerOptions).addTo(map);
+
+            // --- D. Bind Popup ---
             marker.bindPopup(`
                 <div style="min-width: 200px">
                     <h3>${entry.title}</h3>
-                    <p><strong>${entry.date}</strong></p>
-                    <p>${entry.entry}</p>
+                    ${dateHtml}
+                    ${entryHtml}
                     <p>
                         <a href="${entry.maps_url}" target="_blank">
                             Open in Google Maps
@@ -40,7 +66,7 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     });
 
-    // 6. Fit map to bounds (Zoom in to show all markers)
+    // 7. Fit bounds
     if (hasMarkers) {
         map.fitBounds(bounds, { padding: [50, 50] });
     }
