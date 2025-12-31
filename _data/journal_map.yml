@@ -1,0 +1,6 @@
+# _data/journal_map.yml
+- title: Test
+  date: 2024-06-12
+  location: "IDK where this is"
+  maps_url: https://maps.app.goo.gl/fo9KF9w8KqbA2HqJA
+  entry: Testing this location.
