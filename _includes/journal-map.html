@@ -1,8 +1,21 @@
+<div id="map"></div>
+
 <style>
     #map {
       height: 600px; /* Use px or vh, but ensure it's substantial */
       width: 100%;
       z-index: 1;    /* Fixes issues where map sits behind other elements */
+    }
+    /* FIX: Stop the theme from shrinking map icons */
+    .leaflet-pane img,
+    .leaflet-tile-container img,
+    .leaflet-marker-icon,
+    .leaflet-marker-shadow {
+        max-width: none !important;
+        max-height: none !important;
+        width: auto;
+        height: auto;
+        box-shadow: none !important;
     }
 </style>
 

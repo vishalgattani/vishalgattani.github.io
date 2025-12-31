@@ -2,9 +2,7 @@ document.addEventListener("DOMContentLoaded", () => {
     // 1. Check if the map container exists
     if (!document.getElementById("map")) return;
 
-    console.log("Map script loaded. Processing entries..."); // Debugging line
-
-    // 2. Initialize map (Start centered on World)
+    // 2. Initialize map
     const map = L.map("map").setView([20, 0], 2);
 
     // 3. Add OpenStreetMap tiles
@@ -14,12 +12,11 @@ document.addEventListener("DOMContentLoaded", () => {
     }).addTo(map);
 
     // 4. Define "Base" class for custom icons
-    // This inherits from L.Icon so we don't have to repeat size settings
     const CustomIcon = L.Icon.extend({
         options: {
-            iconSize:     [32, 32], // Standard square size for Flaticon
+            iconSize:     [32, 32], // Standard square size
             iconAnchor:   [16, 32], // Tip of the pin (Bottom Center)
-            popupAnchor:  [0, -32]  // Where the popup opens relative to the pin
+            popupAnchor:  [0, -32]  // Where the popup opens
         }
     });
 
@@ -32,18 +29,18 @@ document.addEventListener("DOMContentLoaded", () => {
     entries.forEach(entry => {
         if (entry.lat && entry.lng) {
 
-            // --- A. Handle Custom Icons ---
+            // --- A. Custom Icons ---
             let markerOptions = {};
             if (entry.icon) {
-                // Creates a new icon instance using your CustomIcon class
-                console.log(`Adding custom icon: ${entry.icon}`); // Debugging line
+                // Tries to load /assets/images/markers/*.png
                 markerOptions.icon = new CustomIcon({
                     iconUrl: `/assets/images/markers/${entry.icon}.png`
                 });
             }
 
-            // --- B. Handle Optional Fields (Date & Entry) ---
-            // Fixes "undefined" error: Checks if data exists before creating HTML
+            // --- B. "Undefined" Fix ---
+            // We use a ternary operator (?) to check if data exists.
+            // If entry.date is missing, dateHtml becomes an empty string ('').
             const dateHtml = entry.date ? `<p><strong>${entry.date}</strong></p>` : '';
             const entryHtml = entry.entry ? `<p>${entry.entry}</p>` : '';
 
