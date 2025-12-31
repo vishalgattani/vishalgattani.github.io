@@ -2,6 +2,8 @@ document.addEventListener("DOMContentLoaded", () => {
     // 1. Check if the map container exists
     if (!document.getElementById("map")) return;
 
+    console.log("Map script loaded. Processing entries..."); // Debugging line
+
     // 2. Initialize map (Start centered on World)
     const map = L.map("map").setView([20, 0], 2);
 
@@ -11,12 +13,13 @@ document.addEventListener("DOMContentLoaded", () => {
       attribution: "© OpenStreetMap contributors",
     }).addTo(map);
 
-    // 4. Define "Base" class for custom icons (Standard Size)
+    // 4. Define "Base" class for custom icons
+    // This inherits from L.Icon so we don't have to repeat size settings
     const CustomIcon = L.Icon.extend({
         options: {
-            iconSize:     [32, 32], // Standard square size
+            iconSize:     [32, 32], // Standard square size for Flaticon
             iconAnchor:   [16, 32], // Tip of the pin (Bottom Center)
-            popupAnchor:  [0, -32]  // Where the popup opens
+            popupAnchor:  [0, -32]  // Where the popup opens relative to the pin
         }
     });
 
@@ -27,20 +30,20 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // 6. Loop through entries
     entries.forEach(entry => {
-        // Only map entries that have lat/lng defined
         if (entry.lat && entry.lng) {
 
             // --- A. Handle Custom Icons ---
             let markerOptions = {};
             if (entry.icon) {
+                // Creates a new icon instance using your CustomIcon class
+                console.log(`Adding custom icon: ${entry.icon}`); // Debugging line
                 markerOptions.icon = new CustomIcon({
                     iconUrl: `/assets/images/markers/${entry.icon}.png`
                 });
             }
 
             // --- B. Handle Optional Fields (Date & Entry) ---
-            // Only create the HTML strings if the data exists.
-            // Otherwise, set them to an empty string ''.
+            // Fixes "undefined" error: Checks if data exists before creating HTML
             const dateHtml = entry.date ? `<p><strong>${entry.date}</strong></p>` : '';
             const entryHtml = entry.entry ? `<p>${entry.entry}</p>` : '';
 

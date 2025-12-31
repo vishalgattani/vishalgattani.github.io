@@ -36,5 +36,5 @@ $(function () {
   crossorigin="">
 </script>
 
-<script src="{{ '/assets/js/journal-map.js' | relative_url }}"></script>
+<script src="{{ '/assets/js/journal-map.js' | relative_url }}?v={{ site.time | date: '%s' }}"></script>
 {% endif %}
