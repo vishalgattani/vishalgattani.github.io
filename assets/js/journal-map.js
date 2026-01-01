@@ -8,7 +8,7 @@ document.addEventListener("DOMContentLoaded", () => {
     // 3. Add OpenStreetMap tiles
     L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", {
       maxZoom: 19,
-      attribution: "© OpenStreetMap contributors",
+      attribution: '© <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> | Icons by <a target="_blank" href="https://icons8.com">Icons8</a>',
     }).addTo(map);
 
     // 4. Define "Base" class for custom icons
@@ -54,7 +54,7 @@ document.addEventListener("DOMContentLoaded", () => {
                     ${dateHtml}
                     ${entryHtml}
                     <p>
-                        <a href="${entry.maps_url}" target="_blank">
+                        <a href="${entry.url}" target="_blank">
                             Open in Google Maps
                         </a>
                     </p>

@@ -1,11 +1,52 @@
-- title: Half Moon Bay
-  maps_url: https://maps.app.goo.gl/Dvdz3XytSJgYwu826
-  entry: Beach Parking Lot
+- url: https://maps.app.goo.gl/Dvdz3XytSJgYwu826
   icon: beach
   lat: 37.4841659
   lng: -122.4527573
-- title: Yosemite National Park
-  maps_url: https://maps.app.goo.gl/m6MP2YFRFNZPNmMx5
+  title: Half Moon Bay State Beach- Dunes Beach Parking Lot
+- url: https://maps.app.goo.gl/m6MP2YFRFNZPNmMx5
   icon: park
   lat: 37.8651011
   lng: -119.5383294
+  title: Yosemite National Park
+- url: https://maps.app.goo.gl/MURNZrsnwoc8S5Yp6
+  icon: beach
+  lat: 43.0823762
+  lng: -86.2536345
+  title: North Beach Park
+- url: https://maps.app.goo.gl/SRJM6UsHyxJbRz3v6
+  lat: 37.1888713
+  lng: -112.9985515
+  title: Springdale, UT
+- url: https://maps.app.goo.gl/W5AS4svwVEm46WEF9
+  icon: mountain
+  lat: 37.2690326
+  lng: -112.9468989
+  title: Angels Landing
+- url: https://maps.app.goo.gl/GdRJc95TGuweAKqq6
+  icon: coffee
+  lat: 40.3699261
+  lng: -105.5295872
+  title: Coffee on the Rocks
+- url: https://maps.app.goo.gl/AgwfnMu5FvQfadKV7
+  lat: 39.1061253
+  lng: -106.5632911
+  title: Independence Pass Lookout point
+- url: https://maps.app.goo.gl/B8ChFBgFm5y8fbBf6
+  lat: 37.3866874
+  lng: -122.265392
+  title: Alice's Restaurant
+- url: https://maps.app.goo.gl/cMJ6USrgV5of3t686
+  icon: beach
+  lat: 36.2380659
+  lng: -121.816232
+  title: Pfeiffer Beach
+- url: https://maps.app.goo.gl/LC8n9Hfd9nDz1UP98
+  icon: beach
+  lat: 36.5502388
+  lng: -121.9291215
+  title: Carmel Beach
+- url: https://maps.app.goo.gl/vjuJDDZf7GfkxK6a8
+  icon: beach
+  lat: 37.7593921
+  lng: -122.510734
+  title: Ocean Beach

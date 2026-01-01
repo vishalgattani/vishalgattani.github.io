@@ -1,30 +1,22 @@
-"""
-Script: Journal Map Geocoder
-Author: Vishal Gattani
-Date: December 31, 2025
-
-Description:
-    This script automates the process of finding latitude and longitude coordinates
-    for journal entries in '_data/journal_map.yml'.
-
-    1. Extracts coordinates directly from Google Maps URLs (handling redirects).
-
-    It adheres to API usage policies by including a User-Agent and enforcing
-    rate limits (sleep timers) to prevent IP bans.
-"""
-
 import yaml
 import requests
 import time
 import sys
 import re
 from pathlib import Path
+from urllib.parse import unquote_plus  # Added for cleaning titles
 
 FILE_PATH = Path(__file__).parent.parent/'_data/journal_map.yml'
 USER_AGENT = "VishalGattaniPortfolio/1.0 (vishalgattani09@gmail.com)"
 
-def extract_coords_from_url(url):
-    """Extract lat/lng from a Google Maps URL by following redirects"""
+def extract_google_maps_data(url):
+    """
+    Resolves the URL and extracts:
+    1. Latitude/Longitude (prioritizing !3d/!4d pins)
+    2. Location Title (from /place/Name...)
+    """
+    lat, lng, title = None, None, None
+
     try:
         # 1. Follow the redirect to get the 'real' URL
         session = requests.Session()
@@ -32,32 +24,32 @@ def extract_coords_from_url(url):
         resp = session.head(url, allow_redirects=True, timeout=10)
         final_url = resp.url
 
-        # 2. Regex Patterns to find coordinates
-        # !3d and !4d (The "Pin" Location)
+        # 2. Extract Title from URL structure: .../place/The+Name+Here/...
+        match_title = re.search(r'place/([^/]+)/', final_url)
+        if match_title:
+            # unquote_plus replaces '+' with spaces and fixes % encoded chars
+            title = unquote_plus(match_title.group(1))
+
+        # 3. Extract Coordinates
+
+        # PRIORITY 1: !3d and !4d (The "Pin" Location)
         match_data = re.search(r'!3d(-?\d+\.\d+)!4d(-?\d+\.\d+)', final_url)
         if match_data:
-            return float(match_data.group(1)), float(match_data.group(2))
+            lat, lng = float(match_data.group(1)), float(match_data.group(2))
 
-        # PRIORITY 2: @lat,lng (The "Viewport" Location)
-        # Only use this if the pin location (!3d) is missing.
-        # e.g. .../place/Name/@40.6892,-74.0445,17z/...
-        match_at = re.search(r'@(-?\d+\.\d+),(-?\d+\.\d+)', final_url)
-        if match_at:
-            return float(match_at.group(1)), float(match_at.group(2))
-
-        # PRIORITY 3: q=lat,lng (Search Query)
-        # e.g. ...?q=40.6892,-74.0445
-        match_q = re.search(r'q=(-?\d+\.\d+),(-?\d+\.\d+)', final_url)
-        if match_q:
-            return float(match_q.group(1)), float(match_q.group(2))
+        # PRIORITY 2: @lat,lng (The "Viewport" Location - Fallback)
+        if lat is None or lng is None:
+            match_at = re.search(r'@(-?\d+\.\d+),(-?\d+\.\d+)', final_url)
+            if match_at:
+                lat, lng = float(match_at.group(1)), float(match_at.group(2))
 
     except Exception as e:
         print(f"    [x] URL Parsing Error: {e}")
 
-    return None, None
+    return lat, lng, title
 
 def main():
-    print(f"--- Starting Geocoder ---")
+    print(f"--- Starting Geocoder & Title Fetcher ---")
     print(f"Reading {FILE_PATH}...")
 
     try:
@@ -70,40 +62,48 @@ def main():
     updated_count = 0
 
     for i, entry in enumerate(entries):
-        # We only process entries that are MISSING lat or lng
-        if (entry.get('lat') is None or entry.get('lng') is None):
+        # Check if we are missing critical data
+        missing_coords = (entry.get('lat') is None or entry.get('lng') is None)
+        missing_title = (entry.get('title') is None or entry['title'] == '')
 
-            title = entry.get('title', 'Unknown Entry')
-            print(f"[{i+1}/{len(entries)}] Processing: {title}...", end=" ", flush=True)
+        if missing_coords or missing_title:
 
-            lat, lng = None, None
+            # Use existing title for log, or placeholder if we are about to find it
+            current_display_title = entry.get('title', 'Unknown Entry')
+            # print(f"[{i+1}/{len(entries)}] Processing: {current_display_title}...", end=" ", flush=True)
 
-            # STRATEGY 1: Try Google Maps URL first (Most Accurate)
-            if entry.get('maps_url'):
-                lat, lng = extract_coords_from_url(entry['maps_url'])
-                if lat and lng:
-                    print(f"✅ Found via URL -> ({lat:.4f}, {lng:.4f})")
-                    # Sleep for 1s to be polite to Google
-                    time.sleep(1)
+            if entry.get('url'):
+                found_lat, found_lng, found_title = extract_google_maps_data(entry['url'])
+
+                entry_updated = False
+
+                # Update Coordinates if missing
+                if missing_coords and found_lat and found_lng:
+                    entry['lat'] = found_lat
+                    entry['lng'] = found_lng
+                    entry_updated = True
+
+                # Update Title if missing
+                if missing_title and found_title:
+                    entry['title'] = found_title
+                    entry_updated = True
+
+                if entry_updated:
+                    print("✅ Updated")
+                    updated_count += 1
+                    time.sleep(1) # Be polite to API
+                else:
+                    print("⚠️ Could not extract missing data")
             else:
-                raise RuntimeError(f"No URL found for entry: {entry}")
-
-            if not lat and not lng:
-                raise RuntimeError("Unable to find coordinates.")
-
-            # Save data if found
-            if lat and lng:
-                entry['lat'] = lat
-                entry['lng'] = lng
-                updated_count += 1
+                print("❌ No URL provided")
 
     # Write changes back to file
     if updated_count > 0:
         with open(FILE_PATH, 'w') as f:
             yaml.dump(entries, f, sort_keys=False, default_flow_style=False, allow_unicode=True)
-        print(f"🎉 Success! Updated {updated_count} entries.")
+        print(f"\n🎉 Success! Updated {updated_count} entries.")
     else:
-        print("✨ All entries are up to date.")
+        print("\n✨ All entries are up to date.")
 
 if __name__ == "__main__":
     main()
