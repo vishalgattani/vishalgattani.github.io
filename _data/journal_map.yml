@@ -1,11 +1,11 @@
 - title: Half Moon Bay
   maps_url: https://maps.app.goo.gl/Dvdz3XytSJgYwu826
   entry: Beach Parking Lot
-  lat: 37.4841659
-  lng: -122.4553322
   icon: beach
+  lat: 37.4841659
+  lng: -122.4527573
 - title: Yosemite National Park
   maps_url: https://maps.app.goo.gl/m6MP2YFRFNZPNmMx5
   icon: park
-  lat: 37.8528496
-  lng: -119.880753
+  lat: 37.8651011
+  lng: -119.5383294

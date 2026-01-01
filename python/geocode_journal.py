@@ -32,21 +32,20 @@ def extract_coords_from_url(url):
         resp = session.head(url, allow_redirects=True, timeout=10)
         final_url = resp.url
 
-        # 2. Regex Patterns to find coordinates in the resolved URL
+        # 2. Regex Patterns to find coordinates
+        # !3d and !4d (The "Pin" Location)
+        match_data = re.search(r'!3d(-?\d+\.\d+)!4d(-?\d+\.\d+)', final_url)
+        if match_data:
+            return float(match_data.group(1)), float(match_data.group(2))
 
-        # Pattern A: @lat,lng (Standard Browser URL)
+        # PRIORITY 2: @lat,lng (The "Viewport" Location)
+        # Only use this if the pin location (!3d) is missing.
         # e.g. .../place/Name/@40.6892,-74.0445,17z/...
         match_at = re.search(r'@(-?\d+\.\d+),(-?\d+\.\d+)', final_url)
         if match_at:
             return float(match_at.group(1)), float(match_at.group(2))
 
-        # Pattern B: !3d and !4d (Embed/Share URLs)
-        # e.g. ...!3d40.6892!4d-74.0445...
-        match_data = re.search(r'!3d(-?\d+\.\d+)!4d(-?\d+\.\d+)', final_url)
-        if match_data:
-            return float(match_data.group(1)), float(match_data.group(2))
-
-        # Pattern C: q=lat,lng (Search Query)
+        # PRIORITY 3: q=lat,lng (Search Query)
         # e.g. ...?q=40.6892,-74.0445
         match_q = re.search(r'q=(-?\d+\.\d+),(-?\d+\.\d+)', final_url)
         if match_q:
