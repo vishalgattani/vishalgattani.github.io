@@ -20,14 +20,14 @@ echo 'eval "$(rbenv init - zsh)"' >> ~/.zshrc
 source ~/.zshrc
 ```
 
-### 3. Ruby 3.1.0
+### 3. Ruby 3.3.11
 
-The project pins Ruby to `3.1.0` via `.ruby-version`.
+The project pins Ruby to `3.3.11` via `.ruby-version`.
 
 ```bash
-rbenv install 3.1.0
-rbenv local 3.1.0
-ruby --version   # should print ruby 3.1.0
+rbenv install 3.3.11
+rbenv local 3.3.11
+ruby --version   # should print ruby 3.3.11
 ```
 
 ### 4. Bundler
