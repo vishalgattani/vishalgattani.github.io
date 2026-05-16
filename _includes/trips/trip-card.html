@@ -1,0 +1,39 @@
+{% assign stop = trip.stops | first %}
+{% assign last_stop = trip.stops | last %}
+
+{% if trip.trip_type == "place" and stop %}
+  {% capture map_url %}https://staticmap.openstreetmap.de/staticmap.php?center={{ stop.lat }},{{ stop.lng }}&zoom=9&size=400x200&markers={{ stop.lat }},{{ stop.lng }},red-pushpin{% endcapture %}
+{% elsif stop and last_stop %}
+  {% assign mid_lat = stop.lat | plus: last_stop.lat | divided_by: 2.0 %}
+  {% assign mid_lng = stop.lng | plus: last_stop.lng | divided_by: 2.0 %}
+  {% capture map_url %}https://staticmap.openstreetmap.de/staticmap.php?center={{ mid_lat }},{{ mid_lng }}&zoom=5&size=400x200&markers={{ stop.lat }},{{ stop.lng }},red-pushpin|{{ last_stop.lat }},{{ last_stop.lng }},red-pushpin{% endcapture %}
+{% endif %}
+
+<div class="wow animated fadeIn" data-wow-delay=".15s">
+  <a href="{{ trip.url | relative_url }}" class="project card text-themed">
+    {% if map_url %}
+    <img class="card-img-top" src="{{ map_url }}" alt="{{ trip.title }}" style="object-fit: cover; height: 160px;" />
+    {% endif %}
+    <div class="card-body">
+      <h5 class="card-title">{{ trip.title }}</h5>
+      {% if trip.description %}
+      <p class="card-text">{{ trip.description }}</p>
+      {% endif %}
+      <p class="card-text">
+        {% if trip.trip_type == "road" %}
+          <span class="badge badge-success">🚗 Road Trip</span>
+        {% elsif trip.trip_type == "flight" %}
+          <span class="badge badge-primary">✈️ Flight</span>
+        {% else %}
+          <span class="badge badge-secondary">📍 Place</span>
+        {% endif %}
+        {% if trip.date %}
+          <span class="badge badge-light ml-1">{{ trip.date | date: "%b %Y" }}</span>
+        {% endif %}
+        {% for tag in trip.tags %}
+          <span class="badge badge-pill text-primary border border-primary ml-1">{{ tag }}</span>
+        {% endfor %}
+      </p>
+    </div>
+  </a>
+</div>

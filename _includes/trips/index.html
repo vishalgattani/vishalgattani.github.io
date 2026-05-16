@@ -1,0 +1,5 @@
+<div class="card-columns m-3 mt-5">
+  {% for trip in site.trips reversed %}
+    {% include trips/trip-card.html %}
+  {% endfor %}
+</div>
