@@ -1,6 +1,8 @@
 #!/usr/bin/env bash
 set -e
 
+export PATH="$HOME/.rbenv/bin:$PATH"
+
 RUBY_VERSION="3.3.11"
 
 info()    { echo "[info]  $*"; }
