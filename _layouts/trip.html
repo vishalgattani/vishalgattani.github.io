@@ -17,11 +17,9 @@ layout: default
     {% else %}
       <span class="badge badge-secondary">📍 Place</span>
     {% endif %}
-
     {% if page.date %}
       <span class="text-muted ml-2" style="font-size:0.9rem;">{{ page.date | date: "%B %Y" }}</span>
     {% endif %}
-
     {% for tag in page.tags %}
       <span class="badge badge-light ml-1">{{ tag }}</span>
     {% endfor %}
@@ -39,69 +37,65 @@ layout: default
 (function () {
   var stops = {{ page.stops | jsonify }};
   var tripType = {{ page.trip_type | jsonify }};
+  if (!stops || stops.length === 0) return;
 
   var map = L.map('trip-map');
-
   L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
     attribution: '© <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
     maxZoom: 18
   }).addTo(map);
 
-  if (!stops || stops.length === 0) return;
-
-  var markerIcon = L.icon({
-    iconUrl: 'https://unpkg.com/leaflet@1.9.4/dist/images/marker-icon.png',
-    iconRetinaUrl: 'https://unpkg.com/leaflet@1.9.4/dist/images/marker-icon-2x.png',
-    shadowUrl: 'https://unpkg.com/leaflet@1.9.4/dist/images/marker-shadow.png',
-    iconSize: [25, 41],
-    iconAnchor: [12, 41],
-    popupAnchor: [1, -34],
-    shadowSize: [41, 41]
-  });
-
   var latlngs = stops.map(function (s) { return [s.lat, s.lng]; });
-
   stops.forEach(function (s, i) {
-    var label = s.label || ('Stop ' + (i + 1));
-    L.marker([s.lat, s.lng], { icon: markerIcon })
+    L.marker([s.lat, s.lng])
       .addTo(map)
-      .bindPopup('<strong>' + label + '</strong>');
+      .bindPopup('<strong>' + (s.label || 'Stop ' + (i + 1)) + '</strong>');
   });
 
   if (stops.length === 1) {
     map.setView(latlngs[0], 10);
-
   } else if (tripType === 'road') {
-    L.polyline(latlngs, { color: '#007bff', weight: 3, opacity: 0.8 }).addTo(map);
     map.fitBounds(L.latLngBounds(latlngs).pad(0.2));
-
+    var coords = latlngs.map(function (ll) { return ll[1] + ',' + ll[0]; }).join(';');
+    fetch('https://router.project-osrm.org/route/v1/driving/' + coords + '?overview=full&geometries=geojson')
+      .then(function (r) { return r.json(); })
+      .then(function (data) {
+        var route = (data.routes && data.routes[0])
+          ? data.routes[0].geometry.coordinates.map(function (c) { return [c[1], c[0]]; })
+          : latlngs;
+        L.polyline(route, { color: '#007bff', weight: 4, opacity: 0.85 }).addTo(map);
+        map.fitBounds(L.latLngBounds(route).pad(0.1));
+      })
+      .catch(function () {
+        L.polyline(latlngs, { color: '#007bff', weight: 4, opacity: 0.85 }).addTo(map);
+      });
   } else if (tripType === 'flight') {
-    // Great-circle arc via interpolated points
-    var arc = [];
-    var n = 80;
-    var p1 = { lat: latlngs[0][0] * Math.PI / 180, lng: latlngs[0][1] * Math.PI / 180 };
-    var p2 = { lat: latlngs[latlngs.length - 1][0] * Math.PI / 180, lng: latlngs[latlngs.length - 1][1] * Math.PI / 180 };
+    var arc = tripGreatCircleArc(latlngs[0], latlngs[latlngs.length - 1]);
+    L.polyline(arc, { color: '#007bff', weight: 3, opacity: 0.85, dashArray: '8 8' }).addTo(map);
+    map.fitBounds(L.latLngBounds(latlngs).pad(0.3));
+  } else {
+    map.fitBounds(L.latLngBounds(latlngs).pad(0.2));
+  }
+
+  function tripGreatCircleArc(from, to) {
+    var R2D = 180 / Math.PI, D2R = Math.PI / 180;
+    var p1 = { lat: from[0] * D2R, lng: from[1] * D2R };
+    var p2 = { lat: to[0] * D2R, lng: to[1] * D2R };
     var d = 2 * Math.asin(Math.sqrt(
       Math.pow(Math.sin((p2.lat - p1.lat) / 2), 2) +
       Math.cos(p1.lat) * Math.cos(p2.lat) * Math.pow(Math.sin((p2.lng - p1.lng) / 2), 2)
     ));
-    for (var i = 0; i <= n; i++) {
-      var f = i / n;
-      if (d === 0) { arc.push(latlngs[0]); continue; }
-      var A = Math.sin((1 - f) * d) / Math.sin(d);
-      var B = Math.sin(f * d) / Math.sin(d);
+    var pts = [];
+    for (var i = 0; i <= 80; i++) {
+      var f = i / 80;
+      if (d === 0) { pts.push(from); continue; }
+      var A = Math.sin((1 - f) * d) / Math.sin(d), B = Math.sin(f * d) / Math.sin(d);
       var x = A * Math.cos(p1.lat) * Math.cos(p1.lng) + B * Math.cos(p2.lat) * Math.cos(p2.lng);
       var y = A * Math.cos(p1.lat) * Math.sin(p1.lng) + B * Math.cos(p2.lat) * Math.sin(p2.lng);
       var z = A * Math.sin(p1.lat) + B * Math.sin(p2.lat);
-      var lat = Math.atan2(z, Math.sqrt(x * x + y * y)) * 180 / Math.PI;
-      var lng = Math.atan2(y, x) * 180 / Math.PI;
-      arc.push([lat, lng]);
+      pts.push([Math.atan2(z, Math.sqrt(x * x + y * y)) * R2D, Math.atan2(y, x) * R2D]);
     }
-    L.polyline(arc, { color: '#007bff', weight: 2, opacity: 0.8, dashArray: '6 6' }).addTo(map);
-    map.fitBounds(L.latLngBounds(latlngs).pad(0.3));
-
-  } else {
-    map.fitBounds(L.latLngBounds(latlngs).pad(0.2));
+    return pts;
   }
 })();
 </script>
