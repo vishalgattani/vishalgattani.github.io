@@ -1,0 +1,37 @@
+{% assign card_id = trip.slug %}
+
+<div class="wow animated fadeIn" data-wow-delay=".15s">
+  <a href="{{ trip.url | relative_url }}" class="project card text-themed">
+    <div id="card-map-{{ card_id }}" style="height: 160px; border-radius: 8px 8px 0 0; pointer-events: none;"></div>
+    <div class="card-body">
+      <h5 class="card-title">{{ trip.title }}</h5>
+      {% if trip.description %}
+      <p class="card-text">{{ trip.description }}</p>
+      {% endif %}
+      <p class="card-text">
+        {% if trip.trip_type == "road" %}
+          <span class="badge badge-success">🚗 Road Trip</span>
+        {% elsif trip.trip_type == "flight" %}
+          <span class="badge badge-primary">✈️ Flight</span>
+        {% else %}
+          <span class="badge badge-secondary">📍 Place</span>
+        {% endif %}
+        {% if trip.date %}
+          <span class="badge badge-light ml-1">{{ trip.date | date: "%b %Y" }}</span>
+        {% endif %}
+        {% for tag in trip.tags %}
+          <span class="badge badge-pill text-primary border border-primary ml-1">{{ tag }}</span>
+        {% endfor %}
+      </p>
+    </div>
+  </a>
+</div>
+
+<script>
+TripMap.render(
+  'card-map-{{ card_id }}',
+  {{ trip.stops | jsonify }},
+  {{ trip.trip_type | jsonify }},
+  { interactive: false, height: '160px' }
+);
+</script>

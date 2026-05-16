@@ -12,6 +12,9 @@ open_new_tab        : true                             # Opens external URLs in 
 ### Plugins ###
 plugins:
   - jemoji
+  - jekyll-seo-tag
+  - jekyll-sitemap
+  - jekyll-feed
 
 
 ### Navbar Settings ###
@@ -61,6 +64,9 @@ collections:
   research:
     output: true
     permalink: /research/:name
+  trips:
+    output: true
+    permalink: /trips/:name
   elements:                                             # For Documentation Only
     output: true                                        # For Documentation Only
 
@@ -99,6 +105,11 @@ defaults:
       type: "research"
     values:
       layout: "page"
+  - scope:
+      path: ""
+      type: "trips"
+    values:
+      layout: "trip"
   - scope:                                              # For Documentation Only
       path: ""                                          # For Documentation Only
       type: "elements"                                  # For Documentation Only
@@ -117,3 +128,5 @@ exclude:
   - CONTRIBUTING.md
   - LICENSE
   - "*.log"
+  - build/
+  - vendor/

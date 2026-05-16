@@ -1,0 +1,18 @@
+{% comment %}
+  Usage in trip markdown:
+    {% include trips/map-section.html id="day2" stops=page.day2_stops type="road" %}
+
+  `id`    — unique string, used as the HTML element ID (required)
+  `stops` — array from frontmatter (required)
+  `type`  — road | flight | place (default: road)
+{% endcomment %}
+
+<div id="map-{{ include.id }}" style="border-radius: 8px; margin: 1.5rem 0;"></div>
+
+<script>
+TripMap.render(
+  'map-{{ include.id }}',
+  {{ include.stops | jsonify }},
+  {{ include.type | default: "road" | jsonify }}
+);
+</script>

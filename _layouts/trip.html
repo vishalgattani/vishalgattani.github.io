@@ -1,0 +1,39 @@
+---
+layout: default
+---
+
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script src="{{ '/assets/js/trip-map.js' | relative_url }}"></script>
+
+<div class="col-lg-10 mx-auto mt-5">
+
+  <h1 class="mb-1">{{ page.title }}</h1>
+
+  <div class="mb-2">
+    {% if page.trip_type == "road" %}
+      <span class="badge badge-success">🚗 Road Trip</span>
+    {% elsif page.trip_type == "flight" %}
+      <span class="badge badge-primary">✈️ Flight</span>
+    {% else %}
+      <span class="badge badge-secondary">📍 Place</span>
+    {% endif %}
+    {% if page.date %}
+      <span class="text-muted ml-2" style="font-size:0.9rem;">{{ page.date | date: "%B %Y" }}</span>
+    {% endif %}
+    {% for tag in page.tags %}
+      <span class="badge badge-light ml-1">{{ tag }}</span>
+    {% endfor %}
+  </div>
+
+  <div id="trip-map" style="height: 400px; border-radius: 8px; margin-bottom: 2rem;"></div>
+
+  <div class="markdown-body">
+    {{ content }}
+  </div>
+
+</div>
+
+<script>
+TripMap.render('trip-map', {{ page.stops | jsonify }}, {{ page.trip_type | jsonify }});
+</script>
