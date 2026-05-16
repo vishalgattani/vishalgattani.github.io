@@ -28,68 +28,10 @@
 </div>
 
 <script>
-(function () {
-  var stops = {{ trip.stops | jsonify }};
-  var tripType = {{ trip.trip_type | jsonify }};
-  if (!stops || stops.length === 0) return;
-
-  var map = L.map('card-map-{{ card_id }}', {
-    dragging: false, zoomControl: false, scrollWheelZoom: false,
-    doubleClickZoom: false, keyboard: false, tap: false, attributionControl: false
-  });
-  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', { maxZoom: 18 }).addTo(map);
-
-  var latlngs = stops.map(function (s) { return [s.lat, s.lng]; });
-  stops.forEach(function (s) {
-    L.circleMarker([s.lat, s.lng], {
-      radius: 6, color: '#fff', fillColor: '#007bff', fillOpacity: 1, weight: 2
-    }).addTo(map);
-  });
-
-  if (stops.length === 1) {
-    map.setView(latlngs[0], 9);
-  } else if (tripType === 'road') {
-    var coords = latlngs.map(function (ll) { return ll[1] + ',' + ll[0]; }).join(';');
-    fetch('https://router.project-osrm.org/route/v1/driving/' + coords + '?overview=full&geometries=geojson')
-      .then(function (r) { return r.json(); })
-      .then(function (data) {
-        var route = (data.routes && data.routes[0])
-          ? data.routes[0].geometry.coordinates.map(function (c) { return [c[1], c[0]]; })
-          : latlngs;
-        L.polyline(route, { color: '#007bff', weight: 2, opacity: 0.9 }).addTo(map);
-        map.fitBounds(L.latLngBounds(route).pad(0.15));
-      })
-      .catch(function () {
-        L.polyline(latlngs, { color: '#007bff', weight: 2 }).addTo(map);
-        map.fitBounds(L.latLngBounds(latlngs).pad(0.2));
-      });
-  } else if (tripType === 'flight') {
-    var arc = tripGreatCircleArc(latlngs[0], latlngs[latlngs.length - 1]);
-    L.polyline(arc, { color: '#007bff', weight: 2, dashArray: '5 5' }).addTo(map);
-    map.fitBounds(L.latLngBounds(latlngs).pad(0.3));
-  } else {
-    map.fitBounds(L.latLngBounds(latlngs).pad(0.2));
-  }
-
-  function tripGreatCircleArc(from, to) {
-    var R2D = 180 / Math.PI, D2R = Math.PI / 180;
-    var p1 = { lat: from[0] * D2R, lng: from[1] * D2R };
-    var p2 = { lat: to[0] * D2R, lng: to[1] * D2R };
-    var d = 2 * Math.asin(Math.sqrt(
-      Math.pow(Math.sin((p2.lat - p1.lat) / 2), 2) +
-      Math.cos(p1.lat) * Math.cos(p2.lat) * Math.pow(Math.sin((p2.lng - p1.lng) / 2), 2)
-    ));
-    var pts = [];
-    for (var i = 0; i <= 80; i++) {
-      var f = i / 80;
-      if (d === 0) { pts.push(from); continue; }
-      var A = Math.sin((1 - f) * d) / Math.sin(d), B = Math.sin(f * d) / Math.sin(d);
-      var x = A * Math.cos(p1.lat) * Math.cos(p1.lng) + B * Math.cos(p2.lat) * Math.cos(p2.lng);
-      var y = A * Math.cos(p1.lat) * Math.sin(p1.lng) + B * Math.cos(p2.lat) * Math.sin(p2.lng);
-      var z = A * Math.sin(p1.lat) + B * Math.sin(p2.lat);
-      pts.push([Math.atan2(z, Math.sqrt(x * x + y * y)) * R2D, Math.atan2(y, x) * R2D]);
-    }
-    return pts;
-  }
-})();
+TripMap.render(
+  'card-map-{{ card_id }}',
+  {{ trip.stops | jsonify }},
+  {{ trip.trip_type | jsonify }},
+  { interactive: false, height: '160px' }
+);
 </script>
