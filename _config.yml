@@ -129,3 +129,4 @@ exclude:
   - LICENSE
   - "*.log"
   - build/
+  - vendor/

@@ -20,7 +20,9 @@ jobs:
           bundler-cache: true
 
       - name: Build site
-        run: bundle exec jekyll build
+        run: bundle exec jekyll build --config _config.yml
+        env:
+          BUNDLE_PATH: vendor/bundle
 
       - name: Check HTML
         run: |
