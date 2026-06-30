@@ -26,12 +26,12 @@ A program that reads a video stream and outputs an annotated video that shows th
 ## Steps (Figures pending)
 1. Apply homography transformation to the region of interest into bird's eye view image.
 2. White lane detection and Yellow lane detection
-   1. Grayscale and Thresholding to detect the white lanes.
-   2. Transform image to HSV space to set a range for yellow color for yellow lanes.
+ 1. Grayscale and Thresholding to detect the white lanes.
+ 2. Transform image to HSV space to set a range for yellow color for yellow lanes.
 3. Curve fitting the white and yellow lanes with second order polynomial curve.
-   1. Calculate radius of curvature of both lanes.
+ 1. Calculate radius of curvature of both lanes.
 4. Fill the polygon region formed by lane curves.
-5.  Superimposing the polygon region back to the original image by using the inverse of the homography matrix to transform the bird's eye view image back to the original view image.
+5. Superimposing the polygon region back to the original image by using the inverse of the homography matrix to transform the bird's eye view image back to the original view image.
 
 # Radius of Curvature
 

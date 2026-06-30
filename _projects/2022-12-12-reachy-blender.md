@@ -16,17 +16,17 @@ expertise: [Simulation, Robotics, Game Development, Computer Vision, Motion Capt
 
 <h3 align="center">Teleoperation of Reachy using Mediapipe and BlendArMocap</h3>
 
-  <p align="center">
-    Using Mediapipe to estimate 3D pose and transfer motion onto a 7-DoF robot arm for teleoperation applications.
-    <br />
-    <a href="https://github.com/vishalgattani/reachy-blender"><strong>Explore the docs »</strong></a>
-    <br />
-    <br />
+ <p align="center">
+ Using Mediapipe to estimate 3D pose and transfer motion onto a 7-DoF robot arm for teleoperation applications.
+ <br />
+ <a href="https://github.com/vishalgattani/reachy-blender"><strong>Explore the docs »</strong></a>
+ <br />
+ <br />
 
-    <a href="https://github.com/vishalgattani/reachy-blender/issues">Report Bug</a>
-    ·
-    <a href="https://github.com/vishalgattani/reachy-blender/issues">Request Feature</a>
-  </p>
+ <a href="https://github.com/vishalgattani/reachy-blender/issues">Report Bug</a>
+ ·
+ <a href="https://github.com/vishalgattani/reachy-blender/issues">Request Feature</a>
+ </p>
 </div>
 
 # Table of contents

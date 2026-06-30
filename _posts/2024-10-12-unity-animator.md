@@ -51,11 +51,11 @@ The script references the animator component and updates the parameters we set i
 - Import the Mixamo animations into Unity. And check the `Loop Time` property of the animations to make sure that the animations are looped. This will continuously repeat the animation of the current state.
 - Create an Animator asset and add the animations to the Animator component.
 - Setup parameters for transitions between the animation states.
-    - Unity allows 4 different types of parameters:
-        - Bool: A boolean value that can be either true or false. Based on the value of the parameter, the transition will occur or not.
-        - Int: An integer value. This implies that the transition will occur either when the value is greater than or less than the target value.
-        - Float: A floating point value. This implies that the transition will occur either when the value is greater than or less than the target value.
-        - Trigger: A trigger that can be either true or false.
+ - Unity allows 4 different types of parameters:
+ - Bool: A boolean value that can be either true or false. Based on the value of the parameter, the transition will occur or not.
+ - Int: An integer value. This implies that the transition will occur either when the value is greater than or less than the target value.
+ - Float: A floating point value. This implies that the transition will occur either when the value is greater than or less than the target value.
+ - Trigger: A trigger that can be either true or false.
 - Setup transitions between the animation states.
 - Setup transition conditions between the animation states using the animator component.
 - Create a script to update the animator component's parameters based on the conditions we define.

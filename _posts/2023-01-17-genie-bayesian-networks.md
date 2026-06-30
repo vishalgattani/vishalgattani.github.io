@@ -42,28 +42,28 @@ To illustrate the concept of a BBN, let us consider a scenario where we need to 
 
 **Conditional Probability table for Wet Grass Node**
 
-| Sprinkler | Rain    | Wet Grass | Wet Grass |
+| Sprinkler | Rain | Wet Grass | Wet Grass |
 |-----------|-------|----------------| ---------------|
-|  |   | Yes                           | No   |
-| On        | True  | 0.99                          | 0.01 |
-| On        | False | 0.9                           | 0.1  |
-| Off       | True  | 0.8                           | 0.2  |
-| off       | False | 0.0                           | 1.0  |
+| | | Yes | No |
+| On | True | 0.99 | 0.01 |
+| On | False | 0.9 | 0.1 |
+| Off | True | 0.8 | 0.2 |
+| off | False | 0.0 | 1.0 |
 
 **Conditional Probability table for Sprinkler Node**
 
-| Rain    | Sprinkler | Sprinkler |
+| Rain | Sprinkler | Sprinkler |
 |-------|-----------|--------------------|
-|   | On                            | Off  |
-| True  | 0.4                           | 0.6  |
-| False | 0.01                          | 0.99 |
+| | On | Off |
+| True | 0.4 | 0.6 |
+| False | 0.01 | 0.99 |
 
 **Conditional Probability table for Rain Node**
 
-|    | Rain |
+| | Rain |
 |-------|------|
-| True  | 0.8  |
-| False | 0.2  |
+| True | 0.8 |
+| False | 0.2 |
 
 
 By utilizing the conditional probability formula, the BBN model can be used to answer questions about the presence of a cause given the presence of an effect, a concept commonly referred to as inverse probability. For example, we may ask "*Given that the grass is wet, what is the probability that it is raining?*". The BBN allows us to calculate this probability by using the conditional probabilities associated with each node in the network as shown below. This type of analysis enables us to make inferences about the likelihood of different causal factors based on observed effects and can be a powerful tool for decision-making and problem-solving in a wide range of contexts.
@@ -84,7 +84,7 @@ Similarly, if we have information on either the sprinkler or the occurrence of r
 
 <!--
 
-#  GSN structure and the corresponding Bayesian Belief Networks
+# GSN structure and the corresponding Bayesian Belief Networks
 > Nodes with dashed outline represent implicit inference rules.
 
 <img width="1000" alt="Screenshot 2023-01-18 at 2 01 23 AM" src="https://user-images.githubusercontent.com/24211929/213006359-fcb0da34-fba7-45ae-879c-ab7f5e4b08c2.png">
@@ -143,7 +143,7 @@ From above figure, if it were to be a complete safety case, the CPT values for `
 - The CPT values for random variables `ClaimG1-ClaimG5` are of Type I.
 - The CPT values for variables `InferenceRule1-InferenceRule2` are of Type II.
 - The CPT values for variables `InferenceRule3-InferenceRule5` are of Type III and must be set manually.
-  - Since random variables `InferenceRule3−InferenceRule5` represent the effectiveness of increasingly rigorous verification techniques, namely review, testing, and formal verification, the beliefs are set to 0.9, 0.95, and 0.99, respectively.
+ - Since random variables `InferenceRule3−InferenceRule5` represent the effectiveness of increasingly rigorous verification techniques, namely review, testing, and formal verification, the beliefs are set to 0.9, 0.95, and 0.99, respectively.
 
  Given these values, and by using the GeNIe tool as shown below, the computed lower limit of the belief in the top claim is 0.81.
 

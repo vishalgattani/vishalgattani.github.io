@@ -8,5 +8,5 @@ external_url: https://google.com/
 ---
 ```
 
-> 💡 **Pro Tip**  
+> 💡 **Pro Tip** 
 > You can change `external_new_tab` in `_config.yml` to make the external URLs open in a new tab.

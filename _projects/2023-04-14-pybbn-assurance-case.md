@@ -11,16 +11,16 @@ expertise: [Probablistic Modeling, Graph Theory, Safety Assurance Case Design, D
 <div align="center">
 <h3 align="center">PyBBN Assurance Cases</h3>
 
-  <p align="center">
-    Determining assurance case beliefs using Bayesian Belief Networks and Design of Experiments.
-    <br />
-    <a href="https://github.com/vishalgattani/pybbn"><strong>Explore the code »</strong></a>
-    <br />
-    <br />
-    <a href="https://github.com/vishalgattani/pybbn/issues">Report Bug</a>
-    ·
-    <a href="https://github.com/vishalgattani/pybbn/issues">Request Feature</a>
-  </p>
+ <p align="center">
+ Determining assurance case beliefs using Bayesian Belief Networks and Design of Experiments.
+ <br />
+ <a href="https://github.com/vishalgattani/pybbn"><strong>Explore the code »</strong></a>
+ <br />
+ <br />
+ <a href="https://github.com/vishalgattani/pybbn/issues">Report Bug</a>
+ ·
+ <a href="https://github.com/vishalgattani/pybbn/issues">Request Feature</a>
+ </p>
 </div>
 
 <img width="1552" alt="pybbn-gui" src="https://github.com/vishalgattani/pybbn/assets/24211929/5bd6b900-93ba-47c5-bcc0-38bd9f043345">
@@ -41,55 +41,55 @@ and `G` satisfies the Markov Condition (nodes are conditionally independent of n
 ```python
 bbn = BBN(n_experiments=n_experiments)
 mission_success = bbn.create_bbn_node(
-    GoalNode(0, "Meeting requirements", n_children=3)
+ GoalNode(0, "Meeting requirements", n_children=3)
 )
 mission_all_waypoints = bbn.create_bbn_node(
-    node_type=MinThresholdNode(
-        id=1,
-        name=f"Robot Nav Terrain under Threshold",
-        n_experiments=bbn.n_experiments,
-        threshold=nav_threshold,
-    )
+ node_type=MinThresholdNode(
+ id=1,
+ name=f"Robot Nav Terrain under Threshold",
+ n_experiments=bbn.n_experiments,
+ threshold=nav_threshold,
+ )
 )
 mission_times_navigable_terrain = bbn.create_bbn_node(
-    node_type=SuccessNode(
-        2,
-        "P(robot on navigable terrain)",
-        n_experiments=bbn.n_experiments,
-        probability_of_success=p_correct_navigation,
-    ),
+ node_type=SuccessNode(
+ 2,
+ "P(robot on navigable terrain)",
+ n_experiments=bbn.n_experiments,
+ probability_of_success=p_correct_navigation,
+ ),
 )
 mission_no_collision = bbn.create_bbn_node(
-    MaxThresholdNode(
-        3,
-        f"Robot Collision under Threshold",
-        n_experiments=bbn.n_experiments,
-        threshold=collision_threshold,
-    )
+ MaxThresholdNode(
+ 3,
+ f"Robot Collision under Threshold",
+ n_experiments=bbn.n_experiments,
+ threshold=collision_threshold,
+ )
 )
 mission_times_collision = bbn.create_bbn_node(
-    SuccessNode(
-        4,
-        "P(robot not collide)",
-        n_experiments=bbn.n_experiments,
-        probability_of_success=p_no_collision,
-    )
+ SuccessNode(
+ 4,
+ "P(robot not collide)",
+ n_experiments=bbn.n_experiments,
+ probability_of_success=p_no_collision,
+ )
 )
 mission_pose_in_threshold = bbn.create_bbn_node(
-    MinThresholdNode(
-        5,
-        f"Robot Pose under Threshold",
-        n_experiments=bbn.n_experiments,
-        threshold=pose_threshold,
-    )
+ MinThresholdNode(
+ 5,
+ f"Robot Pose under Threshold",
+ n_experiments=bbn.n_experiments,
+ threshold=pose_threshold,
+ )
 )
 mission_times_pose_within_threshold = bbn.create_bbn_node(
-    SuccessNode(
-        6,
-        "P(robot pose within region)",
-        n_experiments=bbn.n_experiments,
-        probability_of_success=p_correct_pose,
-    )
+ SuccessNode(
+ 6,
+ "P(robot pose within region)",
+ n_experiments=bbn.n_experiments,
+ probability_of_success=p_correct_pose,
+ )
 )
 bbn.create_edge(mission_times_navigable_terrain, mission_all_waypoints)
 bbn.create_edge(mission_all_waypoints, mission_success)

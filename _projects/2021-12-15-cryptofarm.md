@@ -13,16 +13,16 @@ expertise: [Data Visualization, Systems Engineering, Cost Estimation, Project Ma
 <div align="center">
 <h3 align="center">Cryptofarm</h3>
 
-  <p align="center">
-    A cost estimate analysis to deploy and maintain a Bitcoin mining farm/rig.
-    <br />
-    <a href="https://github.com/vishalgattani/cryptofarm"><strong>Explore the code »</strong></a>
-    <br />
-    <br />
-    <a href="https://github.com/vishalgattani/cryptofarm/issues">Report Bug</a>
-    ·
-    <a href="https://github.com/vishalgattani/cryptofarm/issues">Request Feature</a>
-  </p>
+ <p align="center">
+ A cost estimate analysis to deploy and maintain a Bitcoin mining farm/rig.
+ <br />
+ <a href="https://github.com/vishalgattani/cryptofarm"><strong>Explore the code »</strong></a>
+ <br />
+ <br />
+ <a href="https://github.com/vishalgattani/cryptofarm/issues">Report Bug</a>
+ ·
+ <a href="https://github.com/vishalgattani/cryptofarm/issues">Request Feature</a>
+ </p>
 </div>
 
 
@@ -35,9 +35,9 @@ expertise: [Data Visualization, Systems Engineering, Cost Estimation, Project Ma
 # About the project
 
 <p align="center">
-  <img src="https://github.com/vishalgattani/cryptofarm/assets/24211929/dc960162-8877-440c-807c-445ad97ad73b">
-  <br>
-  <a href="https://dribbble.com/shots/4938640-Crypto-Mining">Image Source - Holypix!</a>
+ <img src="https://github.com/vishalgattani/cryptofarm/assets/24211929/dc960162-8877-440c-807c-445ad97ad73b">
+ <br>
+ <a href="https://dribbble.com/shots/4938640-Crypto-Mining">Image Source - Holypix!</a>
 </p>
 
 <!-- | ![4a2a24e3a3eb32e368602e7ecec51294](https://github.com/vishalgattani/cryptofarm/assets/24211929/dc960162-8877-440c-807c-445ad97ad73b) |

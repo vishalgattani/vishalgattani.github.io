@@ -16,17 +16,17 @@ expertise: [Computer Vision, Neural Networks, Artifical Intelligence]
 
 <h3 align="center">Sign Language Detection using Mediapipe and LSTM</h3>
 
-  <p align="center">
-    An implementation of sign language detection using an LSTM NN built on TF Keras with the help of Google's Mediapipe.
-    <br />
-    <a href="https://github.com/vishalgattani/sign-language-mediapipe-lstm"><strong>Explore the docs »</strong></a>
-    <br />
-    <br />
+ <p align="center">
+ An implementation of sign language detection using an LSTM NN built on TF Keras with the help of Google's Mediapipe.
+ <br />
+ <a href="https://github.com/vishalgattani/sign-language-mediapipe-lstm"><strong>Explore the docs »</strong></a>
+ <br />
+ <br />
 
-    <a href="https://github.com/vishalgattani/sign-language-mediapipe-lstm/issues">Report Bug</a>
-    ·
-    <a href="https://github.com/vishalgattani/sign-language-mediapipe-lstm/issues">Request Feature</a>
-  </p>
+ <a href="https://github.com/vishalgattani/sign-language-mediapipe-lstm/issues">Report Bug</a>
+ ·
+ <a href="https://github.com/vishalgattani/sign-language-mediapipe-lstm/issues">Request Feature</a>
+ </p>
 </div>
 
 # Table of contents

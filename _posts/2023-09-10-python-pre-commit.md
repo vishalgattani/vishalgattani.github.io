@@ -20,38 +20,38 @@ To set up pre-commit from scratch, you can follow these steps:
 
 ```yaml
 repos:
--   repo: https://github.com/pre-commit/pre-commit-hooks
-    rev: v2.3.0
-    hooks:
-    -   id: check-yaml
-    -   id: end-of-file-fixer
-    -   id: trailing-whitespace
-    -   id: check-docstring-first
-    -   id: check-merge-conflict
-    -   id: mixed-line-ending
-        args: [--fix=lf]
+- repo: https://github.com/pre-commit/pre-commit-hooks
+ rev: v2.3.0
+ hooks:
+ - id: check-yaml
+ - id: end-of-file-fixer
+ - id: trailing-whitespace
+ - id: check-docstring-first
+ - id: check-merge-conflict
+ - id: mixed-line-ending
+ args: [--fix=lf]
 
--   repo: https://github.com/PyCQA/isort
-    rev: 5.12.0
-    hooks:
-    -   id: isort
-        args: ["--profile", "black", "--filter-files"]
--   repo: https://github.com/psf/black
-    rev: 23.9.1
-    hooks:
-    -   id: black
+- repo: https://github.com/PyCQA/isort
+ rev: 5.12.0
+ hooks:
+ - id: isort
+ args: ["--profile", "black", "--filter-files"]
+- repo: https://github.com/psf/black
+ rev: 23.9.1
+ hooks:
+ - id: black
 - repo: https://github.com/pycqa/flake8
-    rev: 4.0.1
-    hooks:
-    -   id: flake8
+ rev: 4.0.1
+ hooks:
+ - id: flake8
 # optional (if you have any test scripts)
--   repo: local
-    hooks:
-  -     id: run_tests
-        language: script
-        name: Run tests
-        entry: ./run_test.sh
-        stage: [commit]
+- repo: local
+ hooks:
+ - id: run_tests
+ language: script
+ name: Run tests
+ entry: ./run_test.sh
+ stage: [commit]
 ```
 
 Specifically, it does the following:
@@ -59,7 +59,7 @@ Specifically, it does the following:
 - Configures the *Black* formatter and the Black Jupyter extension to format Python code in a standardized way.
 - Configures the *Flake8* linter to check for style violations and errors in the code.
 - Configures the *trailing-whitespace* hook to remove any trailing whitespace in the files being committed.
-- Optional:  Configures a custom `run_tests` hook to run a script that executes the test suite for the project.
+- Optional: Configures a custom `run_tests` hook to run a script that executes the test suite for the project.
 
 "*repos*" is a keyword in the pre-commit configuration file that specifies a list of Git repositories containing hooks that should be installed and used by the pre-commit framework. Each repository in the list is specified as a YAML dictionary with the following keys:
 - repo: The URL of the Git repository containing the hooks.

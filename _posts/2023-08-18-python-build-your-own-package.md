@@ -25,13 +25,13 @@ description: Do you want to know how to build a complete Python package? Well, l
 
 - _setuptools_ is a (now standard) python library that facilitates packaging python projects by enhancing the _distutils_ library.
 - Important keywords/parameters of _setuptools_ to be aware of:
-  - wheel (.whl): A pre-built (zip) binary file, which is ready to be installed, that contains all the necessary information (code itself and metadata) for python package manager to install the package. To create one you should run `python setup.py bdist_wheel` within the shell. bdist stands for binary distribution.
-  - sdist (.tar.gz) : The source code distribution equivalent to wheel. A tar file (zip) that contains the source code together with the `setup.py` file, so the user can re-built it. To create a source distribution run `python setup.py sdist`
+ - wheel (.whl): A pre-built (zip) binary file, which is ready to be installed, that contains all the necessary information (code itself and metadata) for python package manager to install the package. To create one you should run `python setup.py bdist_wheel` within the shell. bdist stands for binary distribution.
+ - sdist (.tar.gz) : The source code distribution equivalent to wheel. A tar file (zip) that contains the source code together with the `setup.py` file, so the user can re-built it. To create a source distribution run `python setup.py sdist`
 - The above two commands can be combined into one, if both distributions are desired. The output will be stored within the _dist_ folder that setuptools will create in the same level with `setup.py` resides.
 - The build folder: Contains all the source code / modules that will be distributed.
 - egg-info: A directory placed adjacent to the project's code and resources, that directly contains the project's metadata. Replaced by wheels. (directly from Wikipedia)
-  - Python eggs are a way of bundling additional information with a Python project, that allows the project's dependencies to be checked and
-    satisfied at runtime, as well as allowing projects to provide [plugins](<https://en.wikipedia.org/wiki/Plug-in_(computing)>) for other projects. (quoting wikipedia)
+ - Python eggs are a way of bundling additional information with a Python project, that allows the project's dependencies to be checked and
+ satisfied at runtime, as well as allowing projects to provide [plugins](<https://en.wikipedia.org/wiki/Plug-in_(computing)>) for other projects. (quoting wikipedia)
 
 ## `setup.py`
 
@@ -43,33 +43,33 @@ If extra data is required, customize the following:
 ```python
 from setuptools import find_packages, setup
 with open("app/README.md", "r") as f:
-    long_description = f.read()
+ long_description = f.read()
 with open('requirements.txt') as f:
-    required = f.read().splitlines()
+ required = f.read().splitlines()
 setup(
-    name="<package_name>",
-    version="0.0.1",
-    description="<package_description>",
-    package_dir={"": "app"},
-    packages=find_packages(where="app"),
-    include_package_data=True,
-    package_data={"": ["*.txt", "*.png","*.sh"]}, # or any other filetype
-    long_description=long_description,
-    long_description_content_type="text/markdown",
-    url="",
-    author="<your_name>",
-    author_email="<your_email>",
-    license="MIT",
-    classifiers=[
-        "License :: OSI Approved :: MIT License",
-        "Programming Language :: Python :: <python_version>",
-        "Operating System :: OS Independent",
-    ],
-    install_requires=required,
-    extras_require={
-        "dev": ["pytest>=7.0", "twine>=4.0.2"],
-    },
-    python_requires=">=<python_version>",
+ name="<package_name>",
+ version="0.0.1",
+ description="<package_description>",
+ package_dir={"": "app"},
+ packages=find_packages(where="app"),
+ include_package_data=True,
+ package_data={"": ["*.txt", "*.png","*.sh"]}, # or any other filetype
+ long_description=long_description,
+ long_description_content_type="text/markdown",
+ url="",
+ author="<your_name>",
+ author_email="<your_email>",
+ license="MIT",
+ classifiers=[
+ "License :: OSI Approved :: MIT License",
+ "Programming Language :: Python :: <python_version>",
+ "Operating System :: OS Independent",
+ ],
+ install_requires=required,
+ extras_require={
+ "dev": ["pytest>=7.0", "twine>=4.0.2"],
+ },
+ python_requires=">=<python_version>",
 )
 ```
 - `__init__.py` needs to be present in every directory/folder in order for it to be seen as a package directory.
@@ -91,9 +91,9 @@ Things to keep in mind before diving into code packaging:
 3. If the application requires extra data, should those data be incorporated in the module or linked externally (depending on size)?
 4. Are the code modules decoupled enough for the end user to utilize parts of the package if needed?
 5. Is the architecture good enough for further development and do the modules/submodules semantically make sense to be named/placed the way they are?
-6.  Instead of using `setup.py` file (code) you can atlernatively use setup.cfg which is a configuration file instead.
-7.  Avoid using `distutils` package. Instead use `setuptools`, which is an enhancement of the former.
-8.  It is recommended to publish your code under a license. By not using any license, when packaging your code you are not allowing anyone to use your code?
+6. Instead of using `setup.py` file (code) you can atlernatively use setup.cfg which is a configuration file instead.
+7. Avoid using `distutils` package. Instead use `setuptools`, which is an enhancement of the former.
+8. It is recommended to publish your code under a license. By not using any license, when packaging your code you are not allowing anyone to use your code?
 
 # References
 

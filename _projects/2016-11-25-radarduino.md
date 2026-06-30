@@ -2,7 +2,7 @@
 name: RadArduino
 tools: [Arduino, Processing]
 image: https://user-images.githubusercontent.com/24211929/159839136-8e2f90a6-8b14-4dfd-8d49-e00f13d33ad0.gif
-description:  A 2-Dimensional Radar using Ultrasonic sensors & Arduino.
+description: A 2-Dimensional Radar using Ultrasonic sensors & Arduino.
 expertise: [Electronics, Sensors, Circuit Design, Data Visualization]
 ---
 
@@ -12,18 +12,18 @@ expertise: [Electronics, Sensors, Circuit Design, Data Visualization]
 
 <h3 align="center">RadArduino</h3>
 
-  <p align="center">
-    To create a 2-Dimensional Radar which maps the surroundings using SONAR (Ultrasonic Sensors) and Arduino-UNO microcontroller, which displays the distance of obstacles from the SONAR.
-    <br />
-    <a href="https://github.com/vishalgattani/RadArduino"><strong>Explore the docs »</strong></a>
-    <br />
-    <br />
-    <a href="https://user-images.githubusercontent.com/24211929/159839981-f003f337-ff25-460b-93b3-c094c1be4114.mp4">View Demo</a>
-    ·
-    <a href="https://github.com/vishalgattani/RadArduino/issues">Report Bug</a>
-    ·
-    <a href="https://github.com/vishalgattani/RadArduino/issues">Request Feature</a>
-  </p>
+ <p align="center">
+ To create a 2-Dimensional Radar which maps the surroundings using SONAR (Ultrasonic Sensors) and Arduino-UNO microcontroller, which displays the distance of obstacles from the SONAR.
+ <br />
+ <a href="https://github.com/vishalgattani/RadArduino"><strong>Explore the docs »</strong></a>
+ <br />
+ <br />
+ <a href="https://user-images.githubusercontent.com/24211929/159839981-f003f337-ff25-460b-93b3-c094c1be4114.mp4">View Demo</a>
+ ·
+ <a href="https://github.com/vishalgattani/RadArduino/issues">Report Bug</a>
+ ·
+ <a href="https://github.com/vishalgattani/RadArduino/issues">Request Feature</a>
+ </p>
 </div>
 
 
@@ -59,9 +59,9 @@ map the surroundings. Once this data is obtained from the sensor, it is used to 
 # Installation
 
 1. Clone the repo
-   ```sh
-   git clone https://github.com/vishalgattani/RadArduino.git
-   ```
+ ```sh
+ git clone https://github.com/vishalgattani/RadArduino.git
+ ```
 
 2. Circuit Schematic (with LCD) is as follows:
 

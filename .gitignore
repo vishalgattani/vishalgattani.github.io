@@ -16,3 +16,11 @@ Gemfile.lock
 
 **/.DS_Store
 ignore/
+# Plan/build protocol docs (local only)
+plan_*.md
+build_*.md
+
+# API keys / secrets — never commit
+.env
+.env.*
+secrets.yml

@@ -12,16 +12,16 @@ experitise: [Game Development, Simulation, Robotics]
 <div align="center">
 <h3 align="center">Unity Robotics Simulator</h3>
 
-  <p align="center">
-    Building simulator for robotic applications.
-    <br />
-    <a href="https://gitlab.com/vishalgattani/unity-simulator/-/wikis/home"><strong>Explore the project »</strong></a>
-    <br />
-    <br />
-    <a href="https://gitlab.com/vishalgattani/unity-simulator/issues">Report Bug</a>
-    ·
-    <a href="https://gitlab.com/vishalgattani/unity-simulator/">Request Feature</a>
-  </p>
+ <p align="center">
+ Building simulator for robotic applications.
+ <br />
+ <a href="https://gitlab.com/vishalgattani/unity-simulator/-/wikis/home"><strong>Explore the project »</strong></a>
+ <br />
+ <br />
+ <a href="https://gitlab.com/vishalgattani/unity-simulator/issues">Report Bug</a>
+ ·
+ <a href="https://gitlab.com/vishalgattani/unity-simulator/">Request Feature</a>
+ </p>
 </div>
 
 # Motivation
@@ -69,8 +69,8 @@ This project is solely being built from scratch for learning purposes to improve
 In my blog post regarding animating mixamo characters in Unity using the Animator component, I have created a simple character controller that is used to animate the NPC in the Unity project to move from one waypoint to another. This project aims to create a traffic waypoint system that can be used to control the movement of the NPC.
 - [x] Create an NPC: For simulating the behavior of the NPC, I have used animations from Mixamo and added a character controller to the NPC.
 - [x] Create Waypoint system: Using the Unity editor, I have created a waypoint system that can be used to set the waypoints for the traffic. This would include branching off points and randomization of directions. Also, ath each branch the NPC decides to take the branch in a random manner using a probability.
-  - [x] Create waypoints
-  - [x] Create branching points
+ - [x] Create waypoints
+ - [x] Create branching points
 - [x] Create pedestrian traffic: Spawning a certain number of pedestrians at random points along the waypoints, randomizing their directions and speeds.
 
 # Simulations
@@ -84,8 +84,8 @@ In my blog post regarding animating mixamo characters in Unity using the Animato
 - [ ] Object detection
 - [ ] Pedestrian detection
 - [ ] Lidar object detection
-  - [ ] Bounding boxes
-  - [ ] Estimation
+ - [ ] Bounding boxes
+ - [ ] Estimation
 
 ## Control
 

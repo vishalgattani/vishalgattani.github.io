@@ -5,7 +5,7 @@ Remote Projects are imported automatically from GitHub. The name, description an
 ```yaml
 ---
 remote_projects:
-  - repo-name-1
-  - repo-name-2
+ - repo-name-1
+ - repo-name-2
 ---
 ```

@@ -12,9 +12,9 @@ expertise: [Electronics, Sensors, Analog Circuit Design]
 
 <h3 align="center">Laser Communication System</h3>
 
-  <p align="center">
-    Transmitting audio from a computer speaker using a power amplifier, a laser diode transmitter and a receiver using photo resistor.
-  </p>
+ <p align="center">
+ Transmitting audio from a computer speaker using a power amplifier, a laser diode transmitter and a receiver using photo resistor.
+ </p>
 </div>
 
 # Table of contents
